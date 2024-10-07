@@ -1,0 +1,143 @@
+
+/* ALL */
+
+body{
+    background-color: #f7f7ff;
+    color:#555555;
+    font: normal 13px 'Signika Negative', Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5em;
+    margin-left: 0%;
+    margin-top: 0px;
+    margin-top: 2px;
+    margin-right: 0%;
+    overflow: hidden;
+
+}
+
+.container{
+    width:100%;
+}
+
+
+/* HEADER */
+
+#title{
+    color: white;
+    text-decoration: none;
+}
+
+.header {
+    color: #f4f4f4;
+    background-color: #01002e;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    margin-top: -15px;
+    overflow: auto;
+
+}
+
+.header h1{
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+#navbar li{
+    display: inline;
+    float: right;
+    margin-top: -.5px;
+
+    a{
+        text-decoration: none;
+        color: goldenrod;
+        padding-right: 20px;
+        padding-left: 20px;
+
+    }
+
+    a:hover{
+        background-color: goldenrod;
+        color: #020141;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+
+/* MAP SPECIFIC */
+
+#map {
+    float: right;
+    width: calc(100% - 250px);
+    height: 97.5vh;
+    margin-top: -12px;
+
+}
+
+
+/* SIDEBAR */
+
+
+.container1{
+    width:100%;
+    column-count: 2;
+}
+
+h3{
+    color: white;
+    font-size: 15px;
+    border:1px solid;
+    border-color: rgb(83, 80, 113);
+    fill: solid white;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    padding-left: 5px;
+    background-color: rgb(83, 80, 113);
+
+}
+
+.sidebar{
+    position: absolute;
+    margin-top: -12px;
+    width: 250px;
+    height: 97.5vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.natBar{
+    border:1px solid;
+    border-color: rgb(255, 255, 255);
+    padding-bottom: 10px;
+    
+}
+
+
+.color-picker{
+    position: absolute;
+    display: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin-top: -5px;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+.nation-btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 232, 172);
+    color: rgb(70, 50, 0);
+    cursor: pointer;
+    padding: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.infoBar h3, p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

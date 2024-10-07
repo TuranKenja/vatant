@@ -1,0 +1,117 @@
+body{
+    background-color: #f7f7ff;
+    color:#555555;
+
+    font: normal 18px 'Signika Negative', Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5em;
+    margin-left: 0%;
+    margin-top: 0px;
+    margin-right: 0%;
+}
+
+.container{
+    width:100%;
+}
+
+#title{
+    color: white;
+    text-decoration: none;
+}
+
+
+.header {
+    color: #f4f4f4;
+    background-color: #01002e;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.header h1{
+    padding-left: 100px;
+    padding-bottom: 55px;
+    font-size: 60px;
+}
+
+.header img{
+    margin-top: 12px;
+    width: 80px;
+    border-radius: 50%;
+    float: left;
+}
+
+#navbar li{
+    display: inline;
+    float: right;
+    padding-top: 25px;
+
+    a{
+        text-decoration: none;
+        color: goldenrod;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    a:hover{
+        background-color: goldenrod;
+        color: #01002e;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+
+
+.box1 h3{
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: center;
+
+}
+
+.box1{
+    background-color: #ffffff;
+    border:3px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height:fit-content;
+    padding-top: 140px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+
+#boxInfo{
+    font-size: 20px;
+    text-align: center;
+}
+
+#mapLink{
+    margin-top: 50px;
+    margin-bottom: 140px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+
+}
+
+#form1{
+    background-color: #fff;
+    padding:10px;
+    border:3px dashed #ccc;
+    border-radius: 10px;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+footer{
+    color: black;
+}

@@ -1,0 +1,202 @@
+<!-- VATTAN   29.1489, 44.3284  -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VATTAN</title>
+        <link rel="stylesheet" type="text/css" href="css/map.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="header">
+
+                <nav id="navbar">
+                    <div class="container">
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="map.html">Maps</a></li>
+                            <li><a href="index.html">Home</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+                <a href="index.html" id="title"><h1>VATTAN</h1></a>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar">
+            <h1 contenteditable="true">Map 1</h3>
+            <div class = "natBar">
+                <h3>Nations</h3>
+                <div class="container1">
+                    <div>
+                        <button class="nation-btn" class="row" id="nation1-btn" onclick="selectNation(1)"></button>
+                        <input type="color" id="color1" class="color-picker" value="#8b0000" />
+                        <span id="nation1-feature" contenteditable="true">Nation 1</span>
+                    </div>
+
+                    <div>
+                        <button class="nation-btn" class="row" id="nation2-btn" onclick="selectNation(2)"></button>
+                        <input type="color" id="color2" class="color-picker" value="#adff2f" />
+                        <span id="nation2-feature" contenteditable="true">Nation 2</span>
+                    </div>
+
+                    <div>
+                        <button class="nation-btn" class="row" id="nation3-btn" onclick="selectNation(3)"></button>
+                        <input type="color" id="color3" class="color-picker" value="#00bfff" />
+                        <span id="nation3-feature" contenteditable="true">Nation 3</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation4-btn" onclick="selectNation(4)"></button>
+                        <input type="color" id="color4" class="color-picker" value="#800080" />
+                        <span id="nation4-feature" contenteditable="true">Nation 4</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation5-btn" onclick="selectNation(5)"></button>
+                        <input type="color" id="color5" class="color-picker" value="#f0e68c" />
+                        <span id="nation5-feature" contenteditable="true">Nation 5</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation6-btn" onclick="selectNation(6)"></button>
+                        <input type="color" id="color6" class="color-picker" value="#ffa07a" />
+                        <span id="nation6-feature" contenteditable="true">Nation 6</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation7-btn" onclick="selectNation(7)"></button>
+                        <input type="color" id="color7" class="color-picker" value="#00ffff" />
+                        <span id="nation7-feature" contenteditable="true">Nation 7</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation8-btn" onclick="selectNation(8)"></button>
+                        <input type="color" id="color8" class="color-picker" value="#a9a9a9" />
+                        <span id="nation8-feature" contenteditable="true">Nation 8</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation9-btn" onclick="selectNation(9)"></button>
+                        <input type="color" id="color9" class="color-picker" value="#b03060" />
+                        <span id="nation9-feature" contenteditable="true">Nation 9</span>
+                    </div>
+                    
+                    <div>
+                        <button class="nation-btn" class="row" id="nation10-btn" onclick="selectNation(10)"></button>
+                        <input type="color" id="color10" class="color-picker" value="#ffd700" />
+                        <span id="nation10-feature" contenteditable="true">Nation 10</span>
+                    </div>
+
+
+                    <div>
+                        <p class="population" id="pop1"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop2"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop3"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop4"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop5"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop6"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop7"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop8"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop9"></p>
+                    </div>
+
+                    <div>
+                        <p class="population" id="pop10"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="infoBar">
+                <h3>District Information</h3>
+                <ul>
+                    <li id="district">District: </p>
+                    <li id="province">Province: </p>
+                    <li id="country">Country: </p>
+                    <li id="distID">District ID: </p>
+                    <li id="population">Population: </p>
+                    <li id="largeGroup">Largest Group: </p>
+                    <li id="largePercent">Composition: </p>
+                    <li id="second">Second: </p>
+                    <li id="third">Third: </p>
+                </ul>
+            </div>
+
+
+            <div class="mapOptions">
+                <h3>Map Options</h3>
+                <div class="container1">
+                    <div>
+                        <button id="district-btn">District</button>
+                    </div>
+                    <div>
+                        <button id="province-btn">Province</button>
+                    </div>
+                    <div>
+                        <button id="country-btn">Country</button>
+                    </div>
+                    <div>
+                        <button id="density-btn">Population Density</button>
+                    </div>
+                    <div>
+                        <button id="largest-btn">Largest Group</button>
+                    </div>
+                    <div>
+                        <button id="admin-btn">Administrative Regions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ 
+
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="map.js"></script>
+
+
+    </body>
+
+
+</html>
+
+
