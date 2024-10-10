@@ -4,7 +4,7 @@
 body{
     background-color: #f7f7ff;
     color:#555555;
-    font: normal 13px 'Signika Negative', Cochin, Georgia, Times, 'Times New Roman', serif;
+    font: normal 13px 'Signika Negative';
     line-height: 1.5em;
     margin-left: 0%;
     margin-top: 0px;
@@ -14,12 +14,24 @@ body{
 
 }
 
-.container{
+.container, .container1{
     width:100%;
 }
 
 
-/* HEADER */
+/* TABLE SETTINGS */
+
+table{
+    border-collapse: collapse;
+    table-layout:fixed;
+}
+
+.grayed{
+    background-color: rgb(225, 225, 235);
+}
+
+
+/* NAVIGATION BAR */
 
 #title{
     color: white;
@@ -54,7 +66,6 @@ body{
         padding-left: 20px;
 
     }
-
     a:hover{
         background-color: goldenrod;
         color: #020141;
@@ -64,7 +75,8 @@ body{
 }
 
 
-/* MAP SPECIFIC */
+
+/* PAGE LAYOUT */
 
 #map {
     float: right;
@@ -75,24 +87,22 @@ body{
 }
 
 
-/* SIDEBAR */
+/* SIDEBAR LAYOUT*/
 
-
-.container1{
-    width:100%;
-    column-count: 2;
+h1{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-h3{
+h3{  /* Nations, District Information, etc. */
     color: white;
     font-size: 15px;
-    border:1px solid;
-    border-color: rgb(83, 80, 113);
+    border:0px solid;
     fill: solid white;
     margin-top: 5px;
     margin-bottom: 3px;
     padding-left: 5px;
-    background-color: rgb(83, 80, 113);
+    background-color: rgb(55, 52, 74);
 
 }
 
@@ -104,24 +114,27 @@ h3{
     background-color: rgb(255, 255, 255);
 }
 
-.natBar{
-    border:1px solid;
-    border-color: rgb(255, 255, 255);
-    padding-bottom: 10px;
-    
-}
-
-
-.color-picker{
-    position: absolute;
-    display: none;
-}
-
-.sidebar ul {
+/* .sidebar ul {
     list-style-type: none;
     margin-top: -5px;
     margin-bottom: 0px;
     padding: 10px;
+} */
+
+/* NATIONS LAYOUT*/
+
+.natBar{
+    border:1px solid;
+    border-color: rgb(255, 255, 255);
+    padding-bottom: 10px;
+    h1{
+        margin-left: 10px;
+    }
+}
+
+.color-picker{
+    position: absolute;
+    display: none;
 }
 
 .nation-btn {
@@ -132,12 +145,84 @@ h3{
     color: rgb(70, 50, 0);
     cursor: pointer;
     padding: 0;
-    margin-right: 5px;
+    padding-right: 5px;
     margin-left: 5px;
-    display: inline-block;
 }
 
+.natRow{
+    width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.population {
+    width: 93px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+
+/* DISTRICT INFORMATION */
+
 .infoBar h3, p{
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 0px;
+}
+
+.infoList{
+    width: 83px;
+    padding-left: 10px;
+
+}
+
+.infoData{
+    width: 150px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.bound-btn .btn1{
+    margin-top: 7px; 
+}
+
+/* MAP OPTIONS AND LAYER OPTIONS */
+
+.btn, .btn1{
+    background-color: rgb(83, 80, 113);
+    border: none;
+    color: white;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 90%;
+}
+
+.btn:hover, .btn1:hover{
+
+    background-color: goldenrod; 
+    color: rgb(255, 255, 255);
+}
+
+
+.clickedBtn{
+    background-color: goldenrod; 
+    color: rgb(83, 80, 113);
+    font-weight: bold;
+
+}
+
+.container2 {
+    width:100%;
+    column-count: 3;
+    
+}
+
+.container3 {
+    width:100%;
+    column-count: 2;
+    
 }

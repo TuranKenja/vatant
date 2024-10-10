@@ -8,16 +8,16 @@ let nationColors = { 1: '#8b0000', 2: '#adff2f', 3: '#00bfff',  4: '#800080',  5
 let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}; // To track which features are assigned to which nation
 let nationPopulations = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0};
 let featureLayers = {}; // To store references to the GeoJSON layers by feature id
-let prevFeature = false; // Track if the feature already is assigned somewhere
 let shiftKeyPressed = false; // Track if the Shift key is pressed
-
-let districtMode = true; // Track whether we're in district mode or not
-let provinceMode = false; // Track whether we're in province mode or not
-let countryMode = false; // Track whether we're in country mode or not
-let currentMode = districtMode; // What the current mode is
-
-// Group districts by province and update the map
-let provinceGroups = {};
+let provinceGroups = {}; // To store districts grouped by province
+let provincePopulations = {}; // To store district population after grouping
+let mode = 'district';
+let districtBoundariesLayer = null;  // To hold the district boundaries layer
+let provinceBoundariesLayer = null;  // To hold the province boundaries layer
+let countryBoundariesLayer = null;  // To hold the country boundaries layer
+let distBool = true;
+let provBool = true;
+let countBool = true;
 
 
 /* ****** FUNCTIONS ******* */
@@ -33,7 +33,6 @@ function selectNation(nationNumber) {
     });
     document.getElementById(`nation${nationNumber}-btn`).style.border = '2px solid';
 }
-
 
 // Function to update the color of the button and the corresponding nation's features
 function updateButtonColor(nationNumber) {
@@ -54,91 +53,6 @@ function updateButtonColor(nationNumber) {
         });
     });
 }
-
-
-// Function to switch to district
-function switchToDistrict() {
-    districtMode = true;
-    provinceMode = false;
-    countryMode = false;
-    currentMode = districtMode;
-    switchAdmin();
-}
-
-// Function to switch to country
-function switchToProvince() {
-    districtMode = false;
-    provinceMode = true;
-    countryMode = false;
-    currentMode = provinceMode;
-    switchAdmin();
-}
-
-// Function to switch to country
-function switchToCountry() {
-    districtMode = false;
-    provinceMode = false;
-    countryMode = true;
-    currentMode = countryMode;
-    switchAdmin();
-}
-
-// Function to switch to provinces
-function switchAdmin() {
-    let adminLevel = district;
-    if(currentMode == provinceMode){
-        adminLevel = province;
-    } else if (currentMode == countryMode) {
-        adminLevel = country;
-    }
-    // Loop through district GeoJSON to group by province
-    Object.values(featureLayers).forEach(layer => {
-        let adminLevel = layer.feature.properties.adminLevel; // Assuming each feature has a province property
-
-        if (!adminGroups[adminLevel]) {
-            adminGroups[adminLevel] = [];
-        }
-
-        adminGroups[adminLevel].push(layer);
-    });
-
-    // Update the map to show provinces
-    Object.keys(adminGroups).forEach(adminLevel => {
-        let curLevel = adminGroups[adminLevel];
-    });
-
-    curLevel.forEach(layer => {
-        layer.setStyle({
-            color: 'black',
-            weight: 0.3,
-            fillColor: 'white',
-            fillOpacity: 0.2
-        });
-    });    
-}
-
-// Function to assign a nation to a province
-function assignNationToProvince(nationNumber, province) {
-    let provinceDistricts = provinceGroups[province];
-    
-    // Iterate over all districts in the province
-    provinceDistricts.forEach(layer => {
-        let featureId = layer.feature.properties.ID; // Get the feature's ID
-        nationAssignments[nationNumber].push(featureId);
-
-        // Update the style for the district
-        layer.setStyle({
-            color: 'black',
-            weight: 0.3,
-            fillColor: 'white',
-            fillOpacity: 0.2
-        });
-    });
-}
-
-
-
-
 
 function popAdd(selectedNation, featurePop, featureId) {
     let previousNation = null;
@@ -166,8 +80,197 @@ function popAdd(selectedNation, featurePop, featureId) {
     // Add the feature to the new nation and update its population
     nationPopulations[selectedNation] += featurePop;
     nationAssignments[selectedNation].push(featureId);
-    document.getElementById(`pop${selectedNation}`).textContent = nationPopulations[selectedNation];
+    document.getElementById(`pop${selectedNation}`).textContent = nationPopulations[selectedNation].toLocaleString();
 }
+function switchToDistrict() {
+    mode = 'district';
+}
+
+function switchToProvince() {
+    mode = 'province';
+
+}
+
+function switchToCountry() {
+    mode = 'country';
+}
+
+function distBoundaries() {
+    distBool = !distBool;
+
+    if (!distBool) {
+        document.getElementById('dist-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    } else {
+        document.getElementById('dist-bound-btn').classList.remove('clickedBtn');  // Remove the class
+    }
+
+
+    if (districtBoundariesLayer) {
+        toggleBoundaries(districtBoundariesLayer, distBool);  // If the layer already exists
+    } else {
+        drawBoundaries('data/balkans.geojson', districtBoundariesLayer, 'district');  // Load if it doesn't exist
+    }
+}
+
+
+function provBoundaries() {
+    provBool = !provBool;
+
+    if (!provBool) {
+        document.getElementById('prov-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    } else {
+        document.getElementById('prov-bound-btn').classList.remove('clickedBtn');  // Remove the class
+    }
+
+    if (provinceBoundariesLayer) {
+        toggleBoundaries(provinceBoundariesLayer, provBool);  // If the layer already exists
+    } else {
+        drawBoundaries('data/balkans_prov.geojson', provinceBoundariesLayer, 'province');  // Load if it doesn't exist
+    }
+}
+
+
+function countBoundaries() {
+    countBool = !countBool;
+
+    if (!countBool) {
+        document.getElementById('count-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    } else {
+        document.getElementById('count-bound-btn').classList.remove('clickedBtn');  // Remove the class
+    
+    }
+    if (countryBoundariesLayer) {
+        toggleBoundaries(countryBoundariesLayer, countBool);  // If the layer already exists
+    } else {
+        drawBoundaries('data/balkans.geojson', countryBoundariesLayer, 'country');  // Load if it doesn't exist
+    }
+}
+
+
+function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
+    fetch(dataLocation)
+    .then(response => response.json())
+    .then(data => {
+        // Create a new GeoJSON layer and store it in the variable
+        boundariesLayer = L.geoJSON(data, {
+            style: function (feature) {
+                return {
+                    color: "#01002e",
+                    weight: .7,
+                    opacity: 1,
+                    fillColor: 'transparent',
+                    fillOpacity: 0,
+                    interactive: false
+                };
+            }
+        }).addTo(map);  // Add to map
+        //Store the newly created layer in the global variable
+        if (boundaryType === 'district') {
+            districtBoundariesLayer = boundariesLayer;
+        } else if (boundaryType === 'province') {
+            provinceBoundariesLayer = boundariesLayer;
+        } else if (boundaryType === 'country') {
+            countryBoundariesLayer = boundariesLayer;
+        }
+    })     
+}
+
+
+function toggleBoundaries(boundariesLayer, boundBool) {
+    if (boundBool === true) {
+        map.removeLayer(boundariesLayer);  // Remove the layer if it exists
+    } else {
+        map.addLayer(boundariesLayer);  // Add the layer if it's not already on the map
+    }
+    
+}
+
+
+
+function handleFeatureClick(layer, feature) {
+    if (mode === 'district') {
+        if (selectedNation !== null) {
+            let featurePop = feature.properties.population; // Get population of the feature
+            let featureId = feature.properties.ID; // Get the feature's ID
+    
+            // Assign the feature to the selected nation and update population
+            popAdd(selectedNation, featurePop, featureId);
+
+            // Change the feature's color based on the selected nation
+            let selectedColor = nationColors[selectedNation];
+            layer.setStyle({
+                color: selectedColor,
+                fillColor: selectedColor,
+                fillOpacity: 0.7
+            });
+        };    
+    } else if (mode === 'province') {
+        let featureProv = feature.properties.province;
+        if (selectedNation !== null && provinceGroups[featureProv]) {                    
+            provinceGroups[featureProv].forEach(districtFeature => {
+                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the province
+                let featureId = districtFeature.properties.ID; // Get the feature's ID
+                let featurePop = districtFeature.properties.population; // Get the population of the district
+    
+                if (districtLayer) { // Ensure the layer exists
+                    popAdd(selectedNation, featurePop, featureId);    
+    
+                    let selectedColor = nationColors[selectedNation];
+                    districtLayer.setStyle({
+                        color: selectedColor,
+                        fillColor: selectedColor,
+                        fillOpacity: 0.7
+                    });
+                } else {
+                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
+                }
+            });                        
+        }
+    };
+}
+
+function handleFeatureOver(layer, feature) {
+    if (mode === 'district') {
+         
+        let featureId = feature.properties.ID; // Get the feature's ID
+        let featurePop = feature.properties.population; // Get population of the feature
+
+        if (selectedNation !== null) {                    
+            // Assign the feature to the selected nation and update population
+            popAdd(selectedNation, featurePop, featureId);    
+        }
+        let selectedColor = nationColors[selectedNation];
+        layer.setStyle({
+            color: selectedColor,
+            fillColor: selectedColor,
+            fillOpacity: 0.7
+        });
+
+    } else if (mode === 'province') {
+        let featureProv = feature.properties.province;
+        if (selectedNation !== null && provinceGroups[featureProv]) {                    
+            provinceGroups[featureProv].forEach(districtFeature => {
+                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the province
+                let featureId = districtFeature.properties.ID; // Get the feature's ID
+                let featurePop = districtFeature.properties.population; // Get the population of the district
+    
+                if (districtLayer) { // Ensure the layer exists
+                    popAdd(selectedNation, featurePop, featureId);    
+                    let selectedColor = nationColors[selectedNation];
+                    districtLayer.setStyle({
+                        color: selectedColor,
+                        fillColor: selectedColor,
+                        fillOpacity: 0.7
+                    });
+                } else {
+                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
+                }
+            });                        
+        }
+    };
+}
+
+
 
 
 /* ****** MAP ******* */
@@ -193,78 +296,60 @@ var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/r
 fetch('data/balkans.geojson') // Ensure this path is correct
     .then(response => response.json())
     .then(data => {
+        
         L.geoJSON(data, {
             style: function(feature) {
                 return {
                     color: 'black',
                     weight: 0.3,
                     fillColor: 'white',
-                    fillOpacity: 0.2
+                    fillOpacity: 0,
+                    opacity: 0
                 };
             },
+
             onEachFeature: function(feature, layer) {
+
+                // Group districts by province
+                data.features.forEach(feature => {
+                    let provinceId = feature.properties.province; // Assuming province_id exists in your data
+                    let provincePop = feature.properties.population; // Assuming province_id exists in your data
+                    if (!provinceGroups[provinceId]) {
+                        provinceGroups[provinceId] = [];
+                    }
+                    provincePopulations[feature.properties.ID] = provincePop;
+                    provinceGroups[provinceId].push(feature); // Add district to its province group
+                });
+    
                 let featureId = feature.properties.ID; // Get the feature's ID
                 featureLayers[featureId] = layer; // Store the layer reference for later updates
 
-                // Handle click on feature
                 layer.on('click', function() {
-                    if (selectedNation !== null) {
-                        let featurePop = feature.properties.population; // Get population of the feature
-                        let featureId = feature.properties.ID; // Get the feature's ID
-                
-                        // Assign the feature to the selected nation and update population
-                        popAdd(selectedNation, featurePop, featureId);
-
-                        // Change the feature's color based on the selected nation
-                        let selectedColor = nationColors[selectedNation];
-                        layer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7
-                        });
-                    }
+                    handleFeatureClick(layer, feature);
                 });
 
+                // Handle mouseover to display feature info
                 // Handle mouseover event, also with Shift key for coloring
                 layer.on('mouseover', function() {
+                    document.getElementById('district').textContent = `${feature.properties.district}`;
+                    document.getElementById('province').textContent = `${feature.properties.province}`;
+                    document.getElementById('country').textContent = `${feature.properties.country}`;
+                    document.getElementById('distID').textContent = `${feature.properties.ID}`;
+                    document.getElementById('population').textContent = `${feature.properties.population}`;
 
-                    let featureDist = feature.properties.district; // Get population of the feature
-                    let featureProv = feature.properties.province; // Get population of the feature
-                    let featureCountry = feature.properties.country; // Get population of the feature
-                    let featureId = feature.properties.ID; // Get the feature's ID
-                    let featurePop = feature.properties.population; // Get population of the feature
-                    // let featureLarge = feature.properties.population; // Get population of the feature
-                    // let featurePerc = feature.properties.population; // Get population of the feature
-
-                        // Display the district information in a specific HTML element, e.g., a div or span
-                    document.getElementById('district').textContent = `District: ${featureDist}`;
-                    document.getElementById('province').textContent = `Province: ${featureProv}`;
-                    document.getElementById('country').textContent = `Country: ${featureCountry}`;
-                    document.getElementById('distID').textContent = `ID: ${featureId}`;
-                    document.getElementById('population').textContent = `Population: ${featurePop}`;
-
-                    if (shiftKeyPressed && selectedNation !== null) {
-                        let selectedColor = nationColors[selectedNation];
-                        layer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7
-                        });
-
-                        if (selectedNation !== null) {                    
-                            // Assign the feature to the selected nation and update population
-                            popAdd(selectedNation, featurePop, featureId);    
-                        }
+                    if (shiftKeyPressed) {
+                        handleFeatureOver(layer, feature);
                     }
                 });
-
             }
-        }).addTo(map);
+        }).addTo(map);       
+        document.getElementById('district-btn').click();  // Add the class to the clicked button
+        document.getElementById('dist-bound-btn').click();          
+        document.getElementById('nation1-btn').click();          
     })
     .catch(error => {
         console.error('Error loading GeoJSON:', error); // Catch any errors
-    });
-    
+});
 
 
     /* ****** SHIFT KEY HANDLING ******* */
@@ -307,18 +392,25 @@ updateButtonColor(9);
 updateButtonColor(10);
 
 
-// Event listener for district switch button
-document.getElementById('district-btn').addEventListener('click', switchToDistrict);
-
-// Event listener for province switch button
-document.getElementById('province-btn').addEventListener('click', switchToProvince);
-
-// Event listener for country switch button
-document.getElementById('country-btn').addEventListener('click', switchToCountry);
-
-
 document.addEventListener('DOMContentLoaded', function() {
     for (let i = 1; i <= 10; i++) {
         document.getElementById(`pop${i}`).textContent = `${nationPopulations[i]}`;
     }
+    
+        // Event listener for switch button
+    document.getElementById('district-btn').addEventListener('click', switchToDistrict);
+    document.getElementById('province-btn').addEventListener('click', switchToProvince);
+    document.getElementById('country-btn').addEventListener('click', switchToCountry);
+
+    document.querySelectorAll('.btn').forEach(btnClick => {
+        btnClick.addEventListener('click', () => {
+            document.querySelector('.clickedBtn')?.classList.remove('clickedBtn');
+            btnClick.classList.add('clickedBtn');
+        });
+    });
+
+    document.getElementById('dist-bound-btn').addEventListener('click', distBoundaries);
+    document.getElementById('prov-bound-btn').addEventListener('click', provBoundaries);
+    document.getElementById('count-bound-btn').addEventListener('click', countBoundaries);
+
 });
