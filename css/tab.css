@@ -1,0 +1,31 @@
+.nameTabs{
+    margin-top: 12px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.nameTabs h1{
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tabLinks{
+    background-color: rgba(0, 30, 255, 0.153);
+    border: none;
+    color: #5b5f42;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 28px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 50%;
+}
+
+.tabContainer{
+    margin-top: 15px;
+    margin-bottom: -5px;
+    column-count: 2;
+}

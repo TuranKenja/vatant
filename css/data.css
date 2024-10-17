@@ -1,0 +1,47 @@
+.dataTitle{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    border:0px solid;
+    fill: solid white;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    background-color: rgb(55, 52, 74);
+}
+
+.dataContainer{
+
+    float: left;
+    width: 100px;
+    height: 97.5vh;
+    margin-top: -81px;
+    margin-left: 260px;
+}
+
+
+.data-btn{
+    background-color: rgb(83, 80, 113);
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 90%;
+}
+
+.data-btn:hover{
+
+    background-color: goldenrod; 
+    color: rgb(255, 255, 255);
+}
+
+
+.clickedBtn{
+    background-color: #daa520; 
+    color: rgb(83, 80, 113);
+    font-weight: bold;
+
+}
