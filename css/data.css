@@ -1,0 +1,118 @@
+.dataTitle{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    border:0px solid;
+    fill: solid white;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    background-color: rgb(55, 52, 74);
+}
+
+.dataContainer{
+
+    float: left;
+    width: 100px;
+    height: 97.5vh;
+    margin-top: -81px;
+    margin-left: 260px;
+}
+
+
+.data-btn{
+    background-color: rgb(83, 80, 113);
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 90%;
+}
+
+.data-btn:hover{
+
+    background-color: goldenrod; 
+    color: rgb(255, 255, 255);
+}
+
+
+.clickedBtn{
+    background-color: #daa520; 
+    color: rgb(83, 80, 113);
+    font-weight: bold;
+
+}
+
+.hidden-column {
+    display: none;
+}
+
+.grayed {
+    background-color: #e1e1eb;
+}
+
+.whited {
+    background-color: #f7f7ff;
+}
+
+
+/* DISTRICT INFORMATION */
+
+.statTable, .ethTable, .relTable {
+    border-collapse:collapse;
+    overflow: auto;
+    table-layout: fixed;
+}
+
+.distInfo {
+    margin-top: 20px;
+    margin-left: -230px;
+    width: calc(100vw - 60px);
+}
+
+.nations, .populations, .area, .density, .largeGroup, .largePercent {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    text-align:center;
+    font-size: 17px;
+}
+
+
+.ethTable, .relTable {
+    white-space:nowrap;
+    td, th {
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    text-align:center;
+    font-size: 17px;
+    } 
+
+    td:first-child, th:first-child {
+        position: sticky;
+        left: 0px;
+        font-weight: bold;
+    }
+
+    th:first-child {
+        background-color: #e1e1eb;
+    }
+}
+
+
+#colNames {
+    font-weight: bold;
+}
+
+.nations {
+    font-weight: bold;
+}

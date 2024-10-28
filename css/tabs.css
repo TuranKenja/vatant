@@ -1,0 +1,92 @@
+
+.nameTabs{
+    margin-top: 12px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.nameTabs h1{
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tabLinks{
+    background-color: rgba(0, 30, 255, 0.153);
+    border: none;
+    color: #5b5f42;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 50%;
+}
+
+.tabContainer{
+    margin-top: 15px;
+    margin-bottom: -5px;
+    column-count: 3;
+}
+
+
+/* SAVE BUTTON */
+
+.save-btn{
+    background-color: rgb(83, 80, 113);
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font: 12px 'Signika Negative';
+    border-radius: 10%;
+    margin-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 50px;
+}
+
+.save-btn:hover{
+
+    background-color: goldenrod; 
+    color: rgb(255, 255, 255);
+}
+
+
+.saving {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sits above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with opacity */
+}
+
+/* Save content */
+.save-content {
+    background-color: #fff;
+    margin: 20% auto; /* Center vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Adjust size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    cursor: pointer;
+}

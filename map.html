@@ -6,16 +6,18 @@
     <head>
         <title>VATTAN</title>
         <link rel="stylesheet" type="text/css" href="css/map.css">
+        <link rel="stylesheet" type="text/css" href="css/tab.css">
+        <link rel="stylesheet" type="text/css" href="css/data.css">
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 
 
     </head>
 
     <body>
+
         <div class="container">
 
             <div class="header">
@@ -36,211 +38,388 @@
 
         </div>
 
-
-        <div class="sidebar">
-            <h1 contenteditable="true">Map 1</h3>
-            <div class = "natBar">
-                <h3>Nations</h3>
-                <div class="container1">
-                    <table>
-                        <tr>
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation1-btn" onclick="selectNation(1)"></button>
-                                <input type="color" id="color1" class="color-picker" value="#8b0000" />
-                                <span id="nation1-feature" contenteditable="true">Nation 1</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop1">0</p>
-                            </td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation2-btn" onclick="selectNation(2)"></button>
-                                <input type="color" id="color2" class="color-picker" value="#adff2f" />
-                                <span id="nation2-feature" contenteditable="true">Nation 2</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop2">0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation3-btn" onclick="selectNation(3)"></button>
-                                <input type="color" id="color3" class="color-picker" value="#00bfff" />
-                                <span id="nation3-feature" contenteditable="true">Nation 3</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop3">0</p>
-                            </td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation4-btn" onclick="selectNation(4)"></button>
-                                <input type="color" id="color4" class="color-picker" value="#800080" />
-                                <span id="nation4-feature" contenteditable="true">Nation 4</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop4">0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation5-btn" onclick="selectNation(5)"></button>
-                                <input type="color" id="color5" class="color-picker" value="#f0e68c" />
-                                <span id="nation5-feature" contenteditable="true">Nation 5</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop5">0</p>
-                            </td>
-                        </tr>
-                        <tr class="grayed"> 
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation6-btn" onclick="selectNation(6)"></button>
-                                <input type="color" id="color6" class="color-picker" value="#ffa07a" />
-                                <span id="nation6-feature" contenteditable="true">Nation 6</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop6">0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation7-btn" onclick="selectNation(7)"></button>
-                                <input type="color" id="color7" class="color-picker" value="#00ffff" />
-                                <span id="nation7-feature" contenteditable="true">Nation 7</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop7">0</p>
-                            </td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation8-btn" onclick="selectNation(8)"></button>
-                                <input type="color" id="color8" class="color-picker" value="#a9a9a9" />
-                                <span id="nation8-feature" contenteditable="true">Nation 8</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop8">0</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation9-btn" onclick="selectNation(9)"></button>
-                                <input type="color" id="color9" class="color-picker" value="#b03060" />
-                                <span id="nation9-feature" contenteditable="true">Nation 9</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop9">0</p>
-                            </td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="natRow">
-                                <button class="nation-btn" id="nation10-btn" onclick="selectNation(10)"></button>
-                                <input type="color" id="color10" class="color-picker" value="#ffd700" />
-                                <span id="nation10-feature" contenteditable="true">Nation 10</span>
-                            </td>
-                            <td class="population">
-                                <p id="pop10">0</p>
-                            </td>
-                        </tr>
-                    </table>
+        <div class="nameTabs">
+            <br>
+            <h1 contenteditable="true">Map 1</h1>
+            <div class="tabContainer">
+                <div>
+                    <button class="tabLinks" onclick="openTab(event, 'mapTab')">Map</button>
                 </div>
-            </div>
-
-            <div class="infoBar">
-                <h3>District Information</h3>
-                <table class="infoCol">
-                    <tr>
-                        <td class="infoList">District: </td>
-                        <td class="infoData" id="district">.</td>
-                    </tr>
-                    <tr class="grayed">
-                        <td class="infoList">Province: </td>
-                        <td class="infoData" id="province">.</td>
-                    </tr>
-                    <tr>
-                        <td class="infoList">Country: </td>
-                        <td class="infoData" id="country">.</td>
-                    </tr>
-                    <tr class="grayed">
-                        <td class="infoList">District ID: </td>
-                        <td class="infoData" id="distID">.</td>
-                    </tr>
-                    <tr>
-                        <td class="infoList">Population: </td>
-                        <td class="infoData" id="population">.</td>
-                    </tr>
-                    <tr class="grayed">
-                        <td class="infoList">Largest Group: </td>
-                        <td class="infoData" id="largeGroup">.</td>
-                    </tr>
-                    <tr>
-                        <td class="infoList">Composition: </td>
-                        <td class="infoData" id="largePercent">.</td>
-                    </tr>
-                    <tr class="grayed">
-                        <td class="infoList">Second: </td>
-                        <td class="infoData" id="second">.</td>
-                    </tr>
-                    <tr>
-                        <td class="infoList">Third: </td>
-                        <td class="infoData" id="third">.</td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <div class="mapOptions">
-                <h3>Map Options</h3>
-                <div class="container2">
-                    <div>
-                        <button class="btn" id="district-btn">District</button>
-                    </div>
-                    <div>
-                        <button class="btn" id="province-btn">Province</button>
-                    </div>
-                    <div>
-                        <button class="btn" id="country-btn">Country</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="layerOptions">
-                <h3>Layer Options</h3>
-                <div class="container3">
-                    <div class="bound-btn">
-                        <div>
-                            <button class="btn1" id="dist-bound-btn">District</button>
-                        </div>
-                        <div>
-                            <button class="btn1" id="prov-bound-btn">Province</button>
-                        </div>
-                        <div>
-                            <button class="btn1" id="count-bound-btn">Country</button>
-                        </div>
-                    </div>
-                    <div class="layer-btn">
-                        <div>
-                            <button class="btn1" id="density-btn">Population Density</button>
-                        </div>
-                        <div>
-                            <button class="btn1" id="largest-btn">Largest Group</button>
-                        </div>
-                        <div>
-                            <button class="btn1" id="admin-btn">Administrative Regions</button>
-                        </div>
-                    </div>
+                <div>
+                    <button class="tabLinks" onclick="openTab(event, 'dataTab')">Data</button>
                 </div>
             </div>
         </div>
 
- 
+        <div id="mapTab" class="tabContent">
+            <div class="sidebar">
 
-        <div id="map"></div>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        <script src="map.js"></script>
+                <div class="mapOptions">
+                    <h3>Map Options</h3>
+                    <div class="container2">
+                        <div>
+                            <button class="btn" id="district-btn">District</button>
+                        </div>
+                        <div>
+                            <button class="btn" id="province-btn">Province</button>
+                        </div>
+                        <div>
+                            <button class="btn" id="country-btn">Country</button>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="layerOptions">
+                    <h3>Layer Options</h3>
+                    <div class="container3">
+                        <div class="bound-btn">
+                            <div>
+                                <button class="btn1" id="dist-bound-btn">District</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="prov-bound-btn">Province</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="count-bound-btn">Country</button>
+                            </div>
+                        </div>
+                        <div class="layer-btn">
+                            <div>
+                                <button class="btn1" id="density-btn">Pop. Density</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="largest-btn">Largest Group</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="admin-btn">Admin. Regions</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="drawErase">
+                    <h3>Draw or Erase Mode</h3>
+                    <div class="container0">
+                        <div>
+                            <button class="btn2" id="draw-btn">Draw</button>
+                        </div>
+                        <div>
+                            <button class="btn2" id="erase-btn">Erase</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class = "natBar">
+                    <h3>Nations</h3>
+                    <div class="container1">
+                        <table>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation1-btn" onclick="selectNation(1)"></button>
+                                    <input type="color" id="color1" class="color-picker" value="#ff0000" />
+                                    <span id="nation1-feature" contenteditable="true">Nation 1</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop1">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation2-btn" onclick="selectNation(2)"></button>
+                                    <input type="color" id="color2" class="color-picker" value="#0091ff" />
+                                    <span id="nation2-feature" contenteditable="true">Nation 2</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop2">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation3-btn" onclick="selectNation(3)"></button>
+                                    <input type="color" id="color3" class="color-picker" value="#00ff26" />
+                                    <span id="nation3-feature" contenteditable="true">Nation 3</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop3">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation4-btn" onclick="selectNation(4)"></button>
+                                    <input type="color" id="color4" class="color-picker" value="#ea00ff" />
+                                    <span id="nation4-feature" contenteditable="true">Nation 4</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop4">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation5-btn" onclick="selectNation(5)"></button>
+                                    <input type="color" id="color5" class="color-picker" value="#ffe600" />
+                                    <span id="nation5-feature" contenteditable="true">Nation 5</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop5">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed"> 
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation6-btn" onclick="selectNation(6)"></button>
+                                    <input type="color" id="color6" class="color-picker" value="#0040ff" />
+                                    <span id="nation6-feature" contenteditable="true">Nation 6</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop6">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation7-btn" onclick="selectNation(7)"></button>
+                                    <input type="color" id="color7" class="color-picker" value="#00ffaa" />
+                                    <span id="nation7-feature" contenteditable="true">Nation 7</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop7">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation8-btn" onclick="selectNation(8)"></button>
+                                    <input type="color" id="color8" class="color-picker" value="#7b00ff" />
+                                    <span id="nation8-feature" contenteditable="true">Nation 8</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop8">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation9-btn" onclick="selectNation(9)"></button>
+                                    <input type="color" id="color9" class="color-picker" value="#ff005d" />
+                                    <span id="nation9-feature" contenteditable="true">Nation 9</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop9">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation10-btn" onclick="selectNation(10)"></button>
+                                    <input type="color" id="color10" class="color-picker" value="#00d5ff" />
+                                    <span id="nation10-feature" contenteditable="true">Nation 10</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop10">0</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="infoBar">
+                    <h3>District Information</h3>
+                    <table class="infoCol">
+                        <tr>
+                            <td class="infoList">District: </td>
+                            <td class="infoData" id="district">.</td>
+                        </tr>
+                        <tr class="grayed">
+                            <td class="infoList">Province: </td>
+                            <td class="infoData" id="province">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList">Country: </td>
+                            <td class="infoData" id="country">.</td>
+                        </tr>
+                        <tr class="grayed">
+                            <td class="infoList">District ID: </td>
+                            <td class="infoData" id="distID">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList">Population: </td>
+                            <td class="infoData" id="population">.</td>
+                        </tr>
+                        <tr class="grayed">
+                            <td class="infoList">Ethnic Groups</td>
+                            <td class="infoData"></td>
+                        </tr>
+                        <div id="oneBar"></div>
+                        <tr>
+                            <td class="infoList" id="groupOne">First: </td>
+                            <td class="infoData" id="oneGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupTwo">Second: </td>
+                            <td class="infoData" id="twoGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupThree">Third: </td>
+                            <td class="infoData" id="threeGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupFour">Fourth: </td>
+                            <td class="infoData" id="fourGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupFive">Fifth: </td>
+                            <td class="infoData" id="fiveGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupSix">Sixth: </td>
+                            <td class="infoData" id="sixGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupSeven">Seventh: </td>
+                            <td class="infoData" id="sevenGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupEight">Eighth: </td>
+                            <td class="infoData" id="eightGroup">.</td>
+                        </tr>
+                        <!-- <tr>
+                            <td class="infoList" id="groupNine">Ninth: </td>
+                            <td class="infoData" id="nineGroup">.</td>
+                        </tr>
+                        <tr>
+                            <td class="infoList" id="groupTen">Tenth: </td>
+                            <td class="infoData" id="tenGroup">.</td>
+                        </tr> -->
+
+                    </table>
+                </div>
+
+            </div>
+
+    
+
+            <div id="map"></div>
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/leaflet-smooth-wheel-zoom/dist/leaflet-smooth-wheel-zoom.min.js"></script>
+            <script src="javascript/map.js"></script>
+        </div>
+
+        <div id="dataTab" class="tabContent">
+
+            <div class="dataContainer">
+                <h3 class="dataTitle">Type of Data</h3>
+                <div class="demography">
+                    <div>
+                        <button class="data-btn" id="basic-btn">Statistics</button>
+                    </div>
+                    <div>
+                        <button class="data-btn" id="eth-btn">Ethnicity</button>
+                    </div>
+                    <div>
+                        <button class="data-btn" id="rel-btn">Religion</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="distInfo">
+                <h3>District Information</h3>
+                <table class="statTable">
+                    <tr id="colNames">
+                        <td class="nations">Nations</td>
+                        <td class="populations">Population</td>
+                        <td class="area">Area (km.)</td>
+                        <td class="density">Density</td>
+                        <td class="largeGroup">Largest Group</td>
+                        <td class="largePercent">Largest Percentage</td>
+                    </tr>
+                    <tr id="nation1">
+                        <td class="nations">Nation 1</td>
+                        <td class="populations" id="pop1"></td>
+                        <td class="area" id="area1"></td>
+                        <td class="density" id="density1"></td>
+                        <td class="largeGroup" id="group1"></td>
+                        <td class="largePercent" id="percent1"></td>
+                    </tr>
+                    <tr id="nation2">
+                        <td class="nations">Nation 2</td>
+                        <td class="populations" id="pop2"></td>
+                        <td class="area" id="area2"></td>
+                        <td class="density" id="density2"></td>
+                        <td class="largeGroup" id="group2"></td>
+                        <td class="largePercent" id="percent2"></td>
+                    </tr>
+                    <tr id="nation3">
+                        <td class="nations">Nation 3</td>
+                        <td class="populations" id="pop3"></td>
+                        <td class="area" id="area3"></td>
+                        <td class="density" id="density3"></td>
+                        <td class="largeGroup" id="group3"></td>
+                        <td class="largePercent" id="percent3"></td>
+                    </tr>
+                    <tr id="nation4">
+                        <td class="nations">Nation 4</td>
+                        <td class="populations" id="pop4"></td>
+                        <td class="area" id="area4"></td>
+                        <td class="density" id="density4"></td>
+                        <td class="largeGroup" id="group4"></td>
+                        <td class="largePercent" id="percent4"></td>
+                    </tr>
+                    <tr id="nation5">
+                        <td class="nations">Nation 5</td>
+                        <td class="populations" id="pop5"></td>
+                        <td class="area" id="area5"></td>
+                        <td class="density" id="density5"></td>
+                        <td class="largeGroup" id="group5"></td>
+                        <td class="largePercent" id="percent5"></td>
+                    </tr>
+                    <tr id="nation6">
+                        <td class="nations">Nation 6</td>
+                        <td class="populations" id="pop6"></td>
+                        <td class="area" id="area6"></td>
+                        <td class="density" id="density6"></td>
+                        <td class="largeGroup" id="group6"></td>
+                        <td class="largePercent" id="percent6"></td>
+                    </tr>
+                    <tr id="nation7">
+                        <td class="nations">Nation 7</td>
+                        <td class="populations" id="pop7"></td>
+                        <td class="area" id="area7"></td>
+                        <td class="density" id="density7"></td>
+                        <td class="largeGroup" id="group7"></td>
+                        <td class="largePercent" id="percent7"></td>
+                    </tr>
+                    <tr id="nation8">
+                        <td class="nations">Nation 8</td>
+                        <td class="populations" id="pop8"></td>
+                        <td class="area" id="area8"></td>
+                        <td class="density" id="density8"></td>
+                        <td class="largeGroup" id="group8"></td>
+                        <td class="largePercent" id="percent8"></td>
+                    </tr>
+                    <tr id="nation9">
+                        <td class="nations">Nation 9</td>
+                        <td class="populations" id="pop9"></td>
+                        <td class="area" id="area9"></td>
+                        <td class="density" id="density9"></td>
+                        <td class="largeGroup" id="group9"></td>
+                        <td class="largePercent" id="percent9"></td>
+                    </tr>
+                    <tr id="nation10">
+                        <td class="nations">Nation 10</td>
+                        <td class="populations" id="pop10"></td>
+                        <td class="area" id="area10"></td>
+                        <td class="density" id="density10"></td>
+                        <td class="largeGroup" id="group10"></td>
+                        <td class="largePercent" id="percent10"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+            <!-- Use this initially to create the array to be used, then use dataArray.js. -->
+        <!-- <script type="module" src="javascript/dataObjects.js"></script> -->
+        <script src="javascript/dataArray.js"></script>
+        <script src="javascript/data.js"></script>
+
+
+        <script src="javascript/tabs.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     </body>
 

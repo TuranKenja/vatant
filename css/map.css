@@ -27,7 +27,7 @@ table{
 }
 
 .grayed{
-    background-color: rgb(225, 225, 235);
+    background-color: #e1e1eb;
 }
 
 
@@ -36,7 +36,9 @@ table{
 #title{
     color: white;
     text-decoration: none;
+
 }
+
 
 .header {
     color: #f4f4f4;
@@ -45,13 +47,16 @@ table{
     padding-right: 20px;
     padding-top: 1px;
     margin-top: -15px;
-    overflow: auto;
-
+    margin-bottom: -12px;
 }
 
 .header h1{
+    margin-left: 10px;
+    margin-right: 10px;
     padding-left: 10px;
-    font-size: 18px;
+    font-size: 17px;
+    margin-bottom: -12px;
+
 }
 
 #navbar li{
@@ -82,17 +87,11 @@ table{
     float: right;
     width: calc(100% - 250px);
     height: 97.5vh;
-    margin-top: -12px;
-
+    margin-top: -81px;
+    overflow:hidden;
 }
-
 
 /* SIDEBAR LAYOUT*/
-
-h1{
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 h3{  /* Nations, District Information, etc. */
     color: white;
@@ -108,18 +107,11 @@ h3{  /* Nations, District Information, etc. */
 
 .sidebar{
     position: absolute;
-    margin-top: -12px;
     width: 250px;
     height: 97.5vh;
     background-color: rgb(255, 255, 255);
 }
 
-/* .sidebar ul {
-    list-style-type: none;
-    margin-top: -5px;
-    margin-bottom: 0px;
-    padding: 10px;
-} */
 
 /* NATIONS LAYOUT*/
 
@@ -148,6 +140,7 @@ h3{  /* Nations, District Information, etc. */
     padding-right: 5px;
     margin-left: 5px;
 }
+
 
 .natRow{
     width: 140px;
@@ -182,16 +175,20 @@ h3{  /* Nations, District Information, etc. */
     text-align: right;
 }
 
-.bound-btn .btn1{
-    margin-top: 7px; 
+.bound-btn .btn1 {
+    margin-top: 4px; 
+}
+
+.layer-btn .btn1 {
+    margin-top: 4px; 
 }
 
 /* MAP OPTIONS AND LAYER OPTIONS */
 
-.btn, .btn1{
+.btn, .btn1, .btn2{
     background-color: rgb(83, 80, 113);
     border: none;
-    color: white;
+    color: #ffffff;
     text-align: center;
     font: 12px 'Signika Negative';
     border-radius: 10%;
@@ -201,7 +198,7 @@ h3{  /* Nations, District Information, etc. */
     width: 90%;
 }
 
-.btn:hover, .btn1:hover{
+.btn:hover, .btn1:hover, .btn2:hover{
 
     background-color: goldenrod; 
     color: rgb(255, 255, 255);
@@ -209,10 +206,16 @@ h3{  /* Nations, District Information, etc. */
 
 
 .clickedBtn{
-    background-color: goldenrod; 
+    background-color: #daa520; 
     color: rgb(83, 80, 113);
     font-weight: bold;
 
+}
+
+/* DRAW/ ERASE MODE LAYOUT*/
+.container0 {
+    width:100%;
+    column-count: 2;
 }
 
 .container2 {
@@ -221,8 +224,14 @@ h3{  /* Nations, District Information, etc. */
     
 }
 
-.container3 {
+.bound-btn {
     width:100%;
-    column-count: 2;
-    
+    column-count: 3;
 }
+
+.layer-btn {
+    width:100%;
+    column-count: 1;
+}
+
+
