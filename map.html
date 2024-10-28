@@ -6,7 +6,7 @@
     <head>
         <title>VATTAN</title>
         <link rel="stylesheet" type="text/css" href="css/map.css">
-        <link rel="stylesheet" type="text/css" href="css/tab.css">
+        <link rel="stylesheet" type="text/css" href="css/tabs.css">
         <link rel="stylesheet" type="text/css" href="css/data.css">
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -47,6 +47,9 @@
                 </div>
                 <div>
                     <button class="tabLinks" onclick="openTab(event, 'dataTab')">Data</button>
+                </div>
+                <div>
+                    <button class="tabLinks" onclick="openPopUp()">Save</button>
                 </div>
             </div>
         </div>
@@ -91,7 +94,7 @@
                                 <button class="btn1" id="largest-btn">Largest Group</button>
                             </div>
                             <div>
-                                <button class="btn1" id="admin-btn">Admin. Regions</button>
+                                <button class="btn1" id="religion-btn">Largest Religion</button>
                             </div>
                         </div>
                     </div>
@@ -296,7 +299,7 @@
             <div id="map"></div>
             <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/leaflet-smooth-wheel-zoom/dist/leaflet-smooth-wheel-zoom.min.js"></script>
-            <script src="javascript/map.js"></script>
+            
         </div>
 
         <div id="dataTab" class="tabContent">
@@ -305,21 +308,20 @@
                 <h3 class="dataTitle">Type of Data</h3>
                 <div class="demography">
                     <div>
-                        <button class="data-btn" id="basic-btn">Statistics</button>
+                        <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
                     </div>
                     <div>
-                        <button class="data-btn" id="eth-btn">Ethnicity</button>
+                        <button class="data-btn" id="eth-btn" onclick="openStatTab(event, 'ethnicity')">Ethnicity</button>
                     </div>
                     <div>
-                        <button class="data-btn" id="rel-btn">Religion</button>
+                        <button class="data-btn" id="rel-btn" onclick="openStatTab(event, 'religion')">Religion</button>
                     </div>
-                </div>
             </div>
     
             <div class="distInfo">
                 <h3>District Information</h3>
-                <table class="statTable">
-                    <tr id="colNames">
+                <table id="statistics" class="statTable" style="display:block">
+                    <tr id="colNames" class="grayed">
                         <td class="nations">Nations</td>
                         <td class="populations">Population</td>
                         <td class="area">Area (km.)</td>
@@ -329,96 +331,139 @@
                     </tr>
                     <tr id="nation1">
                         <td class="nations">Nation 1</td>
-                        <td class="populations" id="pop1"></td>
-                        <td class="area" id="area1"></td>
-                        <td class="density" id="density1"></td>
+                        <td class="populations" id="population1">0</td>
+                        <td class="area" id="area1">0</td>
+                        <td class="density" id="density1">0</td>
                         <td class="largeGroup" id="group1"></td>
                         <td class="largePercent" id="percent1"></td>
                     </tr>
-                    <tr id="nation2">
+                    <tr id="nation2" class="grayed">
                         <td class="nations">Nation 2</td>
-                        <td class="populations" id="pop2"></td>
-                        <td class="area" id="area2"></td>
-                        <td class="density" id="density2"></td>
+                        <td class="populations" id="population2">0</td>
+                        <td class="area" id="area2">0</td>
+                        <td class="density" id="density2">0</td>
                         <td class="largeGroup" id="group2"></td>
                         <td class="largePercent" id="percent2"></td>
                     </tr>
                     <tr id="nation3">
                         <td class="nations">Nation 3</td>
-                        <td class="populations" id="pop3"></td>
-                        <td class="area" id="area3"></td>
-                        <td class="density" id="density3"></td>
+                        <td class="populations" id="population3">0</td>
+                        <td class="area" id="area3">0</td>
+                        <td class="density" id="density3">0</td>
                         <td class="largeGroup" id="group3"></td>
                         <td class="largePercent" id="percent3"></td>
                     </tr>
-                    <tr id="nation4">
+                    <tr id="nation4" class="grayed">
                         <td class="nations">Nation 4</td>
-                        <td class="populations" id="pop4"></td>
-                        <td class="area" id="area4"></td>
-                        <td class="density" id="density4"></td>
+                        <td class="populations" id="population4">0</td>
+                        <td class="area" id="area4">0</td>
+                        <td class="density" id="density4">0</td>
                         <td class="largeGroup" id="group4"></td>
                         <td class="largePercent" id="percent4"></td>
                     </tr>
                     <tr id="nation5">
                         <td class="nations">Nation 5</td>
-                        <td class="populations" id="pop5"></td>
-                        <td class="area" id="area5"></td>
-                        <td class="density" id="density5"></td>
+                        <td class="populations" id="population5">0</td>
+                        <td class="area" id="area5">0</td>
+                        <td class="density" id="density5">0</td>
                         <td class="largeGroup" id="group5"></td>
                         <td class="largePercent" id="percent5"></td>
                     </tr>
-                    <tr id="nation6">
+                    <tr id="nation6" class="grayed">
                         <td class="nations">Nation 6</td>
-                        <td class="populations" id="pop6"></td>
-                        <td class="area" id="area6"></td>
-                        <td class="density" id="density6"></td>
+                        <td class="populations" id="population6">0</td>
+                        <td class="area" id="area6">0</td>
+                        <td class="density" id="density6">0</td>
                         <td class="largeGroup" id="group6"></td>
                         <td class="largePercent" id="percent6"></td>
                     </tr>
                     <tr id="nation7">
                         <td class="nations">Nation 7</td>
-                        <td class="populations" id="pop7"></td>
-                        <td class="area" id="area7"></td>
-                        <td class="density" id="density7"></td>
+                        <td class="populations" id="population7">0</td>
+                        <td class="area" id="area7">0</td>
+                        <td class="density" id="density7">0</td>
                         <td class="largeGroup" id="group7"></td>
                         <td class="largePercent" id="percent7"></td>
                     </tr>
-                    <tr id="nation8">
+                    <tr id="nation8" class="grayed">
                         <td class="nations">Nation 8</td>
-                        <td class="populations" id="pop8"></td>
-                        <td class="area" id="area8"></td>
-                        <td class="density" id="density8"></td>
+                        <td class="populations" id="population8">0</td>
+                        <td class="area" id="area8">0</td>
+                        <td class="density" id="density8">0</td>
                         <td class="largeGroup" id="group8"></td>
                         <td class="largePercent" id="percent8"></td>
                     </tr>
                     <tr id="nation9">
                         <td class="nations">Nation 9</td>
-                        <td class="populations" id="pop9"></td>
-                        <td class="area" id="area9"></td>
-                        <td class="density" id="density9"></td>
+                        <td class="populations" id="population9">0</td>
+                        <td class="area" id="area9">0</td>
+                        <td class="density" id="density9">0</td>
                         <td class="largeGroup" id="group9"></td>
                         <td class="largePercent" id="percent9"></td>
                     </tr>
-                    <tr id="nation10">
+                    <tr id="nation10" class="grayed">
                         <td class="nations">Nation 10</td>
-                        <td class="populations" id="pop10"></td>
-                        <td class="area" id="area10"></td>
-                        <td class="density" id="density10"></td>
+                        <td class="populations" id="population10">0</td>
+                        <td class="area" id="area10">0</td>
+                        <td class="density" id="density10">0</td>
                         <td class="largeGroup" id="group10"></td>
                         <td class="largePercent" id="percent10"></td>
                     </tr>
 
                 </table>
+
+                <table id="ethnicity" class="ethTable" style="display:none">
+                    <thead>
+                        <tr id="colNamesEth" class="grayed">
+                            <!-- Column Headers Will Be Inserted Here Dynamically -->
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyEth">
+                        <!-- Data Rows Will Be Inserted Here Dynamically -->
+                    </tbody>
+                </table>
+
+                </table>
+                <table id="religion" class="relTable" style="display:none">
+                    <thead>
+                        <tr id="colNamesRel" class="grayed">
+                            <!-- Column Headers Will Be Inserted Here Dynamically -->
+                        </tr>
+                    </thead>
+                    <tbody id="tableBodyRel">
+                        <!-- Data Rows Will Be Inserted Here Dynamically -->
+                    </tbody>
+                </table>
+
+            </div>
             </div>
         </div>
 
-            <!-- Use this initially to create the array to be used, then use dataArray.js. -->
-        <!-- <script type="module" src="javascript/dataObjects.js"></script> -->
-        <script src="javascript/dataArray.js"></script>
-        <script src="javascript/data.js"></script>
-
-
+        <div id="saveTab" class="saving" class="tabContent">
+            <div class="save-content">
+                <span class="close" onclick="closeModal()">&times;</span> <!-- Close button -->
+                <h2>Save or Upload Your Data</h2>
+                <p>Do you want to download the current data...</p>
+                <button class='save-btn' onclick="saveData()">Save</button>
+                <p>...or upload previous data?</p>
+                <input type="file" id="fileInput" style="display: none;" onchange="uploadData(event)"> <!-- Pass event explicitly -->
+                <button class='save-btn' onclick="document.getElementById('fileInput').click()">Upload</button> <!-- Upload button triggers file input -->
+            </div>
+        </div>
+        
+        <script src="javascript/SmoothWheelZoom.js"></script>    
         <script src="javascript/tabs.js"></script>    
+        <script src="javascript/colors.js"></script>
+        <script src="javascript/map.js"></script>
+        <script src="javascript/data.js"></script>
+        <script src="javascript/save.js"></script>    
+        
+
+        <!-- Use this initially to create the array to be used. -->
+         <!-- When creating geojson, make sure the csv doesnt leave a europe.csv.ID or something -->
+        <!-- <script type="module" src="javascript/dataObjects.js"></script> -->
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     </body>
