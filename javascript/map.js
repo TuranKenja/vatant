@@ -204,7 +204,7 @@ function distBoundaries() {
     if (districtBoundariesLayer) {
         toggleBoundaries(districtBoundariesLayer, distBool);  // If the layer already exists
     } else {
-        drawBoundaries('data/southeastEurope/districtBoundaries1.geojson', districtBoundariesLayer, 'district');  // Load if it doesn't exist
+        drawBoundaries('data/southeastEurope/districtBoundaries.geojson', districtBoundariesLayer, 'district');  // Load if it doesn't exist
     }
 }
 
@@ -256,7 +256,7 @@ function largestBoundaries() {
         toggleBoundaries(largestLayer, largeBool);  // If the layer already exists
         toggleBoundaries(opacityLayer, largeBool);  // If the layer already exists
     } else {
-        drawLargestLayers('data/southeastEurope/districtBoundaries1.geojson', largestLayer, opacityLayer);  // Load if it doesn't exist
+        drawLargestLayers('data/southeastEurope/districtBoundaries.geojson', largestLayer, opacityLayer);  // Load if it doesn't exist
     }
     // largestLayer.bringToFront();
     // opacityLayer.bringToFront();
@@ -279,7 +279,7 @@ function religionBoundaries() {
         toggleBoundaries(religionLayer, religionBool);  // If the layer already exists
         toggleBoundaries(relOpacityLayer, religionBool);  // If the layer already exists
     } else {
-        drawReligionLayers('data/southeastEurope/districtBoundaries1.geojson', religionLayer, relOpacityLayer);  // Load if it doesn't exist
+        drawReligionLayers('data/southeastEurope/districtBoundaries.geojson', religionLayer, relOpacityLayer);  // Load if it doesn't exist
     }
     // largestLayer.bringToFront();
     // opacityLayer.bringToFront();
@@ -401,7 +401,7 @@ function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
                     color: religionColors(feature.properties["Largest Religion"]),
                     weight: 1,
                     opacity: 0.5,
-                    fillColor: religionColors(feature.properties["Share of Population"]),  // Pass the Largest_Group to religionColors
+                    fillColor: religionColors(feature.properties["Largest Religion"]),  // Pass the Largest_Group to religionColors
                     fillOpacity: 0.6,
                     interactive: false
                 };
@@ -665,46 +665,6 @@ function handleFeatureOver(layer, feature) {
 
 
 
-function jsonToCSV(jsonArray) {
-    const headers = Object.keys(jsonArray[0]);
-    const rows = jsonArray.map(obj => {
-        return headers.map(header => JSON.stringify(obj[header] || ""));
-    });
-    const csv = [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
-    return csv;
-}
-
-function downloadCSV(csvContent, fileName) {
-    // Add BOM for proper encoding
-    const bom = '\uFEFF';
-    const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-    link.setAttribute("href", url);
-    link.setAttribute("download", fileName);
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-// Load JSON data, convert to CSV, and download
-fetch("data/southeastEurope/ethArray.json")
-    .then(response => response.json())
-    .then(jsonData => {
-        const csvContent = jsonToCSV(jsonData);
-        downloadCSV(csvContent, "regionInfo.csv");
-    })
-    .catch(error => console.error("Error loading JSON file:", error));
-
-
-
-
-
-
-
-
-
 
 /* ****** MAP ******* */
 
@@ -764,7 +724,7 @@ fetch('data/southeastEurope/ethArray.json')
 
 function mainLoadData(saveArray) {
     // Fetch and add GeoJSON data to the map
-    fetch('data/southeastEurope/districtBoundaries1.geojson') // Ensure this path is correct
+    fetch('data/southeastEurope/districtBoundaries.geojson') // Ensure this path is correct
         .then(response => response.json())
         .then(data => {
 
