@@ -662,6 +662,50 @@ function handleFeatureOver(layer, feature) {
 
 
 
+
+
+
+function jsonToCSV(jsonArray) {
+    const headers = Object.keys(jsonArray[0]);
+    const rows = jsonArray.map(obj => {
+        return headers.map(header => JSON.stringify(obj[header] || ""));
+    });
+    const csv = [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
+    return csv;
+}
+
+function downloadCSV(csvContent, fileName) {
+    // Add BOM for proper encoding
+    const bom = '\uFEFF';
+    const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", fileName);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Load JSON data, convert to CSV, and download
+fetch("data/southeastEurope/ethArray.json")
+    .then(response => response.json())
+    .then(jsonData => {
+        const csvContent = jsonToCSV(jsonData);
+        downloadCSV(csvContent, "regionInfo.csv");
+    })
+    .catch(error => console.error("Error loading JSON file:", error));
+
+
+
+
+
+
+
+
+
+
 /* ****** MAP ******* */
 
 
