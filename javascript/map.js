@@ -281,8 +281,8 @@ function religionBoundaries() {
     } else {
         drawReligionLayers('data/southeastEurope/districtBoundaries.geojson', religionLayer, relOpacityLayer);  // Load if it doesn't exist
     }
-    // largestLayer.bringToFront();
-    // opacityLayer.bringToFront();
+    // religionLayer.bringToFront();
+    // relOpacityLayer.bringToFront();
     // featureLayers.bringToFront();
     // countryBoundariesLayer.bringToFront();
     // provinceBoundariesLayer.bringToFront();
@@ -395,7 +395,6 @@ function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
     .then(response => response.json())
     .then(data => {
         boundariesLayer = L.geoJSON(data, {
-            pane: 'layers',
             style: function (feature) {
                 return {
                     color: religionColors(feature.properties["Largest Religion"]),
@@ -408,7 +407,6 @@ function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
             }
         }).addTo(map);  // Add to map
         opLayer = L.geoJSON(data, {
-            pane: 'layers',
             style: function (feature) {
                 return {
                     color: "#01002e",
