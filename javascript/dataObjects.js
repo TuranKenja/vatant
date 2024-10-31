@@ -1,5 +1,10 @@
+async function dataSetup() {
+    await initializeSelection();
+
 // Define the path to your CSV file
-const csvFilePath = 'data/southeastEurope/regionInfo.csv';  // Replace with the path to your CSV file
+console.log("data objects region", regionSelection);
+const csvFilePath = `data/${regionSelection}/regionInfo.csv`;  // Replace with the path to your CSV file
+console.log("data objects region 2", regionSelection);
 
 // Declare ethArray to store the parsed data
 let ethArray = [];
@@ -46,3 +51,6 @@ function exportToFile(data, filename) {
     a.click(); // Simulate a click to start the download
     document.body.removeChild(a); // Remove the link after download
 }
+} 
+
+dataSetup();

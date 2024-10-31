@@ -73,21 +73,25 @@
     width: calc(100vw - 60px);
 }
 
-.nations, .populations, .area, .density, .largeGroup, .largePercent {
+.nations, .populations, .area, .density, .largeGroup, .largePercent, .relLargeGroup, .relLargePercent {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: black;
+    color: #000000;
     text-align:center;
     font-size: 17px;
 }
 
 
+/* DISTRICT INFORMATION */
+
+
 .ethTable, .relTable {
     white-space:nowrap;
+    
     td, th {
-    width: 100px;
+    width: 50px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;

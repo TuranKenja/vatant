@@ -51,8 +51,7 @@ function openStatTab(evt, tabName) {
 
 function populateEthnicityTable() { 
     let ethBoolHeader = null;
-    let ethBoolRow = null;
-    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesEth');
@@ -98,6 +97,7 @@ function populateEthnicityTable() {
 
         row.appendChild(nationCell);
 
+        ethBoolRow = null;
         // For each column, create a cell in the row
         ethnicData.forEach(col => {
             const td = document.createElement('td');
@@ -109,14 +109,13 @@ function populateEthnicityTable() {
             if (excludeKeys.includes(col)) {
                 td.classList.add('hidden-column'); // Add class to hide the column
             }
-            if(col === "ethnicity" || col === "religion") {
+            if(col === "religion") {
                 ethBoolRow = col;
             }
             if(ethBoolRow === null || ethBoolRow === "ethnicity"){
                     row.appendChild(td);
             }
         });
-
         if (nationIndex % 2 === 0) {
             row.classList.add('grayed');
         } 
@@ -132,8 +131,7 @@ function populateEthnicityTable() {
 
 function populateReligionTable() { 
     let relBoolHeader = null;
-    let relBoolRow = null;
-    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesRel');
@@ -188,6 +186,7 @@ function populateReligionTable() {
 
         row.appendChild(nationCell);
 
+        let relBoolRow = null;
         // For each column, create a cell in the row
         ethnicData.forEach(col => {
             const td = document.createElement('td');

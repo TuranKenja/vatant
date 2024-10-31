@@ -37,6 +37,15 @@
             </div>
 
         </div>
+                
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2>Please select an option to continue</h2>
+                <button class="btn option-btn" data-option="southeastEurope">Southeast Europe</button>
+                <button class="btn option-btn" data-option="westAsia">West Asia</button>
+            </div>
+        </div>
+        
 
         <div class="nameTabs">
             <br>
@@ -55,6 +64,7 @@
         </div>
 
         <div id="mapTab" class="tabContent">
+
             <div class="sidebar">
 
                 <div class="mapOptions">
@@ -327,7 +337,9 @@
                         <td class="area">Area (km.)</td>
                         <td class="density">Density</td>
                         <td class="largeGroup">Largest Group</td>
-                        <td class="largePercent">Largest Percentage</td>
+                        <td class="largePercent">Group Share</td>
+                        <td class="relLargeGroup">Largest Religion</td>
+                        <td class="relLargePercent">Religion Share</td>
                     </tr>
                     <tr id="nation1">
                         <td class="nations">Nation 1</td>
@@ -336,6 +348,8 @@
                         <td class="density" id="density1">0</td>
                         <td class="largeGroup" id="group1"></td>
                         <td class="largePercent" id="percent1"></td>
+                        <td class="relLargeGroup" id="relGroup1"></td>
+                        <td class="relLargePercent" id="relPercent1"></td>
                     </tr>
                     <tr id="nation2" class="grayed">
                         <td class="nations">Nation 2</td>
@@ -344,6 +358,8 @@
                         <td class="density" id="density2">0</td>
                         <td class="largeGroup" id="group2"></td>
                         <td class="largePercent" id="percent2"></td>
+                        <td class="relLargeGroup" id="relGroup2"></td>
+                        <td class="relLargePercent" id="relPercent2"></td>
                     </tr>
                     <tr id="nation3">
                         <td class="nations">Nation 3</td>
@@ -352,6 +368,8 @@
                         <td class="density" id="density3">0</td>
                         <td class="largeGroup" id="group3"></td>
                         <td class="largePercent" id="percent3"></td>
+                        <td class="relLargeGroup" id="relGroup3"></td>
+                        <td class="relLargePercent" id="relPercent3"></td>
                     </tr>
                     <tr id="nation4" class="grayed">
                         <td class="nations">Nation 4</td>
@@ -360,6 +378,8 @@
                         <td class="density" id="density4">0</td>
                         <td class="largeGroup" id="group4"></td>
                         <td class="largePercent" id="percent4"></td>
+                        <td class="relLargeGroup" id="relGroup4"></td>
+                        <td class="relLargePercent" id="relPercent4"></td>
                     </tr>
                     <tr id="nation5">
                         <td class="nations">Nation 5</td>
@@ -368,6 +388,8 @@
                         <td class="density" id="density5">0</td>
                         <td class="largeGroup" id="group5"></td>
                         <td class="largePercent" id="percent5"></td>
+                        <td class="relLargeGroup" id="relGroup5"></td>
+                        <td class="relLargePercent" id="relPercent5"></td>
                     </tr>
                     <tr id="nation6" class="grayed">
                         <td class="nations">Nation 6</td>
@@ -376,6 +398,8 @@
                         <td class="density" id="density6">0</td>
                         <td class="largeGroup" id="group6"></td>
                         <td class="largePercent" id="percent6"></td>
+                        <td class="relLargeGroup" id="relGroup6"></td>
+                        <td class="relLargePercent" id="relPercent6"></td>
                     </tr>
                     <tr id="nation7">
                         <td class="nations">Nation 7</td>
@@ -384,6 +408,8 @@
                         <td class="density" id="density7">0</td>
                         <td class="largeGroup" id="group7"></td>
                         <td class="largePercent" id="percent7"></td>
+                        <td class="relLargeGroup" id="relGroup7"></td>
+                        <td class="relLargePercent" id="relPercent7"></td>
                     </tr>
                     <tr id="nation8" class="grayed">
                         <td class="nations">Nation 8</td>
@@ -392,6 +418,8 @@
                         <td class="density" id="density8">0</td>
                         <td class="largeGroup" id="group8"></td>
                         <td class="largePercent" id="percent8"></td>
+                        <td class="relLargeGroup" id="relGroup8"></td>
+                        <td class="relLargePercent" id="relPercent8"></td>
                     </tr>
                     <tr id="nation9">
                         <td class="nations">Nation 9</td>
@@ -400,6 +428,8 @@
                         <td class="density" id="density9">0</td>
                         <td class="largeGroup" id="group9"></td>
                         <td class="largePercent" id="percent9"></td>
+                        <td class="relLargeGroup" id="relGroup9"></td>
+                        <td class="relLargePercent" id="relPercent9"></td>
                     </tr>
                     <tr id="nation10" class="grayed">
                         <td class="nations">Nation 10</td>
@@ -408,6 +438,8 @@
                         <td class="density" id="density10">0</td>
                         <td class="largeGroup" id="group10"></td>
                         <td class="largePercent" id="percent10"></td>
+                        <td class="relLargeGroup" id="relGroup10"></td>
+                        <td class="relLargePercent" id="relPercent10"></td>
                     </tr>
 
                 </table>
@@ -441,7 +473,7 @@
 
         <div id="saveTab" class="saving" class="tabContent">
             <div class="save-content">
-                <span class="close" onclick="closeModal()">&times;</span> <!-- Close button -->
+                <span class="close" onclick="closePopUp()">&times;</span> <!-- Close button -->
                 <h2>Save or Upload Your Data</h2>
                 <p>Do you want to download the current data...</p>
                 <button class='save-btn' onclick="saveData()">Save</button>
@@ -454,6 +486,7 @@
         <script src="javascript/SmoothWheelZoom.js"></script>    
         <script src="javascript/tabs.js"></script>    
         <script src="javascript/colors.js"></script>
+        <script src="javascript/regionSelection.js"></script>
         <script src="javascript/map.js"></script>
         <script src="javascript/data.js"></script>
         <script src="javascript/save.js"></script>    

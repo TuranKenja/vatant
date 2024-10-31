@@ -1,3 +1,11 @@
+// Open the modal when trying to exit
+window.addEventListener('beforeunload', function (e) {
+  e.preventDefault(); // Prevents immediate exit
+  showExitWarning();
+  return ''; // Standard return value for beforeunload events
+});
+
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabContent, tabLinks;

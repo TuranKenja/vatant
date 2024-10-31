@@ -1,13 +1,15 @@
+// async function initializeMap() {
+//     await initializeSelection(); // Wait for regionSelection to be set
 
 
 /* ****** VARIABLES ******* */
-
 
 let selectedNation = 1; // To store which nation is selected
 let nationBool = true;
 let nationNames = {1: "Nation 1", 2: "Nation 2", 3: "Nation 3", 4: "Nation 4", 5: "Nation 5", 6: "Nation 6", 7: "Nation 7", 8: "Nation 8", 9: "Nation 9", 10: "Nation 10"};
 let nationColors = { 1: '#ff0000', 2: '#0091ff', 3: '#00ff26',  4: '#ea00ff',  5: '#ffe600',  6: '#0040ff',  7: '#00ffaa',  8: '#7b00ff',  9: '#ff005d',  10: '#00d5ff'}; // Define colors for each nation
 let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}; // To track which features are assigned to which nation
+let nationBase = {};
 let tempNationAssignments;
 let districtObjects = [];
 let nationInfo = {};   // Holds the nation info for each of the keys
@@ -22,7 +24,9 @@ let provincePopulations = {}; // To store district population after grouping
 let countryPopulations = {}; // To store district population after grouping
 let drawMode = 'draw';
 let mode = 'district';
-let largestLayer = null;  
+let densityLayer = null;  
+let densOpacityLayer = null; 
+let largestLayer = null; 
 let opacityLayer = null; 
 let religionLayer = null;  
 let relOpacityLayer = null; 
@@ -34,6 +38,7 @@ let dataLoaded = false;
 let distBool = true;
 let provBool = true;
 let countryBool = true;
+let densityBool = true;
 let largeBool = true;
 let religionBool = true;
 
@@ -122,9 +127,7 @@ function districtAdd(selectedNation, featureId) {
 
     // Update the display for the selected nation
     document.getElementById(`pop${selectedNation}`).textContent = nationInfo[selectedNation].Population.toLocaleString();
-    for (let i = 1; i <= 10; i++) {
-        document.getElementById(`population${i}`).textContent = `${nationInfo[i].Population.toLocaleString()}`      
-    }    
+    updateTable();
 }
 
 function districtSub(featureId) {
@@ -159,8 +162,55 @@ function districtSub(featureId) {
             nationAssignments[previousNation].splice(index, 1);  // Remove feature from the array
         }
     }
+    updateTable();
+}
+
+function updateTable() {
     for (let i = 1; i <= 10; i++) {
-        document.getElementById(`population${i}`).textContent = `${nationInfo[i].Population.toLocaleString()}`      
+        let density = Math.round(`${nationInfo[i].Population/nationInfo[i].Area}` *10)/10;
+        if(isNaN(density)) {
+            density = 0;
+        }
+        document.getElementById(`population${i}`).textContent = `${nationInfo[i].Population.toLocaleString()}`;
+        document.getElementById(`area${i}`).textContent = `${nationInfo[i].Area.toLocaleString()}`;
+        document.getElementById(`density${i}`).textContent = (density).toLocaleString();
+
+        for (let i = 1; i <= 10; i++){
+            let header;
+            let percentEth = 0;
+            let largestEth = "-";
+            let percentRel = 0;
+            let largestRel = "-";
+            ethnicData.forEach(col => {
+                if(col === "ethnicity" || col === "religion") {
+                    header = col;
+                }
+                if(header === "ethnicity"){
+                    if(nationInfo[i][col] > percentEth){
+                        percentEth = nationInfo[i][col];
+                        largestEth = col;
+                    }
+                }
+                if(header === "religion"){
+                    if(nationInfo[i][col] > percentRel){
+                        percentRel = nationInfo[i][col];
+                        largestRel = col;
+                    }
+                }
+            });
+            document.getElementById(`group${i}`).textContent = largestEth;
+            document.getElementById(`relGroup${i}`).textContent = largestRel;
+            ethPercent = Math.round(percentEth/`${nationInfo[i].Population}`*1000)/10;
+            relPercent = Math.round(percentRel/`${nationInfo[i].Population}`*1000)/10;
+            if(isNaN(ethPercent)) {
+                ethPercent = 0;
+            }
+            if(isNaN(relPercent)) {
+                relPercent = 0;
+            }
+            document.getElementById(`percent${i}`).textContent = `${ethPercent}%`;
+            document.getElementById(`relPercent${i}`).textContent = `${relPercent}%`;
+        }
     }    
 }
 
@@ -204,7 +254,7 @@ function distBoundaries() {
     if (districtBoundariesLayer) {
         toggleBoundaries(districtBoundariesLayer, distBool);  // If the layer already exists
     } else {
-        drawBoundaries('data/southeastEurope/districtBoundaries.geojson', districtBoundariesLayer, 'district');  // Load if it doesn't exist
+        drawBoundaries(`data/${regionSelection}/districtBoundaries.geojson`, districtBoundariesLayer, 'district');  // Load if it doesn't exist
     }
 }
 
@@ -221,7 +271,7 @@ function provBoundaries() {
     if (provinceBoundariesLayer) {
         toggleBoundaries(provinceBoundariesLayer, provBool);  // If the layer already exists
     } else {
-        drawBoundaries('data/southeastEurope/provinceBoundaries.geojson', provinceBoundariesLayer, 'province');  // Load if it doesn't exist
+        drawBoundaries(`data/${regionSelection}/provinceBoundaries.geojson`, provinceBoundariesLayer, 'province');  // Load if it doesn't exist
     }
 }
 
@@ -238,10 +288,25 @@ function countBoundaries() {
     if (countryBoundariesLayer) {
         toggleBoundaries(countryBoundariesLayer, countryBool);  // If the layer already exists
     } else {
-        drawBoundaries('data/southeastEurope/countryBoundaries.geojson', countryBoundariesLayer, 'country');  // Load if it doesn't exist
+        drawBoundaries(`data/${regionSelection}/countryBoundaries.geojson`, countryBoundariesLayer, 'country');  // Load if it doesn't exist
     }
 }
 
+function densityBoundaries() {
+    densityBool = !densityBool;
+
+    if (!densityBool) {
+        document.getElementById('density-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    } else {
+        document.getElementById('density-btn').classList.remove('clickedBtn');  // Remove the class
+    
+    }
+    if (densityLayer) {
+        toggleBoundaries(densityLayer, densityBool);  // If the layer already exists
+    } else {
+        drawDensityLayers(`data/${regionSelection}/districtBoundaries.geojson`, densityLayer, densOpacityLayer);  // Load if it doesn't exist
+    }
+}
 
 function largestBoundaries() {
     largeBool = !largeBool;
@@ -256,14 +321,8 @@ function largestBoundaries() {
         toggleBoundaries(largestLayer, largeBool);  // If the layer already exists
         toggleBoundaries(opacityLayer, largeBool);  // If the layer already exists
     } else {
-        drawLargestLayers('data/southeastEurope/districtBoundaries.geojson', largestLayer, opacityLayer);  // Load if it doesn't exist
+        drawLargestLayers(`data/${regionSelection}/districtBoundaries.geojson`, largestLayer, opacityLayer);  // Load if it doesn't exist
     }
-    // largestLayer.bringToFront();
-    // opacityLayer.bringToFront();
-    // featureLayers.bringToFront();
-    // countryBoundariesLayer.bringToFront();
-    // provinceBoundariesLayer.bringToFront();
-    // districtBoundariesLayer.bringToFront();
 }
 
 function religionBoundaries() {
@@ -279,14 +338,8 @@ function religionBoundaries() {
         toggleBoundaries(religionLayer, religionBool);  // If the layer already exists
         toggleBoundaries(relOpacityLayer, religionBool);  // If the layer already exists
     } else {
-        drawReligionLayers('data/southeastEurope/districtBoundaries.geojson', religionLayer, relOpacityLayer);  // Load if it doesn't exist
+        drawReligionLayers(`data/${regionSelection}/districtBoundaries.geojson`, religionLayer, relOpacityLayer);  // Load if it doesn't exist
     }
-    // religionLayer.bringToFront();
-    // relOpacityLayer.bringToFront();
-    // featureLayers.bringToFront();
-    // countryBoundariesLayer.bringToFront();
-    // provinceBoundariesLayer.bringToFront();
-    // districtBoundariesLayer.bringToFront();
 }
 
 
@@ -309,6 +362,8 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                     };
                 }
             }).addTo(map);
+            districtBoundariesLayer = boundariesLayer;
+            districtBoundariesLayer.bringToFront();
         } else if (boundaryType === 'province') {
             boundariesLayer = L.geoJSON(data, {
                 pane: 'boundaries',
@@ -323,6 +378,8 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                     };
                 }
             }).addTo(map);
+            provinceBoundariesLayer = boundariesLayer;
+            provinceBoundariesLayer.bringToFront();
         } else if (boundaryType === 'country') {
             boundariesLayer = L.geoJSON(data, {
                 pane: 'boundaries',
@@ -337,18 +394,48 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                     };
                 }
             }).addTo(map);
-        }
-        //Store the newly created layer in the global variable
-        if (boundaryType === 'district') {
-            districtBoundariesLayer = boundariesLayer;
-            districtBoundariesLayer.bringToFront();
-        } else if (boundaryType === 'province') {
-            provinceBoundariesLayer = boundariesLayer;
-            provinceBoundariesLayer.bringToFront();
-        } else if (boundaryType === 'country') {
             countryBoundariesLayer = boundariesLayer;
             countryBoundariesLayer.bringToFront();
         }
+    })     
+}
+
+function drawDensityLayers(dataLocation, boundariesLayer, opLayer) {
+    fetch(dataLocation)
+    .then(response => response.json())
+    .then(data => {
+        boundariesLayer = L.geoJSON(data, {
+            pane: 'layers',
+            style: function (feature) {
+                let density = feature.properties["Population"]/(feature.properties["Area"]/1000000);
+                let color = density > 10000 ? '#ffed64' : (density > 8000 ? '#ffe100' : (density > 6000 ? '#ffa600' : (density > 4000 ? '#ff6f00' : (density > 2000 ? '#d45c00' : (density > 1500 ? '#c000d1' : (density > 1000 ? '#d40000' : (density > 750 ? '#c80078' : (density > 500 ? '#9600cd' : (density > 200 ? '#4e00cd' : (density > 100 ? '#6200ff' : (density > 75 ? '#6e14ff' : (density > 50 ? '#852dff' : (density > 40 ? '#6542fe' : (density > 30 ? '#8569ff' : (density > 20 ? '#8696ff' : (density > 10 ? '#dbc1ff' : '#ffffff')))))))))))))))); 
+
+                return {
+                    color: color,
+                    weight: 1,
+                    opacity: 0.5,
+                    fillColor: color,  // Pass the Largest_Group to largestColors
+                    fillOpacity: 0.5,
+                    interactive: false
+                };
+            }
+        }).addTo(map);  // Add to map
+        // opLayer = L.geoJSON(data, {
+        //     pane: 'layers',
+        //     style: function (feature) {
+        //         return {
+        //             color: "#01002e",
+        //             weight: 0.7,
+        //             opacity: largestOpacity(feature.properties["Percent of Population"], 0),
+        //             fillColor: largestOpacity(feature.properties["Percent of Population"], 1),
+        //             fillOpacity: largestOpacity(feature.properties["Percent of Population"], 0),
+        //             interactive: false
+        //         };
+        //     }
+        // }).addTo(map);  // Add to map
+        //Store the newly created layer in the global variable
+        densityLayer = boundariesLayer;
+        // opacityLayer = opLayer;
     })     
 }
 
@@ -662,67 +749,18 @@ function handleFeatureOver(layer, feature) {
 
 
 
+initializeSelection();
 
 
 /* ****** MAP ******* */
 
 
-// Initialize the map
-var map = L.map('map', {
-    scrollWheelZoom: false, // disable original zoom function
-    smoothWheelZoom: true,  // enable smooth zoom 
-    smoothSensitivity: 6,   // zoom speed. default is 1
-    center: [42.6629, 21.1655], zoom: 6
-});
-
-
-// Add tile layers
-var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
-}).addTo(map);
-
-var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-}).addTo(map);
-
-
-
-// Use fetch to load the JSON file
-fetch('data/southeastEurope/ethArray.json')
-    .then(response => response.json())  // Parse JSON response
-    .then(data => {
-        districtObjects = data;  // Set the data to districtObjects
-        // You can now use districtObjects in your script
-        let baseNation = districtObjects.find(obj => obj.ID === 'base');
-        dataType = districtObjects.find(obj => obj.ID === 'dataType');
-        const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "Largest Religion", "Share of Population"];
-
-        const nationBase = Object.keys(baseNation)
-            .filter(key => !excludeKeys.includes(key))
-            .reduce((acc, key) => {
-                acc[key] = baseNation[key];
-                return acc;
-            }, {});
-
-            ethnicData = Object.keys(baseNation);
-        // .filter(key => !excludeKeys.includes(key))
-        // .reduce((acc, key) => {
-        //     acc[key] = baseNation[key];
-        //     return acc;
-        // }, {});
-
-
-        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}};   // Holds the nation info for each of the keys
-        console.log('nationInfo loaded:', nationInfo);
-        console.log('ethnicData loaded:', ethnicData);
-    })
-    .catch(error => console.error('Error loading JSON:', error));
-
-
 function mainLoadData(saveArray) {
+    // console.log('In it:', saveArray);
+
+    map.flyTo([41.7403, 24.0206], 6);
     // Fetch and add GeoJSON data to the map
-    fetch('data/southeastEurope/districtBoundaries.geojson') // Ensure this path is correct
+    fetch(`data/${regionSelection}/districtBoundaries.geojson`) // Ensure this path is correct
         .then(response => response.json())
         .then(data => {
 
@@ -768,7 +806,8 @@ function mainLoadData(saveArray) {
         
 
                     if(saveArray != null){
-                    // Clear all existing layers on the map before reloading
+
+                        // Clear all existing layers on the map before reloading
                         map.eachLayer(function (layer) {
                             if (layer instanceof L.GeoJSON) {
                                 map.removeLayer(layer);
@@ -908,7 +947,9 @@ function mainLoadData(saveArray) {
 
             document.getElementById('dist-bound-btn').click();          
             document.getElementById('nation1-btn').click();   
-            document.getElementById('stat-btn').click(); // Used in data.js
+            document.getElementById('stat-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+
+            // document.getElementById('stat-btn').click(); // Used in data.js
 
         })
         .catch(error => {
@@ -916,7 +957,65 @@ function mainLoadData(saveArray) {
     });
 }
 
-mainLoadData(null);
+
+// Initialize the map
+var map = L.map('map', {
+    scrollWheelZoom: false, // disable original zoom function
+    smoothWheelZoom: true,  // enable smooth zoom 
+    smoothSensitivity: 6,   // zoom speed. default is 1
+    center: [34.5553, 69.2075], zoom: 3
+
+});
+
+// Add tile layers
+var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+}).addTo(map);
+
+var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+}).addTo(map);
+
+
+initializeSelection();
+
+async function setupMap() {
+    await initializeSelection();
+    
+fetch(`data/${regionSelection}/ethArray.json`)
+    .then(response => response.json())  // Parse JSON response
+    .then(data => {
+        districtObjects = data;  // Set the data to districtObjects
+        // You can now use districtObjects in your script
+        let baseNation = districtObjects.find(obj => obj.ID === 'base');
+        dataType = districtObjects.find(obj => obj.ID === 'dataType');
+        const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "Largest Religion", "Share of Population"];
+
+        nationBase = Object.keys(baseNation)
+            .filter(key => !excludeKeys.includes(key))
+            .reduce((acc, key) => {
+                acc[key] = baseNation[key];
+                return acc;
+            }, {});
+
+            ethnicData = Object.keys(baseNation);
+        // .filter(key => !excludeKeys.includes(key))
+        // .reduce((acc, key) => {
+        //     acc[key] = baseNation[key];
+        //     return acc;
+        // }, {});
+
+
+        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}};   // Holds the nation info for each of the keys
+        console.log('nationInfo loaded:', nationInfo);
+        console.log('ethnicData loaded:', ethnicData);
+    })
+    .catch(error => console.error('Error loading JSON:', error));
+    mainLoadData(null);
+}
+
+setupMap();
 
 // Create the panes with custom z-index to control the layer order
 map.createPane('boundaries');
@@ -971,6 +1070,8 @@ updateButtonColor(10);
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
+
     // for (let i = 1; i <= 10; i++) {
     //     document.getElementById(`pop${i}`).textContent = `${nationInfo[i].population}`;
     // }
@@ -981,6 +1082,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //         document.getElementById(`population${i}`).textContent = `${nationInfo[i].population.toLocaleString()}`      
     //     }    
     // }
+
+    // for (let i = 1; i <= 10; i++) {
+    //     document.getElementById(`area${i}`).textContent = `${Math.round((nationInfo[i].Area)/1000000).toLocaleString()}`
+    // }    
+
         
     document.getElementById('district-btn').addEventListener('click', switchToDistrict);
     document.getElementById('province-btn').addEventListener('click', switchToProvince);
@@ -1005,9 +1111,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('dist-bound-btn').addEventListener('click', distBoundaries);
     document.getElementById('prov-bound-btn').addEventListener('click', provBoundaries);
     document.getElementById('count-bound-btn').addEventListener('click', countBoundaries);
+    document.getElementById('density-btn').addEventListener('click', densityBoundaries);
     document.getElementById('largest-btn').addEventListener('click', largestBoundaries);
     document.getElementById('religion-btn').addEventListener('click', religionBoundaries);
 
     document.getElementById('draw-btn').addEventListener('click', switchToDraw);
     document.getElementById('erase-btn').addEventListener('click', switchToErase);
 });
+
+
+
