@@ -51,7 +51,7 @@ function openStatTab(evt, tabName) {
 
 function populateEthnicityTable() { 
     let ethBoolHeader = null;
-    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesEth');
@@ -131,7 +131,7 @@ function populateEthnicityTable() {
 
 function populateReligionTable() { 
     let relBoolHeader = null;
-    const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesRel');

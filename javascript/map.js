@@ -38,11 +38,11 @@ let dataLoaded = false;
 let distBool = true;
 let provBool = true;
 let countryBool = true;
-let densityBool = true;
-let largeBool = true;
-let religionBool = true;
-
-
+let densityBool = null;
+let largeBool = null;
+let religionBool = null;
+let opacityValue = 0.5;
+let mapOpacityValue = 0.7;
 
 
 /* ****** FUNCTIONS ******* */
@@ -75,8 +75,9 @@ function updateButtonColor(nationNumber) {
         featureLayers[featureId].setStyle({
             color: nationColors[nationNumber],  // Border color
             fillColor: nationColors[nationNumber], // Fill color
-            fillOpacity: 0.7,
-            opacity: 1
+            weight: 0.7,
+            fillOpacity: mapOpacityValue,
+            opacity: mapOpacityValue
         });
     });
 }
@@ -258,7 +259,6 @@ function distBoundaries() {
     }
 }
 
-
 function provBoundaries() {
     provBool = !provBool;
 
@@ -274,7 +274,6 @@ function provBoundaries() {
         drawBoundaries(`data/${regionSelection}/provinceBoundaries.geojson`, provinceBoundariesLayer, 'province');  // Load if it doesn't exist
     }
 }
-
 
 function countBoundaries() {
     countryBool = !countryBool;
@@ -292,57 +291,6 @@ function countBoundaries() {
     }
 }
 
-function densityBoundaries() {
-    densityBool = !densityBool;
-
-    if (!densityBool) {
-        document.getElementById('density-btn').classList.add('clickedBtn');  // Add the class to the clicked button
-    } else {
-        document.getElementById('density-btn').classList.remove('clickedBtn');  // Remove the class
-    
-    }
-    if (densityLayer) {
-        toggleBoundaries(densityLayer, densityBool);  // If the layer already exists
-    } else {
-        drawDensityLayers(`data/${regionSelection}/districtBoundaries.geojson`, densityLayer, densOpacityLayer);  // Load if it doesn't exist
-    }
-}
-
-function largestBoundaries() {
-    largeBool = !largeBool;
-
-    if (!largeBool) {
-        document.getElementById('largest-btn').classList.add('clickedBtn');  // Add the class to the clicked button
-    } else {
-        document.getElementById('largest-btn').classList.remove('clickedBtn');  // Remove the class
-    
-    }
-    if (largestLayer) {
-        toggleBoundaries(largestLayer, largeBool);  // If the layer already exists
-        toggleBoundaries(opacityLayer, largeBool);  // If the layer already exists
-    } else {
-        drawLargestLayers(`data/${regionSelection}/districtBoundaries.geojson`, largestLayer, opacityLayer);  // Load if it doesn't exist
-    }
-}
-
-function religionBoundaries() {
-    religionBool = !religionBool;
-
-    if (!religionBool) {
-        document.getElementById('religion-btn').classList.add('clickedBtn');  // Add the class to the clicked button
-    } else {
-        document.getElementById('religion-btn').classList.remove('clickedBtn');  // Remove the class
-    
-    }
-    if (religionLayer) {
-        toggleBoundaries(religionLayer, religionBool);  // If the layer already exists
-        toggleBoundaries(relOpacityLayer, religionBool);  // If the layer already exists
-    } else {
-        drawReligionLayers(`data/${regionSelection}/districtBoundaries.geojson`, religionLayer, relOpacityLayer);  // Load if it doesn't exist
-    }
-}
-
-
 function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
     fetch(dataLocation)
     .then(response => response.json())
@@ -350,7 +298,6 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
         // Create a new GeoJSON layer and store it in the variable
         if (boundaryType === 'district') {
             boundariesLayer = L.geoJSON(data, {
-                pane: 'boundaries',
                 style: function (feature) {
                     return {
                         color: "#01002e",
@@ -366,7 +313,6 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
             districtBoundariesLayer.bringToFront();
         } else if (boundaryType === 'province') {
             boundariesLayer = L.geoJSON(data, {
-                pane: 'boundaries',
                 style: function (feature) {
                     return {
                         color: "#daa520",
@@ -382,7 +328,6 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
             provinceBoundariesLayer.bringToFront();
         } else if (boundaryType === 'country') {
             boundariesLayer = L.geoJSON(data, {
-                pane: 'boundaries',
                 style: function (feature) {
                     return {
                         color: "#000000",
@@ -394,10 +339,12 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                     };
                 }
             }).addTo(map);
+            console.log("layer", boundariesLayer);
             countryBoundariesLayer = boundariesLayer;
             countryBoundariesLayer.bringToFront();
         }
-    })     
+    }) 
+    console.log("ay", boundariesLayer);
 }
 
 function drawDensityLayers(dataLocation, boundariesLayer, opLayer) {
@@ -408,38 +355,24 @@ function drawDensityLayers(dataLocation, boundariesLayer, opLayer) {
             pane: 'layers',
             style: function (feature) {
                 let density = feature.properties["Population"]/(feature.properties["Area"]/1000000);
-                let color = density > 10000 ? '#ffed64' : (density > 8000 ? '#ffe100' : (density > 6000 ? '#ffa600' : (density > 4000 ? '#ff6f00' : (density > 2000 ? '#d45c00' : (density > 1500 ? '#c000d1' : (density > 1000 ? '#d40000' : (density > 750 ? '#c80078' : (density > 500 ? '#9600cd' : (density > 200 ? '#4e00cd' : (density > 100 ? '#6200ff' : (density > 75 ? '#6e14ff' : (density > 50 ? '#852dff' : (density > 40 ? '#6542fe' : (density > 30 ? '#8569ff' : (density > 20 ? '#8696ff' : (density > 10 ? '#dbc1ff' : '#ffffff')))))))))))))))); 
+                // let color = density > 10000 ? '#ffed64' : (density > 8000 ? '#ffe100' : (density > 6000 ? '#ffa600' : (density > 4000 ? '#ff6f00' : (density > 2000 ? '#d45c00' : (density > 1500 ? '#c000d1' : (density > 1000 ? '#d40000' : (density > 750 ? '#c80078' : (density > 500 ? '#9600cd' : (density > 200 ? '#4e00cd' : (density > 100 ? '#6200ff' : (density > 75 ? '#6e14ff' : (density > 50 ? '#852dff' : (density > 40 ? '#6542fe' : (density > 30 ? '#8569ff' : (density > 20 ? '#8696ff' : (density > 10 ? '#dbc1ff' : '#ffffff')))))))))))))))); 
+                let color = density > 10000 ? '#fff81f' : (density > 8000 ? '#ffe21b' : (density > 6000 ? '#ffcd36' : (density > 4000 ? '#ffb945' : (density > 2000 ? '#ffa547' : (density > 1500 ? '#ff8e45' :(density > 1000 ? '#ff7b4e' : (density > 750 ? '#f96957' : (density > 500 ? '#ec585e' : (density > 200 ? '#dd4a65' : (density > 100 ? '#cb3f69' : (density > 75 ? '#b8366c' : (density > 50 ? '#a32f6e' : (density > 40 ? '#8d2b6d' : (density > 30 ? '#77276a' : (density > 20 ? '#602465' : (density > 10 ? '#4a215d' : '#341d54')))))))))))))))); 
 
                 return {
                     color: color,
                     weight: 1,
-                    opacity: 0.5,
+                    opacity: opacityValue,
                     fillColor: color,  // Pass the Largest_Group to largestColors
-                    fillOpacity: 0.5,
+                    fillOpacity: opacityValue,
                     interactive: false
                 };
             }
         }).addTo(map);  // Add to map
-        // opLayer = L.geoJSON(data, {
-        //     pane: 'layers',
-        //     style: function (feature) {
-        //         return {
-        //             color: "#01002e",
-        //             weight: 0.7,
-        //             opacity: largestOpacity(feature.properties["Percent of Population"], 0),
-        //             fillColor: largestOpacity(feature.properties["Percent of Population"], 1),
-        //             fillOpacity: largestOpacity(feature.properties["Percent of Population"], 0),
-        //             interactive: false
-        //         };
-        //     }
-        // }).addTo(map);  // Add to map
         //Store the newly created layer in the global variable
         densityLayer = boundariesLayer;
-        // opacityLayer = opLayer;
     })     
 }
 
-// Percent of Population Layer
 function drawLargestLayers(dataLocation, boundariesLayer, opLayer) {
     fetch(dataLocation)
     .then(response => response.json())
@@ -450,22 +383,24 @@ function drawLargestLayers(dataLocation, boundariesLayer, opLayer) {
                 return {
                     color: largestColors(feature.properties["Largest Group"]),
                     weight: 1,
-                    opacity: 0.5,
+                    opacity: opacityValue || 0.5,
                     fillColor: largestColors(feature.properties["Largest Group"]),  // Pass the Largest_Group to largestColors
-                    fillOpacity: 0.6,
+                    fillOpacity: opacityValue || 0.5,
                     interactive: false
                 };
             }
         }).addTo(map);  // Add to map
+        console.log("dsf", opacityValue);
+
         opLayer = L.geoJSON(data, {
             pane: 'layers',
             style: function (feature) {
                 return {
                     color: "#01002e",
                     weight: 0.7,
-                    opacity: largestOpacity(feature.properties["Percent of Population"], 0),
-                    fillColor: largestOpacity(feature.properties["Percent of Population"], 1),
-                    fillOpacity: largestOpacity(feature.properties["Percent of Population"], 0),
+                    opacity: largestOpacity(feature.properties["Percent of Population"]),
+                    fillColor: opacityColor(feature.properties["Percent of Population"]),
+                    fillOpacity: largestOpacity(feature.properties["Percent of Population"]),
                     interactive: false
                 };
             }
@@ -476,7 +411,6 @@ function drawLargestLayers(dataLocation, boundariesLayer, opLayer) {
     })     
 }
 
-// Percent of Population Layer
 function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
     fetch(dataLocation)
     .then(response => response.json())
@@ -486,21 +420,22 @@ function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
                 return {
                     color: religionColors(feature.properties["Largest Religion"]),
                     weight: 1,
-                    opacity: 0.5,
+                    opacity: opacityValue || 0.5,
                     fillColor: religionColors(feature.properties["Largest Religion"]),  // Pass the Largest_Group to religionColors
-                    fillOpacity: 0.6,
+                    fillOpacity: opacityValue || 0.5,
                     interactive: false
                 };
             }
         }).addTo(map);  // Add to map
+        console.log("obcbp", opacityValue);
         opLayer = L.geoJSON(data, {
             style: function (feature) {
                 return {
                     color: "#01002e",
                     weight: 0.7,
-                    opacity: largestOpacity(feature.properties["Share of Population"], 0),
-                    fillColor: largestOpacity(feature.properties["Share of Population"], 1),
-                    fillOpacity: largestOpacity(feature.properties["Share of Population"], 0),
+                    opacity: largestOpacity(feature.properties["Share of Population"]),
+                    fillColor: opacityColor(feature.properties["Share of Population"]),
+                    fillOpacity: largestOpacity(feature.properties["Share of Population"]),
                     interactive: false
                 };
             }
@@ -511,22 +446,82 @@ function drawReligionLayers(dataLocation, boundariesLayer, opLayer) {
     })     
 }
 
-function largestOpacity(largestOp, colorOp) {
-    if (colorOp === 1){
-        if (largestOp > .5) {
-            return 'black';
-        } else {
-            return 'white';
-        }
+function densityBoundaries() {
+    toggleLayerBoundaries();
+    densityBool = true;
+    document.getElementById('density-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    if (densityLayer) {
+        map.addLayer(densityLayer);  // Add the layer if it's not already on the 
+        densityLayer.eachLayer(layer => {
+            layer.setStyle({ fillOpacity: opacityValue,
+                opacity: opacityValue });
+        });
     } else {
-        if (largestOp > .6) {
-            return (largestOp - .6);
-        } else {
-            return (.6 - largestOp);
-        }
+        drawDensityLayers(`data/${regionSelection}/districtBoundaries.geojson`, densityLayer, densOpacityLayer);  // Load if it doesn't exist
     }
 }
 
+function largestBoundaries() {
+    toggleLayerBoundaries();
+    largeBool = true;
+    document.getElementById('largest-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    if (largestLayer) {
+        map.addLayer(largestLayer);  // Add the layer if it's not already on the map
+        map.addLayer(opacityLayer);  // Add the layer if it's not already on the map
+        largestLayer.eachLayer(layer => {
+            layer.setStyle({ fillOpacity: opacityValue,
+                opacity: opacityValue });
+        });
+        opacityLayer.eachLayer(layer => {
+            let initialOpacity = layer.feature.properties["Percent of Population"];
+            layer.setStyle({ 
+                fillOpacity: largestOpacity(initialOpacity) * 2 * opacityValue,
+                opacity: largestOpacity(initialOpacity) * 2 * opacityValue // Example of adjusting border opacity
+            });
+        });
+    } else {
+        drawLargestLayers(`data/${regionSelection}/districtBoundaries.geojson`, largestLayer, opacityLayer);  // Load if it doesn't exist
+    }
+}
+
+function religionBoundaries() {
+    toggleLayerBoundaries();
+    religionBool = true;
+    document.getElementById('religion-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    if (religionLayer) {
+        map.addLayer(religionLayer);  // Add the layer if it's not already on the map
+        map.addLayer(relOpacityLayer);  // Add the layer if it's not already on the map
+        religionLayer.eachLayer(layer => {
+            layer.setStyle({ fillOpacity: opacityValue,
+                opacity: opacityValue });
+        });
+        relOpacityLayer.eachLayer(layer => {
+            let initialOpacity = layer.feature.properties["Share of Population"];
+            layer.setStyle({ 
+                fillOpacity: largestOpacity(initialOpacity) * 2 * opacityValue,
+                opacity: largestOpacity(initialOpacity) * 2 * opacityValue // Example of adjusting border opacity
+            });
+        });
+    } else {
+        drawReligionLayers(`data/${regionSelection}/districtBoundaries.geojson`, religionLayer, relOpacityLayer);  // Load if it doesn't exist
+    }
+}
+
+
+function opacityColor(largestOp) {
+    if (largestOp > .6) {
+        return 'black';
+    } else {
+        return 'white';
+    }
+}
+function largestOpacity(largestOp) {
+    if (largestOp > .6) {
+        return (largestOp - 0.6);
+    } else {
+        return (0.6 - largestOp);
+    }
+}
 
 function toggleBoundaries(boundariesLayer, boundBool) {
     if (boundBool === true) {
@@ -537,213 +532,74 @@ function toggleBoundaries(boundariesLayer, boundBool) {
     
 }
 
+function toggleLayerBoundaries() {
+    if(densityBool === true){
+        densityBool = false;
+        document.getElementById('density-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        map.removeLayer(densityLayer);  // Remove the layer if it exists
+    }
+    if(largeBool === true){
+        largeBool = false;
+        document.getElementById('largest-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        map.removeLayer(largestLayer);  // Remove the layer if it exists
+        map.removeLayer(opacityLayer);  // Remove the layer if it exists
+    }
+    if(religionBool === true){
+        religionBool = false;
+        document.getElementById('religion-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        map.removeLayer(religionLayer);  // Remove the layer if it exists
+        map.removeLayer(relOpacityLayer);  // Remove the layer if it exists
+    }
+}
+
 
 
 function handleFeatureClick(layer, feature) {
     if (mode === 'district') {
-        if (selectedNation !== null) {
-            let featureId = feature.properties.ID; // Get the feature's ID
-    
-            // Assign the feature to the selected nation and update population
-            if (drawMode === 'draw') {
-                districtAdd(selectedNation, featureId);
-            } else if (drawMode === 'erase'){
-                districtSub(featureId);
-            }
-
-            // Change the feature's color based on the selected nation
-            if (drawMode === 'draw'){
-                let selectedColor = nationColors[selectedNation];
-                layer.setStyle({
-                    color: selectedColor,
-                    fillColor: selectedColor,
-                    fillOpacity: 0.7,
-                    opacity: 1
-                });
-            } else if (drawMode === 'erase'){
-                layer.setStyle({
-                    color: null,
-                    fillColor: null,
-                    fillOpacity: 0,
-                    opacity: 0
-                });
-            }
-        };    
+        applyDistrictChange(layer, feature);
     } else if (mode === 'province') {
-        let featureProv = feature.properties.Province;
-        if (selectedNation !== null && provinceGroups[featureProv]) {                    
-            provinceGroups[featureProv].forEach(districtFeature => {
-                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the province
-                let featureId = districtFeature.properties.ID; // Get the feature's ID
-    
-                if (districtLayer) { // Ensure the layer exists
-                    if (drawMode === 'draw') {
-                        districtAdd(selectedNation, featureId);    
-                    } else if (drawMode === 'erase'){
-                        districtSub(featureId);
-                    }
-                    if (drawMode === 'draw'){
-                        let selectedColor = nationColors[selectedNation];
-                        districtLayer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7,
-                            opacity: 1
-                        });
-                    } else if (drawMode === 'erase'){
-                        districtLayer.setStyle({
-                            color: null,
-                            fillColor: null,
-                            fillOpacity: 0,
-                            opacity: 0
-                        });
-                    }                
-
-                } else {
-                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
-                }
-            });                        
-        }
+        applyGroupChange(provinceGroups[feature.properties.Province], feature.properties.Province);
     } else if (mode === 'country') {
-        let featureCountry = feature.properties.Country;
-        if (selectedNation !== null && countryGroups[featureCountry]) {                    
-            countryGroups[featureCountry].forEach(districtFeature => {
-                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the country
-                let featureId = districtFeature.properties.ID; // Get the feature's ID
-    
-                if (districtLayer) { // Ensure the layer exists
-                    if (drawMode === 'draw') {
-                        districtAdd(selectedNation, featureId);    
-                    } else if (drawMode === 'erase'){
-                        districtSub(featureId);
-                    }
-                    if (drawMode === 'draw'){
-                        let selectedColor = nationColors[selectedNation];
-                        districtLayer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7,
-                            opacity: 1
-                        });
-                    } else if (drawMode === 'erase'){
-                        districtLayer.setStyle({
-                            color: null,
-                            fillColor: null,
-                            fillOpacity: 0,
-                            opacity: 0
-                        });
-                    }                
-
-                } else {
-                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
-                }
-            });                        
-        }
-    };
+        applyGroupChange(countryGroups[feature.properties.Country], feature.properties.Country);
+    }
 }
 
-function handleFeatureOver(layer, feature) {
-    if (mode === 'district') {
-         
-        let featureId = feature.properties.ID; // Get the feature's ID
+function applyDistrictChange(layer, feature) {
+    // Apply style changes based on selected nation
+    let featureId = feature.properties.ID;
+    let selectedColor = drawMode === 'draw' ? nationColors[selectedNation] : null;
+    districtAddOrSub(featureId, drawMode);
 
-        if (selectedNation !== null) {                    
-            // Assign the feature to the selected nation and update population
-            if (drawMode === 'draw') {
-                districtAdd(selectedNation, featureId);    
-            } else if (drawMode === 'erase'){
-                districtSub(featureId);
-            }
-        }
-        if (drawMode === 'draw'){
-            let selectedColor = nationColors[selectedNation];
-            layer.setStyle({
-                color: selectedColor,
-                fillColor: selectedColor,
-                fillOpacity: 0.7,
-                opacity: 1
-            });
-        } else if (drawMode === 'erase'){
-            layer.setStyle({
-                color: null,
-                fillColor: null,
-                fillOpacity: 0,
-                opacity: 0
-            });
-        }
-
-
-    } else if (mode === 'province') {
-        let featureProv = feature.properties.Province;
-        if (selectedNation !== null && provinceGroups[featureProv]) {                    
-            provinceGroups[featureProv].forEach(districtFeature => {
-                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the province
-                let featureId = districtFeature.properties.ID; // Get the feature's ID
-    
-                if (districtLayer) { // Ensure the layer exists
-                    if (drawMode === 'draw') {
-                        districtAdd(selectedNation, featureId);    
-                    } else if (drawMode === 'erase'){
-                        districtSub(featureId);
-                    }
-                    if (drawMode === 'draw'){
-                        let selectedColor = nationColors[selectedNation];
-                        districtLayer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7,
-                            opacity: 1
-                        });
-                    } else if (drawMode === 'erase'){
-                        districtLayer.setStyle({
-                            color: null,
-                            fillColor: null,
-                            fillOpacity: 0,
-                            opacity: 0
-                        });
-                    }                
-                } else {
-                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
-                }
-            });                        
-        }
-    } else if (mode === 'country') {
-        let featureCountry = feature.properties.Country;
-        if (selectedNation !== null && countryGroups[featureCountry]) {                    
-            countryGroups[featureCountry].forEach(districtFeature => {
-                let districtLayer = featureLayers[districtFeature.properties.ID]; // Get the layer for each district in the country
-                let featureId = districtFeature.properties.ID; // Get the feature's ID
-    
-                if (districtLayer) { // Ensure the layer exists
-                    if (drawMode === 'draw') {
-                        districtAdd(selectedNation, featureId);    
-                    } else if (drawMode === 'erase'){
-                        districtSub(featureId);
-                    }
-                    if (drawMode === 'draw'){
-                        let selectedColor = nationColors[selectedNation];
-                        districtLayer.setStyle({
-                            color: selectedColor,
-                            fillColor: selectedColor,
-                            fillOpacity: 0.7,
-                            opacity: 1
-                        });
-                    } else if (drawMode === 'erase'){
-                        districtLayer.setStyle({
-                            color: null,
-                            fillColor: null,
-                            fillOpacity: 0,
-                            opacity: 0
-                        });
-                    }                
-                } else {
-                    console.error(`Error: Layer for district with ID ${districtFeature.properties.ID} not found.`);
-                }
-            });                        
-        }
-    };
+    layer.setStyle({
+        color: selectedColor,
+        fillColor: selectedColor,
+        fillOpacity: selectedColor ? mapOpacityValue : 0,
+        opacity: selectedColor ? mapOpacityValue * 1.2 : 0
+    });
 }
 
+function applyGroupChange(groupLayer, groupId) {
+    groupLayer.eachLayer(function (layer) {
+        let featureId = layer.feature.properties.ID;
+        let selectedColor = drawMode === 'draw' ? nationColors[selectedNation] : null;
+        districtAddOrSub(featureId, drawMode);
+
+        layer.setStyle({
+            color: selectedColor,
+            fillColor: selectedColor,
+            fillOpacity: selectedColor ? 0.7 : 0,
+            opacity: selectedColor ? 1 : 0
+        });
+    });
+}
+
+function districtAddOrSub(featureId, mode) {
+    if (mode === 'draw') {
+        districtAdd(selectedNation, featureId);
+    } else if (mode === 'erase') {
+        districtSub(featureId);
+    }
+}
 
 
 
@@ -758,7 +614,15 @@ initializeSelection();
 function mainLoadData(saveArray) {
     // console.log('In it:', saveArray);
 
-    map.flyTo([41.7403, 24.0206], 6);
+    if(regionSelection === "southeastEurope"){
+        map.flyTo([41.7403, 24.0206], 6);
+    } else if (regionSelection === "westAsia") {
+        map.flyTo([27.9763, 42.9730], 5);
+    } else if (regionSelection === "russia") {
+        map.flyTo([66.1274, 109.8646], 3.5);
+    } else if (regionSelection === "centralAsia") {
+        map.flyTo([41.5744, 64.1833], 4.5);
+    }
     // Fetch and add GeoJSON data to the map
     fetch(`data/${regionSelection}/districtBoundaries.geojson`) // Ensure this path is correct
         .then(response => response.json())
@@ -768,9 +632,9 @@ function mainLoadData(saveArray) {
                 pane: 'nations',
                 style: function(feature) {
                     return {
-                        color: 'black',
-                        weight: 0.3,
-                        fillColor: 'white',
+                        color: nationColors[selectedNation],
+                        weight: 0.5,
+                        fillColor: nationColors[selectedNation],
                         fillOpacity: 0,
                         opacity: 0
                     };
@@ -778,28 +642,18 @@ function mainLoadData(saveArray) {
 
                 onEachFeature: function(feature, layer) {
 
-                    // Group districts by province and country
-                    data.features.forEach(feature => {
-                        let provinceId = feature.properties.Province;
-                        let provincePop, countryPop = feature.properties.Population;
-                        if (!provinceGroups[provinceId]) {
-                            provinceGroups[provinceId] = [];
-                        }
-                        provincePopulations[feature.properties.ID] = provincePop;
-                        provinceGroups[provinceId].push(feature); // Add district to its province group
-
-                        let countryId = feature.properties.Country; // Assuming province_id exists in your data
-                        // let countryPop = feature.properties.Population; // Assuming province_id exists in your data
-                        if (!countryGroups[countryId]) {
-                            countryGroups[countryId] = [];
-                        }
-                        countryPopulations[feature.properties.ID] = countryPop;
-                        countryGroups[countryId].push(feature); // Add district to its country group
-
-                    });
-        
-                    let featureId = feature.properties.ID; // Get the feature's ID
-                    featureLayers[featureId] = layer; // Store the layer reference for later updates
+                    let provinceId = feature.properties.Province;
+                    let countryId = feature.properties.Country;
+    
+                    // Add district to province and country groups
+                    if (!provinceGroups[provinceId]) provinceGroups[provinceId] = L.layerGroup();
+                    provinceGroups[provinceId].addLayer(layer);
+    
+                    if (!countryGroups[countryId]) countryGroups[countryId] = L.layerGroup();
+                    countryGroups[countryId].addLayer(layer);
+    
+                    // Store layer reference in featureLayers
+                    featureLayers[feature.properties.ID] = layer;
 
                     // Find the matching object from districtObjects based on feature.properties.ID
                     districtObjects.find(obj => obj.ID.trim() === feature.properties.ID.trim());
@@ -842,8 +696,6 @@ function mainLoadData(saveArray) {
         
                     layer.on('click', function() {
                         handleFeatureClick(layer, feature);
-                        console.log('nationInfo right now:', nationInfo);
-                        console.log('nationAssignments right now:', nationAssignments);
                     });
 
                     // Handle mouseover to display feature info
@@ -853,7 +705,7 @@ function mainLoadData(saveArray) {
                         const curObj = districtObjects.find(obj => obj.ID.trim() === feature.properties.ID.trim());
 
                         if (shiftKeyPressed) {
-                            handleFeatureOver(layer, feature);
+                            handleFeatureClick(layer, feature);
                         }
 
                         if (curObj) {
@@ -873,64 +725,176 @@ function mainLoadData(saveArray) {
                             document.getElementById('groupTwo').textContent = `${curObj.twoGroup}`;                        
                             if(`${curObj.twoGroup}` === "."){
                                 document.getElementById('twoGroup').textContent = ".";
+                                document.getElementById('twoGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
                                 document.getElementById('twoGroup').textContent = `${curObj[curObj.twoGroup].toLocaleString()}`;
                                 document.getElementById('twoGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.twoGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-
                             document.getElementById('groupThree').textContent = `${curObj.threeGroup}`;
                             if(`${curObj.threeGroup}` === "."){
                                 document.getElementById('threeGroup').textContent = ".";
+                                document.getElementById('threeGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
                                 document.getElementById('threeGroup').textContent = `${curObj[curObj.threeGroup].toLocaleString()}`;
                                 document.getElementById('threeGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.threeGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-
                             document.getElementById('groupFour').textContent = `${curObj.fourGroup}`;
                             if(`${curObj.fourGroup}` === "."){
                                 document.getElementById('fourGroup').textContent = ".";
+                                document.getElementById('fourGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
                                 document.getElementById('fourGroup').textContent = `${curObj[curObj.fourGroup].toLocaleString()}`;
                                 document.getElementById('fourGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.fourGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-
                             document.getElementById('groupFive').textContent = `${curObj.fiveGroup}`;
                             if(`${curObj.fiveGroup}` === "."){
                                 document.getElementById('fiveGroup').textContent = ".";
+                                document.getElementById('fiveGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+
                             } else {
                                 document.getElementById('fiveGroup').textContent = `${curObj[curObj.fiveGroup].toLocaleString()}`;
                                 document.getElementById('fiveGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.fiveGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-
                             document.getElementById('groupSix').textContent = `${curObj.sixGroup}`;
                             if(`${curObj.sixGroup}` === "."){
                                 document.getElementById('sixGroup').textContent = ".";
+                                document.getElementById('sixGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+
                             } else {
                                 document.getElementById('sixGroup').textContent = `${curObj[curObj.sixGroup].toLocaleString()}`;
                                 document.getElementById('sixGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sixGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
-
                             
                             document.getElementById('groupSeven').textContent = `${curObj.sevenGroup}`;
                             if(`${curObj.sevenGroup}` === "."){
                                 document.getElementById('sevenGroup').textContent = ".";
+                                document.getElementById('sevenGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
                                 document.getElementById('sevenGroup').textContent = `${curObj[curObj.sevenGroup].toLocaleString()}`;
                                 document.getElementById('sevenGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sevenGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-                            
-                            document.getElementById('groupEight').textContent = `${curObj.eightGroup}`;
-                            if(`${curObj.eightGroup}` === "."){
+                            document.getElementById('groupEight').textContent = `${curObj.sevenGroup}`;
+                            if(`${curObj.sevenGroup}` === "."){
                                 document.getElementById('eightGroup').textContent = ".";
+                                document.getElementById('eightGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
-                                document.getElementById('eightGroup').textContent = `${curObj[curObj.eightGroup].toLocaleString()}`;
+                                document.getElementById('eightGroup').textContent = `${curObj[curObj.sevenGroup].toLocaleString()}`;
                                 document.getElementById('eightGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.eightGroup]/curObj['Population'] * 100}%, white 0%)`;
-                                
+                            }
+
+                            document.getElementById('groupNine').textContent = `${curObj.nineGroup}`;
+                            if(`${curObj.nineGroup}` === "."){
+                                document.getElementById('nineGroup').textContent = ".";
+                                document.getElementById('nineGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('nineGroup').textContent = `${curObj[curObj.nineGroup].toLocaleString()}`;
+                                document.getElementById('nineGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.nineGroup]/curObj['Population'] * 100}%, white 0%)`;
+                            }nineGroup
+
+                            document.getElementById('groupTen').textContent = `${curObj.tenGroup}`;
+                            if(`${curObj.sevenGroup}` === "."){
+                                document.getElementById('tenGroup').textContent = ".";
+                                document.getElementById('tenGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('tenGroup').textContent = `${curObj[curObj.sevenGroup].toLocaleString()}`;
+                                document.getElementById('tenGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.tenGroup]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionOne').textContent = `${curObj.oneReligion}`;                        
+                            if(`${curObj.oneReligion}` === "."){
+                                document.getElementById('oneReligion').textContent = ".";
+                                document.getElementById('oneReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('oneReligion').textContent = `${curObj[curObj.oneReligion].toLocaleString()}`;
+                                document.getElementById('oneReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.oneReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionTwo').textContent = `${curObj.twoReligion}`;                        
+                            if(`${curObj.twoReligion}` === "."){
+                                document.getElementById('twoReligion').textContent = ".";
+                                document.getElementById('twoReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('twoReligion').textContent = `${curObj[curObj.twoReligion].toLocaleString()}`;
+                                document.getElementById('twoReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.twoReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionThree').textContent = `${curObj.threeReligion}`;
+                            if(`${curObj.threeReligion}` === "."){
+                                document.getElementById('threeReligion').textContent = ".";
+                                document.getElementById('threeReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('threeReligion').textContent = `${curObj[curObj.threeReligion].toLocaleString()}`;
+                                document.getElementById('threeReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.threeReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionFour').textContent = `${curObj.fourReligion}`;
+                            if(`${curObj.fourReligion}` === "."){
+                                document.getElementById('fourReligion').textContent = ".";
+                                document.getElementById('fourReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('fourReligion').textContent = `${curObj[curObj.fourReligion].toLocaleString()}`;
+                                document.getElementById('fourReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.fourReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionFive').textContent = `${curObj.fiveReligion}`;
+                            if(`${curObj.fiveReligion}` === "."){
+                                document.getElementById('fiveReligion').textContent = ".";
+                                document.getElementById('fiveReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+
+                            } else {
+                                document.getElementById('fiveReligion').textContent = `${curObj[curObj.fiveReligion].toLocaleString()}`;
+                                document.getElementById('fiveReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.fiveReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionSix').textContent = `${curObj.sixReligion}`;
+                            if(`${curObj.sixReligion}` === "."){
+                                document.getElementById('sixReligion').textContent = ".";
+                                document.getElementById('sixReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+
+                            } else {
+                                document.getElementById('sixReligion').textContent = `${curObj[curObj.sixReligion].toLocaleString()}`;
+                                document.getElementById('sixReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sixReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+                            
+                            document.getElementById('religionSeven').textContent = `${curObj.sevenReligion}`;
+                            if(`${curObj.sevenReligion}` === "."){
+                                document.getElementById('sevenReligion').textContent = ".";
+                                document.getElementById('sevenReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('sevenReligion').textContent = `${curObj[curObj.sevenReligion].toLocaleString()}`;
+                                document.getElementById('sevenReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sevenReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionEight').textContent = `${curObj.sevenReligion}`;
+                            if(`${curObj.sevenReligion}` === "."){
+                                document.getElementById('eightReligion').textContent = ".";
+                                document.getElementById('eightReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('eightReligion').textContent = `${curObj[curObj.sevenReligion].toLocaleString()}`;
+                                document.getElementById('eightReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.eightReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionNine').textContent = `${curObj.nineReligion}`;
+                            if(`${curObj.nineReligion}` === "."){
+                                document.getElementById('nineReligion').textContent = ".";
+                                document.getElementById('nineReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('nineReligion').textContent = `${curObj[curObj.nineReligion].toLocaleString()}`;
+                                document.getElementById('nineReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.nineReligion]/curObj['Population'] * 100}%, white 0%)`;
+                            }
+
+                            document.getElementById('religionTen').textContent = `${curObj.tenReligion}`;
+                            if(`${curObj.tenReligion}` === "."){
+                                document.getElementById('tenReligion').textContent = ".";
+                                document.getElementById('tenReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
+                            } else {
+                                document.getElementById('tenReligion').textContent = `${curObj[curObj.tenReligion].toLocaleString()}`;
+                                document.getElementById('tenReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.tenReligion]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
                         } else {
@@ -941,6 +905,7 @@ function mainLoadData(saveArray) {
                 }
 
             }).addTo(map); 
+            console.log("ehre",districtObjects)
             
             document.getElementById('district-btn').click(); 
             document.getElementById('draw-btn').click();  // Add the class to the clicked button
@@ -990,7 +955,7 @@ fetch(`data/${regionSelection}/ethArray.json`)
         // You can now use districtObjects in your script
         let baseNation = districtObjects.find(obj => obj.ID === 'base');
         dataType = districtObjects.find(obj => obj.ID === 'dataType');
-        const excludeKeys = ["ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "Largest Religion", "Share of Population"];
+        const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "Largest Religion", "Share of Population"];
 
         nationBase = Object.keys(baseNation)
             .filter(key => !excludeKeys.includes(key))
@@ -1087,6 +1052,61 @@ document.addEventListener('DOMContentLoaded', function() {
     //     document.getElementById(`area${i}`).textContent = `${Math.round((nationInfo[i].Area)/1000000).toLocaleString()}`
     // }    
 
+    document.getElementById('mapOpacity').addEventListener('input', function () {
+        mapOpacityValue = parseFloat(this.value)/100;
+
+        for (let i = 1; i <= 10; i++) {
+            nationAssignments[i].forEach(feature => {
+                const featureId = feature.ID;
+                featureLayers[featureId].setStyle({
+                    fillOpacity: mapOpacityValue,
+                    opacity: mapOpacityValue
+
+                });
+            });
+        }
+    })
+
+
+    document.getElementById('layerOpacity').addEventListener('input', function () {
+        opacityValue = parseFloat(this.value)/100;
+    
+        // Update fillOpacity for each feature in densityLayer
+        if(densityBool === true) {
+            densityLayer.eachLayer(layer => {
+                layer.setStyle({ fillOpacity: opacityValue,
+                    opacity: opacityValue });
+            });    
+        }
+        if(largeBool === true) {
+            largestLayer.eachLayer(layer => {
+                layer.setStyle({ fillOpacity: opacityValue,
+                    opacity: opacityValue });
+            });
+            opacityLayer.eachLayer(layer => {
+                let initialOpacity = layer.feature.properties["Percent of Population"];
+                layer.setStyle({ 
+                    fillOpacity: largestOpacity(initialOpacity) * 2 * opacityValue,
+                    opacity: largestOpacity(initialOpacity) * 2 * opacityValue // Example of adjusting border opacity
+                    });
+            });
+        }
+        if(religionBool === true) {
+            religionLayer.eachLayer(layer => {
+                layer.setStyle({ fillOpacity: opacityValue,
+                    opacity: opacityValue });
+            });
+            relOpacityLayer.eachLayer(layer => {
+                let initialOpacity = layer.feature.properties["Share of Population"];
+                layer.setStyle({ 
+                    fillOpacity: largestOpacity(initialOpacity) * 2 * opacityValue,
+                    opacity: largestOpacity(initialOpacity) * 2 * opacityValue // Example of adjusting border opacity
+                    });
+            })
+        }
+    
+    });
+    
         
     document.getElementById('district-btn').addEventListener('click', switchToDistrict);
     document.getElementById('province-btn').addEventListener('click', switchToProvince);
@@ -1098,6 +1118,14 @@ document.addEventListener('DOMContentLoaded', function() {
             btnClick.classList.add('clickedBtn');
         });
     });
+
+
+    // document.querySelectorAll('.btn3').forEach(btnClick => {
+    //     btnClick.addEventListener('click', () => {
+    //         document.querySelector('.clickedBtn')?.classList.remove('clickedBtn');
+    //         btnClick.classList.add('clickedBtn');
+    //     });
+    // });
 
     document.querySelectorAll("[id^='nation']").forEach(span => {
         span.addEventListener("input", function() {
@@ -1114,6 +1142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('density-btn').addEventListener('click', densityBoundaries);
     document.getElementById('largest-btn').addEventListener('click', largestBoundaries);
     document.getElementById('religion-btn').addEventListener('click', religionBoundaries);
+
 
     document.getElementById('draw-btn').addEventListener('click', switchToDraw);
     document.getElementById('erase-btn').addEventListener('click', switchToErase);

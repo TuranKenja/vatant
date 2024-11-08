@@ -85,9 +85,10 @@ table{
 
 #map {
     float: right;
-    width: calc(100% - 250px);
+    width: calc(100% - 500px);
     height: 97.5vh;
     margin-top: -81px;
+    /* margin-right: 250px; */
     overflow:hidden;
 }
 
@@ -105,7 +106,7 @@ h3{  /* Nations, District Information, etc. */
 
 }
 
-.sidebar{
+.sidebar {
     position: absolute;
     width: 250px;
     height: 97.5vh;
@@ -155,37 +156,9 @@ h3{  /* Nations, District Information, etc. */
     text-align: right;
 }
 
-
-/* DISTRICT INFORMATION */
-
-.infoBar h3, p{
-    margin-top: 0;
-    margin-bottom: 0px;
-}
-
-.infoList{
-    width: 83px;
-    padding-left: 10px;
-
-}
-
-.infoData{
-    width: 150px;
-    padding-right: 10px;
-    text-align: right;
-}
-
-.bound-btn .btn1 {
-    margin-top: 4px; 
-}
-
-.layer-btn .btn1 {
-    margin-top: 4px; 
-}
-
 /* MAP OPTIONS AND LAYER OPTIONS */
 
-.btn, .btn1, .btn2{
+.btn, .btn1, .btn2, .btn3 {
     background-color: rgb(83, 80, 113);
     border: none;
     color: #ffffff;
@@ -198,7 +171,7 @@ h3{  /* Nations, District Information, etc. */
     width: 90%;
 }
 
-.btn:hover, .btn1:hover, .btn2:hover{
+.btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
 
     background-color: goldenrod; 
     color: rgb(255, 255, 255);
@@ -231,42 +204,121 @@ h3{  /* Nations, District Information, etc. */
 
 .layer-btn {
     width:100%;
-    column-count: 1;
+    column-count: 3;
 }
 
 
-    /* Modal Styles */
-    .modal {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-    }
+/* DISTRICT INFORMATION */
 
-    .modal-content {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        text-align: center;
-    }
+.infoBar {
+    float: right;
+    width: 250px;
+    margin-top: -75px;
+    height: 97.5vh;
+    background-color: rgb(255, 255, 255);
+}
 
-    .modal-content h2 {
-        margin-bottom: 15px;
-    }
+.infoBar h3, p{
+    margin-top: 0;
+    margin-bottom: 0px;
+}
 
-    .option-btn {
-        margin: 5px;
-    }
+.infoList{
+    width: 83px;
+    padding-left: 10px;
 
-    /* Hide main content while modal is open */
-    .hidden {
-        display: none;
-    }
+}
 
+.infoData{
+    width: 150px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.bound-btn .btn1 {
+    margin-top: 4px; 
+}
+
+.layer-btn .btn3 {
+    margin-top: 4px; 
+}
+
+
+/* MODAL STYLES (REGION SELECTOR) */
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 95vw;
+    height: 90%;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.regionImg {
+    height: 300px;
+    border-radius: 25px;
+}
+
+.option-btn {
+    margin-top: 25px;
+    margin: 5px;
+    height: 340px;
+    width: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* OPACITY SLIDER */
+
+.slidecontainer {
+    width: 80%; /* Width of the outside container */
+    }
+    
+    /* The slider itself */
+    .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 70%; /* Full-width */
+    height: 5px; /* Specified height */
+    margin-left: 55px;
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+}
+    
+    /* Mouse-over effects */
+    .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    }
+    
+    .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    border-radius: 50%;
+    background: #010742; /* Green background */
+    }
     

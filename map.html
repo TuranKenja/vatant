@@ -40,9 +40,23 @@
                 
         <div id="modal" class="modal">
             <div class="modal-content">
-                <h2>Please select an option to continue</h2>
-                <button class="btn option-btn" data-option="southeastEurope">Southeast Europe</button>
-                <button class="btn option-btn" data-option="westAsia">West Asia</button>
+                <h2>Please select an option to continue.</h2>
+                <button class="btn option-btn" data-option="southeastEurope">
+                    <img class='regionImg' src="images/southeastEurope.png">
+                    Southeast Europe
+                </button>
+                <button class="btn option-btn" data-option="westAsia">
+                    <img class='regionImg' src="images/westAsia.png">
+                    West Asia
+                </button>
+                <button class="btn option-btn" data-option="centralAsia">
+                    <img class='regionImg' src="images/centralAsia.png">
+                    Central Asia
+                </button>
+                <button class="btn option-btn" data-option="russia">
+                    <img class='regionImg' src="images/russia.png">
+                    Russia
+                </button>
             </div>
         </div>
         
@@ -80,6 +94,9 @@
                             <button class="btn" id="country-btn">Country</button>
                         </div>
                     </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="70" class="slider" id="mapOpacity">
+                    </div>                              
                 </div>
 
                 <div class="layerOptions">
@@ -98,15 +115,18 @@
                         </div>
                         <div class="layer-btn">
                             <div>
-                                <button class="btn1" id="density-btn">Pop. Density</button>
+                                <button class="btn3" id="density-btn">Pop. Density</button>
                             </div>
                             <div>
-                                <button class="btn1" id="largest-btn">Largest Group</button>
+                                <button class="btn3" id="largest-btn">Largest Group</button>
                             </div>
                             <div>
-                                <button class="btn1" id="religion-btn">Largest Religion</button>
+                                <button class="btn3" id="religion-btn">Largest Religion</button>
                             </div>
                         </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="layerOpacity">
+                        </div>                              
                     </div>
                 </div>
 
@@ -230,86 +250,129 @@
                     </div>
                 </div>
 
-                <div class="infoBar">
-                    <h3>District Information</h3>
-                    <table class="infoCol">
-                        <tr>
-                            <td class="infoList">District: </td>
-                            <td class="infoData" id="district">.</td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="infoList">Province: </td>
-                            <td class="infoData" id="province">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList">Country: </td>
-                            <td class="infoData" id="country">.</td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="infoList">District ID: </td>
-                            <td class="infoData" id="distID">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList">Population: </td>
-                            <td class="infoData" id="population">.</td>
-                        </tr>
-                        <tr class="grayed">
-                            <td class="infoList">Ethnic Groups</td>
-                            <td class="infoData"></td>
-                        </tr>
-                        <div id="oneBar"></div>
-                        <tr>
-                            <td class="infoList" id="groupOne">First: </td>
-                            <td class="infoData" id="oneGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupTwo">Second: </td>
-                            <td class="infoData" id="twoGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupThree">Third: </td>
-                            <td class="infoData" id="threeGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupFour">Fourth: </td>
-                            <td class="infoData" id="fourGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupFive">Fifth: </td>
-                            <td class="infoData" id="fiveGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupSix">Sixth: </td>
-                            <td class="infoData" id="sixGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupSeven">Seventh: </td>
-                            <td class="infoData" id="sevenGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupEight">Eighth: </td>
-                            <td class="infoData" id="eightGroup">.</td>
-                        </tr>
-                        <!-- <tr>
-                            <td class="infoList" id="groupNine">Ninth: </td>
-                            <td class="infoData" id="nineGroup">.</td>
-                        </tr>
-                        <tr>
-                            <td class="infoList" id="groupTen">Tenth: </td>
-                            <td class="infoData" id="tenGroup">.</td>
-                        </tr> -->
-
-                    </table>
-                </div>
-
             </div>
 
-    
+            <div class="infoBar">
+                <h3>District Information</h3>
+                <table class="infoCol">
+                    <tr>
+                        <td class="infoList">District: </td>
+                        <td class="infoData" id="district">.</td>
+                    </tr>
+                    <tr class="grayed">
+                        <td class="infoList">Province: </td>
+                        <td class="infoData" id="province">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList">Country: </td>
+                        <td class="infoData" id="country">.</td>
+                    </tr>
+                    <tr class="grayed">
+                        <td class="infoList">District ID: </td>
+                        <td class="infoData" id="distID">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList">Population: </td>
+                        <td class="infoData" id="population">.</td>
+                    </tr>
+                    <tr class="grayed">
+                        <td class="infoList">Ethnic Groups</td>
+                        <td class="infoData"></td>
+                    </tr>
+                    <div id="oneBar"></div>
+                    <tr>
+                        <td class="infoList" id="groupOne">First: </td>
+                        <td class="infoData" id="oneGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupTwo">Second: </td>
+                        <td class="infoData" id="twoGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupThree">Third: </td>
+                        <td class="infoData" id="threeGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupFour">Fourth: </td>
+                        <td class="infoData" id="fourGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupFive">Fifth: </td>
+                        <td class="infoData" id="fiveGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupSix">Sixth: </td>
+                        <td class="infoData" id="sixGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupSeven">Seventh: </td>
+                        <td class="infoData" id="sevenGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupEight">Eighth: </td>
+                        <td class="infoData" id="eightGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupNine">Ninth: </td>
+                        <td class="infoData" id="nineGroup">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="groupTen">Tenth: </td>
+                        <td class="infoData" id="tenGroup">.</td>
+                    </tr>
+
+                    <tr class="grayed">
+                        <td class="infoList">Religion</td>
+                        <td class="infoData"></td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionOne">First: </td>
+                        <td class="infoData" id="oneReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionTwo">Second: </td>
+                        <td class="infoData" id="twoReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionThree">Third: </td>
+                        <td class="infoData" id="threeReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionFour">Fourth: </td>
+                        <td class="infoData" id="fourReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionFive">Fifth: </td>
+                        <td class="infoData" id="fiveReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionSix">Sixth: </td>
+                        <td class="infoData" id="sixReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionSeven">Seventh: </td>
+                        <td class="infoData" id="sevenReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionEight">Eighth: </td>
+                        <td class="infoData" id="eightReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionNine">Ninth: </td>
+                        <td class="infoData" id="nineReligion">.</td>
+                    </tr>
+                    <tr>
+                        <td class="infoList" id="religionTen">Tenth: </td>
+                        <td class="infoData" id="tenReligion">.</td>
+                    </tr>
+                </table>
+            </div>
 
             <div id="map"></div>
             <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/leaflet-smooth-wheel-zoom/dist/leaflet-smooth-wheel-zoom.min.js"></script>
             
+
         </div>
 
         <div id="dataTab" class="tabContent">
