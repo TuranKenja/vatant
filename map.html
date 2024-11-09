@@ -229,7 +229,7 @@
                             <tr>
                                 <td class="natRow">
                                     <button class="nation-btn" id="nation9-btn" onclick="selectNation(9)"></button>
-                                    <input type="color" id="color9" class="color-picker" value="#ff005d" />
+                                    <input type="color" id="color9" class="color-picker" value="#ff8c00" />
                                     <span id="nation9-feature" contenteditable="true">Nation 9</span>
                                 </td>
                                 <td class="population">
@@ -239,11 +239,111 @@
                             <tr class="grayed">
                                 <td class="natRow">
                                     <button class="nation-btn" id="nation10-btn" onclick="selectNation(10)"></button>
-                                    <input type="color" id="color10" class="color-picker" value="#00d5ff" />
+                                    <input type="color" id="color10" class="color-picker" value="#5d9300" />
                                     <span id="nation10-feature" contenteditable="true">Nation 10</span>
                                 </td>
                                 <td class="population">
                                     <p id="pop10">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation11-btn" onclick="selectNation(11)"></button>
+                                    <input type="color" id="color11" class="color-picker" value="#722a2a" />
+                                    <span id="nation11-feature" contenteditable="true">Nation 11</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop11">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation12-btn" onclick="selectNation(12)"></button>
+                                    <input type="color" id="color12" class="color-picker" value="#b980ff" />
+                                    <span id="nation12-feature" contenteditable="true">Nation 12</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop12">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation13-btn" onclick="selectNation(13)"></button>
+                                    <input type="color" id="color13" class="color-picker" value="#ff64b2" />
+                                    <span id="nation13-feature" contenteditable="true">Nation 13</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop13">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation14-btn" onclick="selectNation(14)"></button>
+                                    <input type="color" id="color14" class="color-picker" value="#64faff" />
+                                    <span id="nation14-feature" contenteditable="true">Nation 14</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop14">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation15-btn" onclick="selectNation(15)"></button>
+                                    <input type="color" id="color15" class="color-picker" value="#735b23" />
+                                    <span id="nation15-feature" contenteditable="true">Nation 15</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop15">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation16-btn" onclick="selectNation(16)"></button>
+                                    <input type="color" id="color16" class="color-picker" value="#950133" />
+                                    <span id="nation16-feature" contenteditable="true">Nation 16</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop16">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation17-btn" onclick="selectNation(17)"></button>
+                                    <input type="color" id="color17" class="color-picker" value="#417550" />
+                                    <span id="nation17-feature" contenteditable="true">Nation 17</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop17">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation18-btn" onclick="selectNation(18)"></button>
+                                    <input type="color" id="color18" class="color-picker" value="#5291ff" />
+                                    <span id="nation18-feature" contenteditable="true">Nation 18</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop18">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation19-btn" onclick="selectNation(19)"></button>
+                                    <input type="color" id="color19" class="color-picker" value="#fa3b06" />
+                                    <span id="nation19-feature" contenteditable="true">Nation 19</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop19">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <button class="nation-btn" id="nation20-btn" onclick="selectNation(20)"></button>
+                                    <input type="color" id="color20" class="color-picker" value="#160d3f" />
+                                    <span id="nation20-feature" contenteditable="true">Nation 20</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop20">0</p>
                                 </td>
                             </tr>
                         </table>
@@ -376,161 +476,298 @@
         </div>
 
         <div id="dataTab" class="tabContent">
-
             <div class="dataContainer">
-                <h3 class="dataTitle">Type of Data</h3>
-                <div class="demography">
-                    <div>
-                        <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
+                <div class="allData-btn">
+                    <div class="dataTab-btns">
+                        <h3 class="dataTitle">Type of Data</h3>
+                        <div class="demography">
+                            <div class="statDetails">
+                                <div>
+                                    <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
+                                </div>
+                            </div>
+                            <div class="ethnicDetails">
+                                <div>
+                                    <button class="data-btn" id="eth-btn1" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Detailed</button>
+                                </div>
+                                <div>
+                                    <button class="data-btn" id="eth-btn2" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Groups</button>
+                                </div>
+                                <div>
+                                    <button class="data-btn" id="eth-btn3" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Families</button>
+                                </div>
+                            </div> 
+                            <div class="religionDetails">
+                                <div>
+                                    <button class="data-btn" id="rel-btn1" onclick="openStatTab(event, 'religion')">Religion- Detailed</button>
+                                </div>
+                                <div>
+                                    <button class="data-btn" id="rel-btn2" onclick="openStatTab(event, 'religion')">Religion- Groups</button>
+                                </div>
+                                <div>
+                                    <button class="data-btn" id="rel-btn3" onclick="openStatTab(event, 'religion')">Religion- Families</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <button class="data-btn" id="eth-btn" onclick="openStatTab(event, 'ethnicity')">Ethnicity</button>
+                    <div class="sourceDetails">
+                        <h3 class="dataTitle">Data Source</h3>
+                        <div>
+                            <button class="data-btn" id="sources-btn" onclick="openStatTab(event, 'sources')">Data Sources</button>
+                        </div>
                     </div>
-                    <div>
-                        <button class="data-btn" id="rel-btn" onclick="openStatTab(event, 'religion')">Religion</button>
-                    </div>
-            </div>
-    
-            <div class="distInfo">
-                <h3>District Information</h3>
-                <table id="statistics" class="statTable" style="display:block">
-                    <tr id="colNames" class="grayed">
-                        <td class="nations">Nations</td>
-                        <td class="populations">Population</td>
-                        <td class="area">Area (km.)</td>
-                        <td class="density">Density</td>
-                        <td class="largeGroup">Largest Group</td>
-                        <td class="largePercent">Group Share</td>
-                        <td class="relLargeGroup">Largest Religion</td>
-                        <td class="relLargePercent">Religion Share</td>
-                    </tr>
-                    <tr id="nation1">
-                        <td class="nations">Nation 1</td>
-                        <td class="populations" id="population1">0</td>
-                        <td class="area" id="area1">0</td>
-                        <td class="density" id="density1">0</td>
-                        <td class="largeGroup" id="group1"></td>
-                        <td class="largePercent" id="percent1"></td>
-                        <td class="relLargeGroup" id="relGroup1"></td>
-                        <td class="relLargePercent" id="relPercent1"></td>
-                    </tr>
-                    <tr id="nation2" class="grayed">
-                        <td class="nations">Nation 2</td>
-                        <td class="populations" id="population2">0</td>
-                        <td class="area" id="area2">0</td>
-                        <td class="density" id="density2">0</td>
-                        <td class="largeGroup" id="group2"></td>
-                        <td class="largePercent" id="percent2"></td>
-                        <td class="relLargeGroup" id="relGroup2"></td>
-                        <td class="relLargePercent" id="relPercent2"></td>
-                    </tr>
-                    <tr id="nation3">
-                        <td class="nations">Nation 3</td>
-                        <td class="populations" id="population3">0</td>
-                        <td class="area" id="area3">0</td>
-                        <td class="density" id="density3">0</td>
-                        <td class="largeGroup" id="group3"></td>
-                        <td class="largePercent" id="percent3"></td>
-                        <td class="relLargeGroup" id="relGroup3"></td>
-                        <td class="relLargePercent" id="relPercent3"></td>
-                    </tr>
-                    <tr id="nation4" class="grayed">
-                        <td class="nations">Nation 4</td>
-                        <td class="populations" id="population4">0</td>
-                        <td class="area" id="area4">0</td>
-                        <td class="density" id="density4">0</td>
-                        <td class="largeGroup" id="group4"></td>
-                        <td class="largePercent" id="percent4"></td>
-                        <td class="relLargeGroup" id="relGroup4"></td>
-                        <td class="relLargePercent" id="relPercent4"></td>
-                    </tr>
-                    <tr id="nation5">
-                        <td class="nations">Nation 5</td>
-                        <td class="populations" id="population5">0</td>
-                        <td class="area" id="area5">0</td>
-                        <td class="density" id="density5">0</td>
-                        <td class="largeGroup" id="group5"></td>
-                        <td class="largePercent" id="percent5"></td>
-                        <td class="relLargeGroup" id="relGroup5"></td>
-                        <td class="relLargePercent" id="relPercent5"></td>
-                    </tr>
-                    <tr id="nation6" class="grayed">
-                        <td class="nations">Nation 6</td>
-                        <td class="populations" id="population6">0</td>
-                        <td class="area" id="area6">0</td>
-                        <td class="density" id="density6">0</td>
-                        <td class="largeGroup" id="group6"></td>
-                        <td class="largePercent" id="percent6"></td>
-                        <td class="relLargeGroup" id="relGroup6"></td>
-                        <td class="relLargePercent" id="relPercent6"></td>
-                    </tr>
-                    <tr id="nation7">
-                        <td class="nations">Nation 7</td>
-                        <td class="populations" id="population7">0</td>
-                        <td class="area" id="area7">0</td>
-                        <td class="density" id="density7">0</td>
-                        <td class="largeGroup" id="group7"></td>
-                        <td class="largePercent" id="percent7"></td>
-                        <td class="relLargeGroup" id="relGroup7"></td>
-                        <td class="relLargePercent" id="relPercent7"></td>
-                    </tr>
-                    <tr id="nation8" class="grayed">
-                        <td class="nations">Nation 8</td>
-                        <td class="populations" id="population8">0</td>
-                        <td class="area" id="area8">0</td>
-                        <td class="density" id="density8">0</td>
-                        <td class="largeGroup" id="group8"></td>
-                        <td class="largePercent" id="percent8"></td>
-                        <td class="relLargeGroup" id="relGroup8"></td>
-                        <td class="relLargePercent" id="relPercent8"></td>
-                    </tr>
-                    <tr id="nation9">
-                        <td class="nations">Nation 9</td>
-                        <td class="populations" id="population9">0</td>
-                        <td class="area" id="area9">0</td>
-                        <td class="density" id="density9">0</td>
-                        <td class="largeGroup" id="group9"></td>
-                        <td class="largePercent" id="percent9"></td>
-                        <td class="relLargeGroup" id="relGroup9"></td>
-                        <td class="relLargePercent" id="relPercent9"></td>
-                    </tr>
-                    <tr id="nation10" class="grayed">
-                        <td class="nations">Nation 10</td>
-                        <td class="populations" id="population10">0</td>
-                        <td class="area" id="area10">0</td>
-                        <td class="density" id="density10">0</td>
-                        <td class="largeGroup" id="group10"></td>
-                        <td class="largePercent" id="percent10"></td>
-                        <td class="relLargeGroup" id="relGroup10"></td>
-                        <td class="relLargePercent" id="relPercent10"></td>
-                    </tr>
+                </div>
 
-                </table>
-
-                <table id="ethnicity" class="ethTable" style="display:none">
-                    <thead>
-                        <tr id="colNamesEth" class="grayed">
-                            <!-- Column Headers Will Be Inserted Here Dynamically -->
+                <div class="distInfo">
+                    <h3>District Information</h3>
+                    <table id="statistics" class="statTable" style="display:block">
+                        <thead id="colNames" class="grayed">
+                            <td class="nations">Nations</td>
+                            <td class="populations">Population</td>
+                            <td class="area">Area (km.)</td>
+                            <td class="density">Density</td>
+                            <td class="largeGroup">Largest Group</td>
+                            <td class="largePercent">Group Share</td>
+                            <td class="relLargeGroup">Largest Religion</td>
+                            <td class="relLargePercent">Religion Share</td>
+                        </thead>
+                        <tr id="nation1">
+                            <td class="nations">Nation 1</td>
+                            <td class="populations" id="population1">0</td>
+                            <td class="area" id="area1">0</td>
+                            <td class="density" id="density1">0</td>
+                            <td class="largeGroup" id="group1"></td>
+                            <td class="largePercent" id="percent1"></td>
+                            <td class="relLargeGroup" id="relGroup1"></td>
+                            <td class="relLargePercent" id="relPercent1"></td>
                         </tr>
-                    </thead>
-                    <tbody id="tableBodyEth">
-                        <!-- Data Rows Will Be Inserted Here Dynamically -->
-                    </tbody>
-                </table>
-
-                </table>
-                <table id="religion" class="relTable" style="display:none">
-                    <thead>
-                        <tr id="colNamesRel" class="grayed">
-                            <!-- Column Headers Will Be Inserted Here Dynamically -->
+                        <tr id="nation2" class="grayed">
+                            <td class="nations">Nation 2</td>
+                            <td class="populations" id="population2">0</td>
+                            <td class="area" id="area2">0</td>
+                            <td class="density" id="density2">0</td>
+                            <td class="largeGroup" id="group2"></td>
+                            <td class="largePercent" id="percent2"></td>
+                            <td class="relLargeGroup" id="relGroup2"></td>
+                            <td class="relLargePercent" id="relPercent2"></td>
                         </tr>
-                    </thead>
-                    <tbody id="tableBodyRel">
-                        <!-- Data Rows Will Be Inserted Here Dynamically -->
-                    </tbody>
-                </table>
+                        <tr id="nation3">
+                            <td class="nations">Nation 3</td>
+                            <td class="populations" id="population3">0</td>
+                            <td class="area" id="area3">0</td>
+                            <td class="density" id="density3">0</td>
+                            <td class="largeGroup" id="group3"></td>
+                            <td class="largePercent" id="percent3"></td>
+                            <td class="relLargeGroup" id="relGroup3"></td>
+                            <td class="relLargePercent" id="relPercent3"></td>
+                        </tr>
+                        <tr id="nation4" class="grayed">
+                            <td class="nations">Nation 4</td>
+                            <td class="populations" id="population4">0</td>
+                            <td class="area" id="area4">0</td>
+                            <td class="density" id="density4">0</td>
+                            <td class="largeGroup" id="group4"></td>
+                            <td class="largePercent" id="percent4"></td>
+                            <td class="relLargeGroup" id="relGroup4"></td>
+                            <td class="relLargePercent" id="relPercent4"></td>
+                        </tr>
+                        <tr id="nation5">
+                            <td class="nations">Nation 5</td>
+                            <td class="populations" id="population5">0</td>
+                            <td class="area" id="area5">0</td>
+                            <td class="density" id="density5">0</td>
+                            <td class="largeGroup" id="group5"></td>
+                            <td class="largePercent" id="percent5"></td>
+                            <td class="relLargeGroup" id="relGroup5"></td>
+                            <td class="relLargePercent" id="relPercent5"></td>
+                        </tr>
+                        <tr id="nation6" class="grayed">
+                            <td class="nations">Nation 6</td>
+                            <td class="populations" id="population6">0</td>
+                            <td class="area" id="area6">0</td>
+                            <td class="density" id="density6">0</td>
+                            <td class="largeGroup" id="group6"></td>
+                            <td class="largePercent" id="percent6"></td>
+                            <td class="relLargeGroup" id="relGroup6"></td>
+                            <td class="relLargePercent" id="relPercent6"></td>
+                        </tr>
+                        <tr id="nation7">
+                            <td class="nations">Nation 7</td>
+                            <td class="populations" id="population7">0</td>
+                            <td class="area" id="area7">0</td>
+                            <td class="density" id="density7">0</td>
+                            <td class="largeGroup" id="group7"></td>
+                            <td class="largePercent" id="percent7"></td>
+                            <td class="relLargeGroup" id="relGroup7"></td>
+                            <td class="relLargePercent" id="relPercent7"></td>
+                        </tr>
+                        <tr id="nation8" class="grayed">
+                            <td class="nations">Nation 8</td>
+                            <td class="populations" id="population8">0</td>
+                            <td class="area" id="area8">0</td>
+                            <td class="density" id="density8">0</td>
+                            <td class="largeGroup" id="group8"></td>
+                            <td class="largePercent" id="percent8"></td>
+                            <td class="relLargeGroup" id="relGroup8"></td>
+                            <td class="relLargePercent" id="relPercent8"></td>
+                        </tr>
+                        <tr id="nation9">
+                            <td class="nations">Nation 9</td>
+                            <td class="populations" id="population9">0</td>
+                            <td class="area" id="area9">0</td>
+                            <td class="density" id="density9">0</td>
+                            <td class="largeGroup" id="group9"></td>
+                            <td class="largePercent" id="percent9"></td>
+                            <td class="relLargeGroup" id="relGroup9"></td>
+                            <td class="relLargePercent" id="relPercent9"></td>
+                        </tr>
+                        <tr id="nation10" class="grayed">
+                            <td class="nations">Nation 10</td>
+                            <td class="populations" id="population10">0</td>
+                            <td class="area" id="area10">0</td>
+                            <td class="density" id="density10">0</td>
+                            <td class="largeGroup" id="group10"></td>
+                            <td class="largePercent" id="percent10"></td>
+                            <td class="relLargeGroup" id="relGroup10"></td>
+                            <td class="relLargePercent" id="relPercent10"></td>
+                        </tr>
+                        <tr id="nation11">
+                            <td class="nations">Nation 11</td>
+                            <td class="populations" id="population11">0</td>
+                            <td class="area" id="area11">0</td>
+                            <td class="density" id="density11">0</td>
+                            <td class="largeGroup" id="group11"></td>
+                            <td class="largePercent" id="percent11"></td>
+                            <td class="relLargeGroup" id="relGroup11"></td>
+                            <td class="relLargePercent" id="relPercent11"></td>
+                        </tr>
+                        <tr id="nation12" class="grayed">
+                            <td class="nations">Nation 12</td>
+                            <td class="populations" id="population12">0</td>
+                            <td class="area" id="area12">0</td>
+                            <td class="density" id="density12">0</td>
+                            <td class="largeGroup" id="group12"></td>
+                            <td class="largePercent" id="percent12"></td>
+                            <td class="relLargeGroup" id="relGroup12"></td>
+                            <td class="relLargePercent" id="relPercent12"></td>
+                        </tr>
+                        <tr id="nation13">
+                            <td class="nations">Nation 13</td>
+                            <td class="populations" id="population13">0</td>
+                            <td class="area" id="area13">0</td>
+                            <td class="density" id="density13">0</td>
+                            <td class="largeGroup" id="group13"></td>
+                            <td class="largePercent" id="percent13"></td>
+                            <td class="relLargeGroup" id="relGroup13"></td>
+                            <td class="relLargePercent" id="relPercent13"></td>
+                        </tr>
+                        <tr id="nation14" class="grayed">
+                            <td class="nations">Nation 14</td>
+                            <td class="populations" id="population14">0</td>
+                            <td class="area" id="area14">0</td>
+                            <td class="density" id="density14">0</td>
+                            <td class="largeGroup" id="group14"></td>
+                            <td class="largePercent" id="percent14"></td>
+                            <td class="relLargeGroup" id="relGroup14"></td>
+                            <td class="relLargePercent" id="relPercent14"></td>
+                        </tr>
+                        <tr id="nation15">
+                            <td class="nations">Nation 15</td>
+                            <td class="populations" id="population15">0</td>
+                            <td class="area" id="area15">0</td>
+                            <td class="density" id="density15">0</td>
+                            <td class="largeGroup" id="group15"></td>
+                            <td class="largePercent" id="percent15"></td>
+                            <td class="relLargeGroup" id="relGroup15"></td>
+                            <td class="relLargePercent" id="relPercent15"></td>
+                        </tr>
+                        <tr id="nation16" class="grayed">
+                            <td class="nations">Nation 16</td>
+                            <td class="populations" id="population16">0</td>
+                            <td class="area" id="area16">0</td>
+                            <td class="density" id="density16">0</td>
+                            <td class="largeGroup" id="group16"></td>
+                            <td class="largePercent" id="percent16"></td>
+                            <td class="relLargeGroup" id="relGroup16"></td>
+                            <td class="relLargePercent" id="relPercent16"></td>
+                        </tr>
+                        <tr id="nation17">
+                            <td class="nations">Nation 17</td>
+                            <td class="populations" id="population17">0</td>
+                            <td class="area" id="area17">0</td>
+                            <td class="density" id="density17">0</td>
+                            <td class="largeGroup" id="group17"></td>
+                            <td class="largePercent" id="percent17"></td>
+                            <td class="relLargeGroup" id="relGroup17"></td>
+                            <td class="relLargePercent" id="relPercent17"></td>
+                        </tr>
+                        <tr id="nation18" class="grayed">
+                            <td class="nations">Nation 18</td>
+                            <td class="populations" id="population18">0</td>
+                            <td class="area" id="area18">0</td>
+                            <td class="density" id="density18">0</td>
+                            <td class="largeGroup" id="group18"></td>
+                            <td class="largePercent" id="percent18"></td>
+                            <td class="relLargeGroup" id="relGroup18"></td>
+                            <td class="relLargePercent" id="relPercent18"></td>
+                        </tr>
+                        <tr id="nation19">
+                            <td class="nations">Nation 19</td>
+                            <td class="populations" id="population19">0</td>
+                            <td class="area" id="area19">0</td>
+                            <td class="density" id="density19">0</td>
+                            <td class="largeGroup" id="group19"></td>
+                            <td class="largePercent" id="percent19"></td>
+                            <td class="relLargeGroup" id="relGroup19"></td>
+                            <td class="relLargePercent" id="relPercent19"></td>
+                        </tr>
+                        <tr id="nation20" class="grayed">
+                            <td class="nations">Nation 20</td>
+                            <td class="populations" id="population20">0</td>
+                            <td class="area" id="area20">0</td>
+                            <td class="density" id="density20">0</td>
+                            <td class="largeGroup" id="group20"></td>
+                            <td class="largePercent" id="percent20"></td>
+                            <td class="relLargeGroup" id="relGroup20"></td>
+                            <td class="relLargePercent" id="relPercent20"></td>
+                        </tr>
 
-            </div>
+                    </table>
+
+                    <table id="ethnicity" class="ethTable" style="display:none">
+                        <thead>
+                            <tr id="colNamesEth" class="grayed">
+                                <!-- Column Headers Will Be Inserted Here Dynamically -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyEth">
+                            <!-- Data Rows Will Be Inserted Here Dynamically -->
+                        </tbody>
+                    </table>
+
+                    <table id="religion" class="relTable" style="display:none">
+                        <thead>
+                            <tr id="colNamesRel" class="grayed">
+                                <!-- Column Headers Will Be Inserted Here Dynamically -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyRel">
+                            <!-- Data Rows Will Be Inserted Here Dynamically -->
+                        </tbody>
+                    </table>
+
+                    <table id="sources" class="sourceTable" style="display:none">
+                        <thead>
+                            <tr id="colNamesSource" class="grayed">
+                                <!-- Column Headers Will Be Inserted Here Dynamically -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodySource">
+                            <!-- Data Rows Will Be Inserted Here Dynamically -->
+                        </tbody>
+
+                    </table>                    
+                </div>
             </div>
         </div>
 

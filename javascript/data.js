@@ -1,15 +1,18 @@
 // Function to handle tab switching
 function openStatTab(evt, tabName) {
-    var i, statTable, ethTable, relTable, tabID;
+    var i, statTable, ethTable, relTable, sourceTable, tabID;
 
     if (tabName === 'statistics') {
         tabID = "stat-btn";
     } else if (tabName === 'ethnicity') {
-        tabID = "eth-btn";        
+        tabID = "eth-btn1";        
         populateEthnicityTable();  // Call this when Ethnicity button is clicked
     } else {
-        tabID = "rel-btn";
+        tabID = "rel-btn1";
         populateReligionTable();  // Call this when Religion button is clicked
+    } if (tabName === 'sources') {
+        tabID = "sources-btn";
+        populateSourcesTable();
     }
 
     // Hide all statistics tables
@@ -30,6 +33,12 @@ function openStatTab(evt, tabName) {
         relTable[i].style.display = "none";
     }
 
+    // Hide all source tables
+    sourceTable = document.getElementsByClassName("sourceTable");
+    for (i = 0; i < sourceTable.length; i++) {
+        sourceTable[i].style.display = "none";
+    }
+
     // Show the clicked tab (based on tabName argument)
     document.getElementById(tabName).style.display = "block";
 
@@ -39,8 +48,9 @@ function openStatTab(evt, tabName) {
         btns[i].classList.remove("active");
     }
     document.getElementById('stat-btn').classList.remove('clickedBtn');
-    document.getElementById('eth-btn').classList.remove('clickedBtn');
-    document.getElementById('rel-btn').classList.remove('clickedBtn');
+    document.getElementById('eth-btn1').classList.remove('clickedBtn');
+    document.getElementById('rel-btn1').classList.remove('clickedBtn');
+    document.getElementById('sources-btn').classList.remove('clickedBtn');
 
     // Add the "active" class to the clicked button
     evt.currentTarget.className += " active";
@@ -51,7 +61,7 @@ function openStatTab(evt, tabName) {
 
 function populateEthnicityTable() { 
     let ethBoolHeader = null;
-    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "oneReligion", "twoReligion", "threeReligion", "fourReligion", "fiveReligion", "sixReligion", "sevenReligion", "eightReligion", "nineReligion", "tenReligion", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesEth');
@@ -102,7 +112,6 @@ function populateEthnicityTable() {
         ethnicData.forEach(col => {
             const td = document.createElement('td');
             const value = nationInfo[ID][col] || 0; // Fallback to 0 if value is missing
-            console.log(value);
 
             td.textContent = typeof value === "number" ? value.toLocaleString() : value; // Use toLocaleString() for numbers
 
@@ -126,12 +135,9 @@ function populateEthnicityTable() {
 }
 
 
-
-
-
 function populateReligionTable() { 
     let relBoolHeader = null;
-    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
+    const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "oneReligion", "twoReligion", "threeReligion", "fourReligion", "fiveReligion", "sixReligion", "sevenReligion", "eightReligion", "nineReligion", "tenReligion", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
     const headerRow = document.getElementById('colNamesRel');
@@ -143,16 +149,12 @@ function populateReligionTable() {
     headerRow.appendChild(nationHeader);
 
     ethnicData.forEach(col => {
-        console.log(col);
-        console.log(relBoolHeader);
         const th = document.createElement('th');
         th.textContent = col;
         if (excludeKeys.includes(col)) {
             th.classList.add('hidden-column'); // Add class to hide the column
         }
         if(col === "ethnicity" || col === "religion") {
-            console.log(col);
-            console.log(relBoolHeader);    
             relBoolHeader = col;
         }
         if(relBoolHeader === null){
@@ -160,7 +162,6 @@ function populateReligionTable() {
         }
         if(relBoolHeader === "religion"){
             headerRow.appendChild(th);
-            console.log("yay");
         }
 
     });
@@ -191,7 +192,6 @@ function populateReligionTable() {
         ethnicData.forEach(col => {
             const td = document.createElement('td');
             const value = nationInfo[ID][col] || 0; // Fallback to 0 if value is missing
-            console.log(value);
 
             td.textContent = typeof value === "number" ? value.toLocaleString() : value; // Use toLocaleString() for numbers
 
@@ -206,7 +206,6 @@ function populateReligionTable() {
             }
         });
 
-        console.log(religionData);
 
         if (nationIndex % 2 === 0) {
             row.classList.add('grayed');
@@ -218,6 +217,103 @@ function populateReligionTable() {
 }
 
 
+// Function to parse CSV into an array of objects
+function parseCSV(csvText) {
+    const rows = csvText.split('\n').filter(row => row.trim() !== ''); // Filter out empty rows
+    const headers = rows.shift().split(',');
+
+    return rows.map(row => {
+        const values = row.split(',');
+        return headers.reduce((obj, header, index) => {
+            obj[header] = values[index] ? values[index].trim() : '';
+            return obj;
+        }, {});
+    });
+}
+
+async function populateSourcesTable() {
+
+    // Fetch the CSV file and convert it to text
+    const response = await fetch(`data/${regionSelection}/dataSource.csv`);
+    if (!response.ok) {
+        console.error('Failed to fetch the CSV file');
+        return;
+    }
+
+    const csvText = await response.text();
+    
+    // Parse CSV data into an array of objects (rows)
+    const data = parseCSV(csvText);
+    if (!data || data.length === 0) {
+        console.error('No data found in the CSV');
+        return;
+    }
+
+    // Create and populate the header row
+    const headerRow = document.getElementById('colNamesSource');
+    headerRow.innerHTML = '';
+
+    Object.keys(data[0]).forEach(col => {
+        const th = document.createElement('th');
+        th.textContent = col;
+        headerRow.appendChild(th);
+    });
+
+    // Clear table body before populating
+    const tableBodySource = document.getElementById('tableBodySource');
+    tableBodySource.innerHTML = '';
+
+    // Populate table rows
+    data.forEach(row => {
+        const tableRow = document.createElement('tr');
+
+        // Populate the rest of the columns
+        Object.keys(row).forEach(col => {
+
+            const td = document.createElement('td');
+            const value = row[col] || "-"; // Fallback to 0 if value is missing
+            let color = background(value);
+            td.classList.add(color);
+
+
+            td.textContent = typeof value === "number" ? value.toLocaleString() : value; // Format numbers
+            tableRow.appendChild(td);
+        });
+
+        tableBodySource.appendChild(tableRow);
+    });
+}
+
+function background(value) {
+    if(value === 'A') {
+        return "shadeA";
+    } else if (value === 'B') {
+        return "shadeB";
+    } else if (value === 'C') {
+        return "shadeC";
+    }
+    if(value === "1") {
+        return "shade1";
+    } else if (value === "2") {
+        return "shade2";
+    } else if (value === "3") {
+        return "shade3";
+    } else if (value === "4") {
+        return "shade4";
+    } else if (value === "5") {
+        return "shade5";
+    } else if (value === "6") {
+        return "shade6";
+    } else if (value === "7") {
+        return "shade7";
+    } else if (value === "8") {
+        return "shade8";
+    } else if (value === "9") {
+        return "shade9";
+    } else if (value === "10") {
+        return "shade10";
+    }
+}
 
 // Set statistics tab as default on load
 document.addEventListener('DOMContentLoaded', function() {

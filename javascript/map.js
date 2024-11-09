@@ -6,9 +6,9 @@
 
 let selectedNation = 1; // To store which nation is selected
 let nationBool = true;
-let nationNames = {1: "Nation 1", 2: "Nation 2", 3: "Nation 3", 4: "Nation 4", 5: "Nation 5", 6: "Nation 6", 7: "Nation 7", 8: "Nation 8", 9: "Nation 9", 10: "Nation 10"};
-let nationColors = { 1: '#ff0000', 2: '#0091ff', 3: '#00ff26',  4: '#ea00ff',  5: '#ffe600',  6: '#0040ff',  7: '#00ffaa',  8: '#7b00ff',  9: '#ff005d',  10: '#00d5ff'}; // Define colors for each nation
-let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}; // To track which features are assigned to which nation
+let nationNames = {1: "Nation 1", 2: "Nation 2", 3: "Nation 3", 4: "Nation 4", 5: "Nation 5", 6: "Nation 6", 7: "Nation 7", 8: "Nation 8", 9: "Nation 9", 10: "Nation 10", 11: "Nation 11", 12: "Nation 12", 13: "Nation 13", 14: "Nation 14", 15: "Nation 15", 16: "Nation 16", 17: "Nation 17", 18: "Nation 18", 19: "Nation 19", 20: "Nation 20"};
+let nationColors = { 1: '#ff0000', 2: '#0091ff', 3: '#00ff26',  4: '#ea00ff',  5: '#ffe600',  6: '#0040ff',  7: '#00ffaa',  8: '#7b00ff',  9: '#ff8c00',  10: '#5d9300',  11: '#722a2a',  12: '#b980ff',  13: '#ff64b2',  14: '#64faff',  15: '#735b23',  16: '#950133',  17: '#417550',  18: '#5291ff',  19: '#fa3b06',  20: '#160d3f'}; // Define colors for each nation
+let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: []}; // To track which features are assigned to which nation
 let nationBase = {};
 let tempNationAssignments;
 let districtObjects = [];
@@ -18,10 +18,12 @@ let religionData = [];
 let dataType;
 let ethBool = true;
 let shiftKeyPressed = false; // Track if the Shift key is pressed
+let ctrlKeyPressed = false; // Track if the Control key is pressed
 let provinceGroups = {}; // To store districts grouped by province
 let countryGroups = {}; // To store districts grouped by province
 let provincePopulations = {}; // To store district population after grouping
 let countryPopulations = {}; // To store district population after grouping
+let tempDrawMode = 'draw';
 let drawMode = 'draw';
 let mode = 'district';
 let densityLayer = null;  
@@ -100,7 +102,7 @@ function districtAdd(selectedNation, featureId) {
     let previousNation = null;
 
     // Find which nation the feature currently belongs to, if any
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
         const index = nationAssignments[i].findIndex(obj => obj.ID === featureId);
         if (index !== -1) {
             previousNation = i;
@@ -135,7 +137,7 @@ function districtSub(featureId) {
     let previousNation = null;
 
     // Find which nation the feature currently belongs to, if any
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
         const index = nationAssignments[i].findIndex(obj => obj.ID === featureId);
         if (index !== -1) {
             previousNation = i;
@@ -167,7 +169,7 @@ function districtSub(featureId) {
 }
 
 function updateTable() {
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
         let density = Math.round(`${nationInfo[i].Population/nationInfo[i].Area}` *10)/10;
         if(isNaN(density)) {
             density = 0;
@@ -176,42 +178,40 @@ function updateTable() {
         document.getElementById(`area${i}`).textContent = `${nationInfo[i].Area.toLocaleString()}`;
         document.getElementById(`density${i}`).textContent = (density).toLocaleString();
 
-        for (let i = 1; i <= 10; i++){
-            let header;
-            let percentEth = 0;
-            let largestEth = "-";
-            let percentRel = 0;
-            let largestRel = "-";
-            ethnicData.forEach(col => {
-                if(col === "ethnicity" || col === "religion") {
-                    header = col;
-                }
-                if(header === "ethnicity"){
-                    if(nationInfo[i][col] > percentEth){
-                        percentEth = nationInfo[i][col];
-                        largestEth = col;
-                    }
-                }
-                if(header === "religion"){
-                    if(nationInfo[i][col] > percentRel){
-                        percentRel = nationInfo[i][col];
-                        largestRel = col;
-                    }
-                }
-            });
-            document.getElementById(`group${i}`).textContent = largestEth;
-            document.getElementById(`relGroup${i}`).textContent = largestRel;
-            ethPercent = Math.round(percentEth/`${nationInfo[i].Population}`*1000)/10;
-            relPercent = Math.round(percentRel/`${nationInfo[i].Population}`*1000)/10;
-            if(isNaN(ethPercent)) {
-                ethPercent = 0;
+        let header;
+        let percentEth = 0;
+        let largestEth = "-";
+        let percentRel = 0;
+        let largestRel = "-";
+        ethnicData.forEach(col => {
+            if(col === "ethnicity" || col === "religion") {
+                header = col;
             }
-            if(isNaN(relPercent)) {
-                relPercent = 0;
+            if(header === "ethnicity"){
+                if(nationInfo[i][col] > percentEth){
+                    percentEth = nationInfo[i][col];
+                    largestEth = col;
+                }
             }
-            document.getElementById(`percent${i}`).textContent = `${ethPercent}%`;
-            document.getElementById(`relPercent${i}`).textContent = `${relPercent}%`;
+            if(header === "religion"){
+                if(nationInfo[i][col] > percentRel){
+                    percentRel = nationInfo[i][col];
+                    largestRel = col;
+                }
+            }
+        });
+        document.getElementById(`group${i}`).textContent = largestEth;
+        document.getElementById(`relGroup${i}`).textContent = largestRel;
+        ethPercent = Math.round(percentEth/`${nationInfo[i].Population}`*1000)/10;
+        relPercent = Math.round(percentRel/`${nationInfo[i].Population}`*1000)/10;
+        if(isNaN(ethPercent)) {
+            ethPercent = 0;
         }
+        if(isNaN(relPercent)) {
+            relPercent = 0;
+        }
+        document.getElementById(`percent${i}`).textContent = `${ethPercent}%`;
+        document.getElementById(`relPercent${i}`).textContent = `${relPercent}%`;
     }    
 }
 
@@ -599,6 +599,7 @@ function districtAddOrSub(featureId, mode) {
     } else if (mode === 'erase') {
         districtSub(featureId);
     }
+    // mode = x;
 }
 
 
@@ -619,7 +620,7 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "westAsia") {
         map.flyTo([27.9763, 42.9730], 5);
     } else if (regionSelection === "russia") {
-        map.flyTo([66.1274, 109.8646], 3.5);
+        map.flyTo([66.1274, 109.8646], 3);
     } else if (regionSelection === "centralAsia") {
         map.flyTo([41.5744, 64.1833], 4.5);
     }
@@ -668,7 +669,7 @@ function mainLoadData(saveArray) {
                             }
                         });    
 
-                        for (let i = 1; i <= 10; i++) { // Go through each nation
+                        for (let i = 1; i <= 20; i++) { // Go through each nation
                             selectedNation = i;
                             let len = tempNationAssignments[i].length;
                             for (let j = 0; j < len; j++) { // Go through each district (starting from 0 for the first element)
@@ -682,7 +683,7 @@ function mainLoadData(saveArray) {
                             };
                         }
 
-                        for (let i = 1; i <= 10; i++) { // Go through each nation
+                        for (let i = 1; i <= 20; i++) { // Go through each nation
                             selectedNation = i;
                             let len = saveArray[i].length;
                             for (let j = 0; j < len; j++) { // Go through each district (starting from 0 for the first element)
@@ -704,7 +705,7 @@ function mainLoadData(saveArray) {
                         // Find the matching object from districtObjects based on feature.properties.ID
                         const curObj = districtObjects.find(obj => obj.ID.trim() === feature.properties.ID.trim());
 
-                        if (shiftKeyPressed) {
+                        if (shiftKeyPressed || ctrlKeyPressed) {
                             handleFeatureClick(layer, feature);
                         }
 
@@ -778,12 +779,12 @@ function mainLoadData(saveArray) {
                                 document.getElementById('sevenGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sevenGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-                            document.getElementById('groupEight').textContent = `${curObj.sevenGroup}`;
-                            if(`${curObj.sevenGroup}` === "."){
+                            document.getElementById('groupEight').textContent = `${curObj.eightGroup}`;
+                            if(`${curObj.eightGroup}` === "."){
                                 document.getElementById('eightGroup').textContent = ".";
                                 document.getElementById('eightGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
-                                document.getElementById('eightGroup').textContent = `${curObj[curObj.sevenGroup].toLocaleString()}`;
+                                document.getElementById('eightGroup').textContent = `${curObj[curObj.eightGroup].toLocaleString()}`;
                                 document.getElementById('eightGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.eightGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
@@ -797,11 +798,11 @@ function mainLoadData(saveArray) {
                             }nineGroup
 
                             document.getElementById('groupTen').textContent = `${curObj.tenGroup}`;
-                            if(`${curObj.sevenGroup}` === "."){
+                            if(`${curObj.tenGroup}` === "."){
                                 document.getElementById('tenGroup').textContent = ".";
                                 document.getElementById('tenGroup').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
-                                document.getElementById('tenGroup').textContent = `${curObj[curObj.sevenGroup].toLocaleString()}`;
+                                document.getElementById('tenGroup').textContent = `${curObj[curObj.tenGroup].toLocaleString()}`;
                                 document.getElementById('tenGroup').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.tenGroup]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
@@ -870,12 +871,12 @@ function mainLoadData(saveArray) {
                                 document.getElementById('sevenReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.sevenReligion]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
-                            document.getElementById('religionEight').textContent = `${curObj.sevenReligion}`;
-                            if(`${curObj.sevenReligion}` === "."){
+                            document.getElementById('religionEight').textContent = `${curObj.eightReligion}`;
+                            if(`${curObj.eightReligion}` === "."){
                                 document.getElementById('eightReligion').textContent = ".";
                                 document.getElementById('eightReligion').style.background =  `linear-gradient(to right, #e1e1eb 0%, white 0%)`;
                             } else {
-                                document.getElementById('eightReligion').textContent = `${curObj[curObj.sevenReligion].toLocaleString()}`;
+                                document.getElementById('eightReligion').textContent = `${curObj[curObj.eightReligion].toLocaleString()}`;
                                 document.getElementById('eightReligion').style.background =  `linear-gradient(to right, #e1e1eb ${curObj[curObj.eightReligion]/curObj['Population'] * 100}%, white 0%)`;
                             }
 
@@ -955,7 +956,7 @@ fetch(`data/${regionSelection}/ethArray.json`)
         // You can now use districtObjects in your script
         let baseNation = districtObjects.find(obj => obj.ID === 'base');
         dataType = districtObjects.find(obj => obj.ID === 'dataType');
-        const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "Largest Religion", "Share of Population"];
+        const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Largest Group", "Percent of Population", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "oneReligion", "twoReligion", "threeReligion", "fourReligion", "fiveReligion", "sixReligion", "sevenReligion", "eightReligion", "nineReligion", "tenReligion", "Largest Religion", "Share of Population"];
 
         nationBase = Object.keys(baseNation)
             .filter(key => !excludeKeys.includes(key))
@@ -972,7 +973,7 @@ fetch(`data/${regionSelection}/ethArray.json`)
         // }, {});
 
 
-        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}};   // Holds the nation info for each of the keys
+        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}, 11: {...nationBase}, 12: {...nationBase}, 13: {...nationBase}, 14: {...nationBase}, 15: {...nationBase}, 16: {...nationBase}, 17: {...nationBase}, 18: {...nationBase}, 19: {...nationBase}, 20: {...nationBase}};   // Holds the nation info for each of the keys
         console.log('nationInfo loaded:', nationInfo);
         console.log('ethnicData loaded:', ethnicData);
     })
@@ -999,7 +1000,14 @@ map.getPane('layers').style.zIndex = 400;
 // Detect when the Shift key is pressed and released
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Shift') {
+        drawMode = 'draw';
+        document.getElementById('draw-btn').click();
         shiftKeyPressed = true;
+    }
+    if (event.key === 'Control') {
+        drawMode = 'erase';
+        document.getElementById('erase-btn').click();
+        ctrlKeyPressed = true;
     }
 });
 
@@ -1007,12 +1015,17 @@ document.addEventListener('keyup', function(event) {
     if (event.key === 'Shift') {
         shiftKeyPressed = false;
     }
+    if (event.key === 'Control') {
+        ctrlKeyPressed = false;
+    }
+
 });
+
 
 
     /* ****** EVENT ******* */
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 20; i++) {
     document.getElementById(`nation${i}-btn`).addEventListener('click', () => selectNation(i));
     document.getElementById(`nation${i}-btn`).addEventListener('contextmenu', (e) => {
         e.preventDefault();
@@ -1032,30 +1045,40 @@ updateButtonColor(7);
 updateButtonColor(8);
 updateButtonColor(9);
 updateButtonColor(10);
+updateButtonColor(11);
+updateButtonColor(12);
+updateButtonColor(13);
+updateButtonColor(14);
+updateButtonColor(15);
+updateButtonColor(16);
+updateButtonColor(17);
+updateButtonColor(18);
+updateButtonColor(19);
+updateButtonColor(20);
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
 
-    // for (let i = 1; i <= 10; i++) {
+    // for (let i = 1; i <= 20; i++) {
     //     document.getElementById(`pop${i}`).textContent = `${nationInfo[i].population}`;
     // }
         // Event listener for switch button
     //     console.log(dataLoaded);
     // if(dataLoaded === true){
-    //     for (let i = 1; i <= 10; i++) {
+    //     for (let i = 1; i <= 20; i++) {
     //         document.getElementById(`population${i}`).textContent = `${nationInfo[i].population.toLocaleString()}`      
     //     }    
     // }
 
-    // for (let i = 1; i <= 10; i++) {
+    // for (let i = 1; i <= 20; i++) {
     //     document.getElementById(`area${i}`).textContent = `${Math.round((nationInfo[i].Area)/1000000).toLocaleString()}`
     // }    
 
     document.getElementById('mapOpacity').addEventListener('input', function () {
         mapOpacityValue = parseFloat(this.value)/100;
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 20; i++) {
             nationAssignments[i].forEach(feature => {
                 const featureId = feature.ID;
                 featureLayers[featureId].setStyle({

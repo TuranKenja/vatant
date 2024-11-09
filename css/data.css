@@ -12,12 +12,31 @@
 .dataContainer{
 
     float: left;
-    width: 100px;
+    width: 80%;
     height: 97.5vh;
     margin-top: -81px;
     margin-left: 260px;
 }
 
+/* .allData- {
+    column-count: 4;
+} */
+.dataTab-btns {
+    width: 500px;
+}
+
+.sourceDetails {
+    margin-left: 504px;
+    margin-top: -96.5px;
+    margin-bottom: 50px;
+    width: 167px;
+}
+#stat-btn {
+    margin-bottom: 50px;
+}
+.demography {
+    column-count: 3;
+}
 
 .data-btn{
     background-color: rgb(83, 80, 113);
@@ -58,13 +77,101 @@
     background-color: #f7f7ff;
 }
 
+.shadeA {
+    background-color: #159b00;
+}
+.shadeB {
+    background-color: #a89c00;
+}
+.shadeC {
+    background-color: #a10000;
+}
+.shade1 {
+    background-color: #ff1919;
+}
+.shade2 {
+    background-color: #fc4b00;
+}
+.shade3 {
+    background-color: #f66b00;
+}
+.shade4 {
+    background-color: #e98700;
+}
+.shade5 {
+    background-color: #d99f00;
+}
+.shade6 {
+    background-color: #c7b500;
+}
+.shade7 {
+    background-color: #b2c900;
+}
+.shade8 {
+    background-color: #96dc00;
+}
+.shade9 {
+    background-color: #6bee00;
+}
+.shade10 {
+    background-color: #00ff29;
+}
+
 
 /* DISTRICT INFORMATION */
 
-.statTable, .ethTable, .relTable {
-    border-collapse:collapse;
+/* #colNamesSources { */
+    .sourceTable th {
+    width: 40px;
+    white-space: normal; /* Allow text to wrap */
+}
+
+.sourceTable td:first-child {
+    background-color: #f6f6ff;
+}
+
+.sourceTable th:last-child, .sourceTable td:last-child {
+    text-align: left;
+}
+
+
+.statTable, .ethTable, .relTable, .sourceTable {
+    border-collapse: collapse;
     overflow: auto;
     table-layout: fixed;
+    height: 80vh;
+    white-space: nowrap;
+         
+    td, th {
+    width: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    text-align:center;
+    font-size: 17px;
+    } 
+
+    td:first-child, th:first-child {
+        position: sticky;
+        left: 0px;
+        font-weight: bold;
+        .sourceTable {
+            background-color: #e1e1eb;
+        }
+    }
+
+    th:first-child {
+        background-color: #e1e1eb;
+    }
+    
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
 }
 
 .distInfo {
@@ -87,30 +194,7 @@
 /* DISTRICT INFORMATION */
 
 
-.ethTable, .relTable {
-    white-space:nowrap;
-    
-    td, th {
-    width: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: black;
-    text-align:center;
-    font-size: 17px;
-    } 
 
-    td:first-child, th:first-child {
-        position: sticky;
-        left: 0px;
-        font-weight: bold;
-    }
-
-    th:first-child {
-        background-color: #e1e1eb;
-    }
-}
 
 
 #colNames {
