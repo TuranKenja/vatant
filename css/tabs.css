@@ -1,8 +1,60 @@
+/* COLORS */
+
+/* LIGHT MODE */
+
+/* .nameTabs {
+    background-color: #ffffff;
+}
+
+.tabLinks{
+    background-color: #001eff27;
+    color: #5b5f42;
+}
+
+.save-btn{
+    background-color: rgb(83, 80, 113);
+    color: #ffffff;
+}
+
+.save-btn:hover{
+    background-color: goldenrod; 
+    color: rgb(255, 255, 255);
+}
+
+.save-content {
+    background-color: #fff;
+} */
+
+/* DARK MODE */
+
+.nameTabs {
+    background-color: #1c1c21;
+}
+
+.tabLinks{
+    background-color: #4f39b0;
+    color: #ffffff;
+}
+
+.save-btn{
+    background-color: #4f39b0;
+    color: #ffffff;
+}
+
+.save-btn:hover{
+    background-color: goldenrod; 
+    color: #ffffff;
+}
+
+.save-content {
+    background-color: #1c1c21;
+}
+
+
 
 .nameTabs{
     margin-top: 12px;
     width: 250px;
-    background-color: rgb(255, 255, 255);
     margin-bottom: 10px;
 }
 
@@ -13,9 +65,7 @@
 }
 
 .tabLinks{
-    background-color: rgba(0, 30, 255, 0.153);
     border: none;
-    color: #5b5f42;
     text-align: center;
     font: 12px 'Signika Negative';
     border-radius: 10%;
@@ -35,9 +85,7 @@
 /* SAVE BUTTON */
 
 .save-btn{
-    background-color: rgb(83, 80, 113);
     border: none;
-    color: #ffffff;
     text-align: center;
     font: 12px 'Signika Negative';
     border-radius: 10%;
@@ -46,13 +94,6 @@
     padding-bottom: 2px;
     width: 50px;
 }
-
-.save-btn:hover{
-
-    background-color: goldenrod; 
-    color: rgb(255, 255, 255);
-}
-
 
 .saving {
     display: none; /* Hidden by default */
@@ -63,17 +104,14 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Background color with opacity */
+    background-color: #00000080; /* Background color with opacity */
 }
 
 /* Save content */
 .save-content {
-    background-color: #fff;
     margin: 20% auto; /* Center vertically and horizontally */
     padding: 20px;
-    border: 1px solid #888;
     width: 300px; /* Adjust size */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -85,8 +123,7 @@
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: #000;
     cursor: pointer;
 }

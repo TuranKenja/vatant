@@ -1,9 +1,84 @@
+/* COLOR CONTROLS */
+
+
+/* LIGHT MODE */
+
+/* h3 {
+    color: white;
+    background-color: #37344a;
+}
+
+.sidebar {
+    background-color: #ffffff;
+}
+
+.btn, .btn1, .btn2, .btn3 {
+    background-color: #535071;
+    color: #ffffff;
+}
+
+.btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
+    background-color: goldenrod; 
+    color: #ffffff;
+}
+
+.clickedBtn{
+    background-color: #daa520; 
+    color: #535071;
+    font-weight: bold;
+}
+
+.grayed{
+    background-color: #e1e1eb;
+}
+
+.infoBar {
+    background-color: #ffffff;
+} */
+
+/* DARK MODE */
+
+
+
+h3 {
+    color: #f5f5ff;
+    background-color: #37344a;
+}
+
+.sidebar {
+    background-color: #1c1c21;
+}
+
+.btn, .btn1, .btn2, .btn3 {
+    background-color: #535071;
+    color: #ffffff;
+    margin-top: 4px; 
+}
+
+.btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
+    background-color: goldenrod; 
+    color: #ffffff;
+}
+
+.clickedBtn{
+    background-color: #daa520; 
+    color: #535071;
+    font-weight: bold;
+}
+
+.grayed{
+    background-color: #29293d;
+}
+
+.infoBar {
+    background-color: #1c1c21;
+}
 
 /* ALL */
 
 body{
-    background-color: #f7f7ff;
-    color:#555555;
+    background-color: #1c1c21;
+    color:#e0e2ff;
     font: normal 13px 'Signika Negative';
     line-height: 1.5em;
     margin-left: 0%;
@@ -18,16 +93,21 @@ body{
     width:100%;
 }
 
+.container1 {
+    overflow: scroll;
+    height: calc(100vh - 350px);
+}
+
+.container1::-webkit-scrollbar {
+    display: none;
+}
+  
 
 /* TABLE SETTINGS */
 
 table{
     border-collapse: collapse;
     table-layout:fixed;
-}
-
-.grayed{
-    background-color: #e1e1eb;
 }
 
 
@@ -42,7 +122,7 @@ table{
 
 .header {
     color: #f4f4f4;
-    background-color: #01002e;
+    background-color: #302f49;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 1px;
@@ -66,13 +146,13 @@ table{
 
     a{
         text-decoration: none;
-        color: goldenrod;
+        color: #d1cdff;
         padding-right: 20px;
         padding-left: 20px;
 
     }
     a:hover{
-        background-color: goldenrod;
+        background-color: #d1cdff;
         color: #020141;
         padding-right: 20px;
         padding-left: 20px;
@@ -95,14 +175,12 @@ table{
 /* SIDEBAR LAYOUT*/
 
 h3{  /* Nations, District Information, etc. */
-    color: white;
     font-size: 15px;
     border:0px solid;
     fill: solid white;
     margin-top: 5px;
     margin-bottom: 3px;
     padding-left: 5px;
-    background-color: rgb(55, 52, 74);
 
 }
 
@@ -110,15 +188,12 @@ h3{  /* Nations, District Information, etc. */
     position: absolute;
     width: 250px;
     height: 97.5vh;
-    background-color: rgb(255, 255, 255);
 }
 
 
 /* NATIONS LAYOUT*/
 
 .natBar{
-    border:1px solid;
-    border-color: rgb(255, 255, 255);
     padding-bottom: 10px;
     h1{
         margin-left: 10px;
@@ -134,14 +209,14 @@ h3{  /* Nations, District Information, etc. */
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 2px solid rgb(255, 232, 172);
-    color: rgb(70, 50, 0);
+    color: #7081ff;
     cursor: pointer;
-    padding: 0;
-    padding-right: 5px;
-    margin-left: 5px;
 }
 
+.lock-btn {
+    cursor: pointer;
+    accent-color: goldenrod;
+}
 
 .natRow{
     width: 140px;
@@ -159,9 +234,7 @@ h3{  /* Nations, District Information, etc. */
 /* MAP OPTIONS AND LAYER OPTIONS */
 
 .btn, .btn1, .btn2, .btn3 {
-    background-color: rgb(83, 80, 113);
     border: none;
-    color: #ffffff;
     text-align: center;
     font: 12px 'Signika Negative';
     border-radius: 10%;
@@ -171,24 +244,11 @@ h3{  /* Nations, District Information, etc. */
     width: 90%;
 }
 
-.btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
-
-    background-color: goldenrod; 
-    color: rgb(255, 255, 255);
-}
-
-
-.clickedBtn{
-    background-color: #daa520; 
-    color: rgb(83, 80, 113);
-    font-weight: bold;
-
-}
 
 /* DRAW/ ERASE MODE LAYOUT*/
 .container0 {
     width:100%;
-    column-count: 2;
+    column-count: 3;
 }
 
 .container2 {
@@ -215,7 +275,6 @@ h3{  /* Nations, District Information, etc. */
     width: 250px;
     margin-top: -75px;
     height: 97.5vh;
-    background-color: rgb(255, 255, 255);
 }
 
 .infoBar h3, p{
@@ -226,21 +285,14 @@ h3{  /* Nations, District Information, etc. */
 .infoList{
     width: 83px;
     padding-left: 10px;
-
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .infoData{
     width: 150px;
     padding-right: 10px;
     text-align: right;
-}
-
-.bound-btn .btn1 {
-    margin-top: 4px; 
-}
-
-.layer-btn .btn3 {
-    margin-top: 4px; 
 }
 
 
@@ -251,22 +303,23 @@ h3{  /* Nations, District Information, etc. */
     justify-content: center;
     align-items: center;
     position: fixed;
-    overflow: scroll;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 2000;
+    height: 100vh;
 }
 
 .modal-content {
+    overflow: scroll;
     background: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     width: 95vw;
-    height: 90%;
+    height: 90vh;
 }
 
 .modal-content h2 {
@@ -319,6 +372,6 @@ h3{  /* Nations, District Information, etc. */
     width: 15px; /* Set a specific slider handle width */
     height: 15px; /* Slider handle height */
     border-radius: 50%;
-    background: #010742; /* Green background */
+    background: #5c88ff; /* Green background */
     }
     

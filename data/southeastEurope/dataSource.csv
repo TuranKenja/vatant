@@ -1,4 +1,4 @@
-﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Migrants,Diaspora,Notes
+﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
 Albania,2011,A,6,Ethnic,2011,A,6,2011,A,6,Y,Y,,,"Census undercounted/ boycotted by minorities (Greeks, Christians, Bektashis, etc.). Government fined people when identification didn't match records, interferring with self-identification."
 Bosnia,2019,A,6,Ethnic,2019,A,8,2019,A,8,Y,,,Y,"Includes 196,000 people abroad but with property in BiH."
 Bulgaria,2021,A,7,Ethnic,2021,A,9,2021,A,9,Y,,,,"Estimated 500,000 may not have been counted."

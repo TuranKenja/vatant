@@ -1,0 +1,14 @@
+﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
+Abkhazia,,A,,,,,,,,,,,,,
+Afghanistan,,A,5,Ethnic,,,,,,,,,,,
+Armenia,,A,,,,,,,,,,,,,
+Azerbaijan,,A,,,,,,,,,,,,,
+Georgia,2023,A,,Ethnic,2014,,,,,,,,,,
+Iran,,A,,,,,,,C,,,,,,
+Kazakhstan,2023,A,10,Ethnic,2023,A,10,2009/ 2023,A,7,Y,Y,,,"2023 estimate based on 2021 census. District level religion data available for 2009, province level religion data for 2023, so adjusted 2009 data with 2023 data."
+Kyrgyzstan,,A,9,Ethnic,2009/ 2021,A,7,,C,,,,,,"District level  data available for 2009, province level  data for 2021, so adjusted 2009 data with 2021 data."
+Pakistan,,A,,,,,,,A,,,,,,
+South Ossetia,,A,,,,,,,,,,,,,
+Tajikistan,,A,,,,,,,C,,,,,,
+Turkmenistan,,C,,,,,,,C,,,,,,
+Uzbekistan,,A,,,,,,,C,,,,,,

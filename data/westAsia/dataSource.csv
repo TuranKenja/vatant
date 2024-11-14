@@ -1,0 +1,15 @@
+﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
+Bahrain,,,,,,,,,,,,,,,
+Iraq,2018/2021,A,6,Ethnic,,C,2,,C,3,Y,N,N,N,
+Israel,2022,A,8,Ethno-religious,2022,A,8,2022,A,8,Y,N,N,N,"Groups with low population in a district sometimes were not given data, so used the available data to infer this population. Census doesn't provide detailed Christian Arab results, so the Orthodox/Catholic numbers may not be accurate. However, adding all Christian Arabs provides the census result. "
+Jordan,,,,,,,,,,,,,,,
+Kuwait,,,,,,,,,,,,,,,
+Lebanon,2019,A,6,Ethno-religious,2018,A,6,2018,A,6,Y,N,N,N,"Uses voting district ethno-religious registration data. Population estimates do not include the over a million refugee population, mostly consisting on Palestinians and Syrians."
+Oman,,,,,,,,,,,,,,,
+Palestine,2022,A,8,Ethnic,2017,C,7,2017,A,7,Y,N,N,N,"The Palestinian government provides the national religious data, not per province."
+Qatar,,,,,,,,,,,,,,,
+Saudi Arabia,,,,,,,,,,,,,,,
+Syria,2004/2021,A,2,Ethnic,,C,1,,C,1,Y,N,,N,"2004 census district level population data was adjusted according to 2021 estimates, but is likely inaccurate due to population gain and loss effecting every district differently. There are no good demographic estimates currently available due to the ongoing civil war."
+Turkiye,,,,,,,,,,,,,,,
+United Arab Emirates,,,,,,,,,,,,,,,
+Yemen,,,,,,,,,,,,,,,

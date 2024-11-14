@@ -27,6 +27,7 @@
                         <ul>
                             <li><a href="about.html">About</a></li>
                             <li><a href="map.html">Maps</a></li>
+                            <li><a href="tutorial.html">Tutorial</a></li>
                             <li><a href="index.html">Home</a></li>
 
                         </ul>
@@ -57,13 +58,25 @@
                     <img class='regionImg' src="images/russia.png">
                     Russia
                 </button>
+                <button class="btn option-btn" data-option="southAsia">
+                    <img class='regionImg' src="images/southAsia.png">
+                    South Asia (Work in Progress)
+                </button>
+                <button class="btn option-btn" data-option="southeastAsia">
+                    <img class='regionImg' src="images/southeastAsia.png">
+                    Southeast Asia (Work in Progress)
+                </button>
+                <button class="btn option-btn" data-option="eastAsia">
+                    <img class='regionImg' src="images/eastAsia.png">
+                    East Asia (Work in Progress)
+                </button>
             </div>
         </div>
         
 
         <div class="nameTabs">
             <br>
-            <h1 contenteditable="true">Map 1</h1>
+            <h1 id="mapTitle" contenteditable="true">Map 1</h1>
             <div class="tabContainer">
                 <div>
                     <button class="tabLinks" onclick="openTab(event, 'mapTab')">Map</button>
@@ -83,6 +96,17 @@
 
                 <div class="mapOptions">
                     <h3>Map Options</h3>
+                    <div class="container0">
+                        <div>
+                            <button class="btn2" id="browse-btn">Browse</button>
+                        </div>
+                        <div>
+                            <button class="btn2" id="draw-btn">Draw</button>
+                        </div>
+                        <div>
+                            <button class="btn2" id="erase-btn">Erase</button>
+                        </div>
+                    </div>                            
                     <div class="container2">
                         <div>
                             <button class="btn" id="district-btn">District</button>
@@ -96,7 +120,7 @@
                     </div>
                     <div class="slidecontainer">
                         <input type="range" min="1" max="100" value="70" class="slider" id="mapOpacity">
-                    </div>                              
+                    </div>  
                 </div>
 
                 <div class="layerOptions">
@@ -130,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="drawErase">
+                <!-- <div class="drawErase">
                     <h3>Draw or Erase Mode</h3>
                     <div class="container0">
                         <div>
@@ -140,7 +164,7 @@
                             <button class="btn2" id="erase-btn">Erase</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             
                 <div class = "natBar">
                     <h3>Nations</h3>
@@ -148,6 +172,7 @@
                         <table>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="1" onclick="nationLock(1)"></button>
                                     <button class="nation-btn" id="nation1-btn" onclick="selectNation(1)"></button>
                                     <input type="color" id="color1" class="color-picker" value="#ff0000" />
                                     <span id="nation1-feature" contenteditable="true">Nation 1</span>
@@ -158,6 +183,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="2" onclick="nationLock(2)"></button>
                                     <button class="nation-btn" id="nation2-btn" onclick="selectNation(2)"></button>
                                     <input type="color" id="color2" class="color-picker" value="#0091ff" />
                                     <span id="nation2-feature" contenteditable="true">Nation 2</span>
@@ -168,6 +194,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="3" onclick="nationLock(3)"></button>
                                     <button class="nation-btn" id="nation3-btn" onclick="selectNation(3)"></button>
                                     <input type="color" id="color3" class="color-picker" value="#00ff26" />
                                     <span id="nation3-feature" contenteditable="true">Nation 3</span>
@@ -178,6 +205,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="4" onclick="nationLock(4)"></button>
                                     <button class="nation-btn" id="nation4-btn" onclick="selectNation(4)"></button>
                                     <input type="color" id="color4" class="color-picker" value="#ea00ff" />
                                     <span id="nation4-feature" contenteditable="true">Nation 4</span>
@@ -188,6 +216,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="5" onclick="nationLock(5)"></button>
                                     <button class="nation-btn" id="nation5-btn" onclick="selectNation(5)"></button>
                                     <input type="color" id="color5" class="color-picker" value="#ffe600" />
                                     <span id="nation5-feature" contenteditable="true">Nation 5</span>
@@ -198,6 +227,7 @@
                             </tr>
                             <tr class="grayed"> 
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="6" onclick="nationLock(6)"></button>
                                     <button class="nation-btn" id="nation6-btn" onclick="selectNation(6)"></button>
                                     <input type="color" id="color6" class="color-picker" value="#0040ff" />
                                     <span id="nation6-feature" contenteditable="true">Nation 6</span>
@@ -208,6 +238,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="7" onclick="nationLock(7)"></button>
                                     <button class="nation-btn" id="nation7-btn" onclick="selectNation(7)"></button>
                                     <input type="color" id="color7" class="color-picker" value="#00ffaa" />
                                     <span id="nation7-feature" contenteditable="true">Nation 7</span>
@@ -218,6 +249,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="8" onclick="nationLock(8)"></button>
                                     <button class="nation-btn" id="nation8-btn" onclick="selectNation(8)"></button>
                                     <input type="color" id="color8" class="color-picker" value="#7b00ff" />
                                     <span id="nation8-feature" contenteditable="true">Nation 8</span>
@@ -228,6 +260,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="9" onclick="nationLock(9)"></button>
                                     <button class="nation-btn" id="nation9-btn" onclick="selectNation(9)"></button>
                                     <input type="color" id="color9" class="color-picker" value="#ff8c00" />
                                     <span id="nation9-feature" contenteditable="true">Nation 9</span>
@@ -238,6 +271,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="10" onclick="nationLock(10)"></button>
                                     <button class="nation-btn" id="nation10-btn" onclick="selectNation(10)"></button>
                                     <input type="color" id="color10" class="color-picker" value="#5d9300" />
                                     <span id="nation10-feature" contenteditable="true">Nation 10</span>
@@ -248,6 +282,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="11" onclick="nationLock(11)"></button>
                                     <button class="nation-btn" id="nation11-btn" onclick="selectNation(11)"></button>
                                     <input type="color" id="color11" class="color-picker" value="#722a2a" />
                                     <span id="nation11-feature" contenteditable="true">Nation 11</span>
@@ -258,6 +293,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="12" onclick="nationLock(12)"></button>
                                     <button class="nation-btn" id="nation12-btn" onclick="selectNation(12)"></button>
                                     <input type="color" id="color12" class="color-picker" value="#b980ff" />
                                     <span id="nation12-feature" contenteditable="true">Nation 12</span>
@@ -268,6 +304,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="13" onclick="nationLock(13)"></button>
                                     <button class="nation-btn" id="nation13-btn" onclick="selectNation(13)"></button>
                                     <input type="color" id="color13" class="color-picker" value="#ff64b2" />
                                     <span id="nation13-feature" contenteditable="true">Nation 13</span>
@@ -278,6 +315,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="14" onclick="nationLock(14)"></button>
                                     <button class="nation-btn" id="nation14-btn" onclick="selectNation(14)"></button>
                                     <input type="color" id="color14" class="color-picker" value="#64faff" />
                                     <span id="nation14-feature" contenteditable="true">Nation 14</span>
@@ -288,6 +326,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="15" onclick="nationLock(15)"></button>
                                     <button class="nation-btn" id="nation15-btn" onclick="selectNation(15)"></button>
                                     <input type="color" id="color15" class="color-picker" value="#735b23" />
                                     <span id="nation15-feature" contenteditable="true">Nation 15</span>
@@ -298,6 +337,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="16" onclick="nationLock(16)"></button>
                                     <button class="nation-btn" id="nation16-btn" onclick="selectNation(16)"></button>
                                     <input type="color" id="color16" class="color-picker" value="#950133" />
                                     <span id="nation16-feature" contenteditable="true">Nation 16</span>
@@ -308,6 +348,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="17" onclick="nationLock(17)"></button>
                                     <button class="nation-btn" id="nation17-btn" onclick="selectNation(17)"></button>
                                     <input type="color" id="color17" class="color-picker" value="#417550" />
                                     <span id="nation17-feature" contenteditable="true">Nation 17</span>
@@ -318,6 +359,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="18" onclick="nationLock(18)"></button>
                                     <button class="nation-btn" id="nation18-btn" onclick="selectNation(18)"></button>
                                     <input type="color" id="color18" class="color-picker" value="#5291ff" />
                                     <span id="nation18-feature" contenteditable="true">Nation 18</span>
@@ -328,6 +370,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="19" onclick="nationLock(19)"></button>
                                     <button class="nation-btn" id="nation19-btn" onclick="selectNation(19)"></button>
                                     <input type="color" id="color19" class="color-picker" value="#fa3b06" />
                                     <span id="nation19-feature" contenteditable="true">Nation 19</span>
@@ -338,12 +381,233 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="20" onclick="nationLock(20)"></button>
                                     <button class="nation-btn" id="nation20-btn" onclick="selectNation(20)"></button>
                                     <input type="color" id="color20" class="color-picker" value="#160d3f" />
                                     <span id="nation20-feature" contenteditable="true">Nation 20</span>
                                 </td>
                                 <td class="population">
                                     <p id="pop20">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="21" onclick="nationLock(21)"></button>
+                                    <button class="nation-btn" id="nation21-btn" onclick="selectNation(21)"></button>
+                                    <input type="color" id="color21" class="color-picker" value="#722a2a" />
+                                    <span id="nation21-feature" contenteditable="true">Nation 21</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop21">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="22" onclick="nationLock(22)"></button>
+                                    <button class="nation-btn" id="nation22-btn" onclick="selectNation(22)"></button>
+                                    <input type="color" id="color22" class="color-picker" value="#b980ff" />
+                                    <span id="nation22-feature" contenteditable="true">Nation 22</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop22">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="23" onclick="nationLock(23)"></button>
+                                    <button class="nation-btn" id="nation23-btn" onclick="selectNation(23)"></button>
+                                    <input type="color" id="color23" class="color-picker" value="#ff64b2" />
+                                    <span id="nation23-feature" contenteditable="true">Nation 23</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop23">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="24" onclick="nationLock(24)"></button>
+                                    <button class="nation-btn" id="nation24-btn" onclick="selectNation(24)"></button>
+                                    <input type="color" id="color24" class="color-picker" value="#64faff" />
+                                    <span id="nation24-feature" contenteditable="true">Nation 24</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop24">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="25" onclick="nationLock(25)"></button>
+                                    <button class="nation-btn" id="nation25-btn" onclick="selectNation(25)"></button>
+                                    <input type="color" id="color25" class="color-picker" value="#735b23" />
+                                    <span id="nation25-feature" contenteditable="true">Nation 25</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop25">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="26" onclick="nationLock(26)"></button>
+                                    <button class="nation-btn" id="nation26-btn" onclick="selectNation(26)"></button>
+                                    <input type="color" id="color26" class="color-picker" value="#950233" />
+                                    <span id="nation26-feature" contenteditable="true">Nation 26</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop26">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="27" onclick="nationLock(27)"></button>
+                                    <button class="nation-btn" id="nation27-btn" onclick="selectNation(27)"></button>
+                                    <input type="color" id="color27" class="color-picker" value="#427550" />
+                                    <span id="nation27-feature" contenteditable="true">Nation 27</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop27">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="28" onclick="nationLock(28)"></button>
+                                    <button class="nation-btn" id="nation28-btn" onclick="selectNation(28)"></button>
+                                    <input type="color" id="color28" class="color-picker" value="#5292ff" />
+                                    <span id="nation28-feature" contenteditable="true">Nation 28</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop28">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="29" onclick="nationLock(29)"></button>
+                                    <button class="nation-btn" id="nation29-btn" onclick="selectNation(29)"></button>
+                                    <input type="color" id="color29" class="color-picker" value="#fa3b06" />
+                                    <span id="nation29-feature" contenteditable="true">Nation 29</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop29">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="30" onclick="nationLock(30)"></button>
+                                    <button class="nation-btn" id="nation30-btn" onclick="selectNation(30)"></button>
+                                    <input type="color" id="color30" class="color-picker" value="#160d3f" />
+                                    <span id="nation30-feature" contenteditable="true">Nation 30</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop30">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="31" onclick="nationLock(31)"></button>
+                                    <button class="nation-btn" id="nation31-btn" onclick="selectNation(31)"></button>
+                                    <input type="color" id="color31" class="color-picker" value="#722a2a" />
+                                    <span id="nation31-feature" contenteditable="true">Nation 31</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop31">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="32" onclick="nationLock(32)"></button>
+                                    <button class="nation-btn" id="nation32-btn" onclick="selectNation(32)"></button>
+                                    <input type="color" id="color32" class="color-picker" value="#b980ff" />
+                                    <span id="nation32-feature" contenteditable="true">Nation 32</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop32">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="33" onclick="nationLock(33)"></button>
+                                    <button class="nation-btn" id="nation33-btn" onclick="selectNation(33)"></button>
+                                    <input type="color" id="color33" class="color-picker" value="#ff64b2" />
+                                    <span id="nation33-feature" contenteditable="true">Nation 33</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop33">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="34" onclick="nationLock(34)"></button>
+                                    <button class="nation-btn" id="nation34-btn" onclick="selectNation(34)"></button>
+                                    <input type="color" id="color34" class="color-picker" value="#64faff" />
+                                    <span id="nation34-feature" contenteditable="true">Nation 34</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop34">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="35" onclick="nationLock(35)"></button>
+                                    <button class="nation-btn" id="nation35-btn" onclick="selectNation(35)"></button>
+                                    <input type="color" id="color35" class="color-picker" value="#735b23" />
+                                    <span id="nation35-feature" contenteditable="true">Nation 35</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop35">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="36" onclick="nationLock(36)"></button>
+                                    <button class="nation-btn" id="nation36-btn" onclick="selectNation(36)"></button>
+                                    <input type="color" id="color36" class="color-picker" value="#950333" />
+                                    <span id="nation36-feature" contenteditable="true">Nation 36</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop36">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="37" onclick="nationLock(37)"></button>
+                                    <button class="nation-btn" id="nation37-btn" onclick="selectNation(37)"></button>
+                                    <input type="color" id="color37" class="color-picker" value="#437550" />
+                                    <span id="nation37-feature" contenteditable="true">Nation 37</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop37">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="38" onclick="nationLock(38)"></button>
+                                    <button class="nation-btn" id="nation38-btn" onclick="selectNation(38)"></button>
+                                    <input type="color" id="color38" class="color-picker" value="#5293ff" />
+                                    <span id="nation38-feature" contenteditable="true">Nation 38</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop38">0</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="39" onclick="nationLock(39)"></button>
+                                    <button class="nation-btn" id="nation39-btn" onclick="selectNation(39)"></button>
+                                    <input type="color" id="color39" class="color-picker" value="#fa3b06" />
+                                    <span id="nation39-feature" contenteditable="true">Nation 39</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop39">0</p>
+                                </td>
+                            </tr>
+                            <tr class="grayed">
+                                <td class="natRow">
+                                    <input type="checkbox" class="lock-btn" id="40" onclick="nationLock(40)"></button>
+                                    <button class="nation-btn" id="nation40-btn" onclick="selectNation(40)"></button>
+                                    <input type="color" id="color40" class="color-picker" value="#160d3f" />
+                                    <span id="nation40-feature" contenteditable="true">Nation 40</span>
+                                </td>
+                                <td class="population">
+                                    <p id="pop40">0</p>
                                 </td>
                             </tr>
                         </table>
@@ -479,41 +743,41 @@
             <div class="dataContainer">
                 <div class="allData-btn">
                     <div class="dataTab-btns">
-                        <h3 class="dataTitle">Type of Data</h3>
-                        <div class="demography">
-                            <div class="statDetails">
-                                <div>
-                                    <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
-                                </div>
-                            </div>
-                            <div class="ethnicDetails">
-                                <div>
-                                    <button class="data-btn" id="eth-btn1" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Detailed</button>
-                                </div>
-                                <div>
-                                    <button class="data-btn" id="eth-btn2" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Groups</button>
-                                </div>
-                                <div>
-                                    <button class="data-btn" id="eth-btn3" onclick="openStatTab(event, 'ethnicity')">Ethnicity- Families</button>
-                                </div>
-                            </div> 
-                            <div class="religionDetails">
-                                <div>
-                                    <button class="data-btn" id="rel-btn1" onclick="openStatTab(event, 'religion')">Religion- Detailed</button>
-                                </div>
-                                <div>
-                                    <button class="data-btn" id="rel-btn2" onclick="openStatTab(event, 'religion')">Religion- Groups</button>
-                                </div>
-                                <div>
-                                    <button class="data-btn" id="rel-btn3" onclick="openStatTab(event, 'religion')">Religion- Families</button>
-                                </div>
+                        <div class="statDetails">
+                            <h3 class="dataTitle">Type of Data</h3>
+                            <div>
+                                <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="sourceDetails">
-                        <h3 class="dataTitle">Data Source</h3>
-                        <div>
-                            <button class="data-btn" id="sources-btn" onclick="openStatTab(event, 'sources')">Data Sources</button>
+                        <div class="ethnicDetails">
+                            <h3 class="dataTitle">Ethnic Data</h3>
+                            <div>
+                                <button class="data-btn" id="eth-btn1" onclick="openStatTab(event, 'ethnicity')">Detailed</button>
+                            </div>
+                            <div>
+                                <button class="data-btn" id="eth-btn2" onclick="openStatTab(event, 'ethnicity')">Groups</button>
+                            </div>
+                            <div>
+                                <button class="data-btn" id="eth-btn3" onclick="openStatTab(event, 'ethnicity')">Families</button>
+                            </div>
+                        </div> 
+                        <div class="religionDetails">
+                            <h3 class="dataTitle">Religion Data</h3>
+                            <div>
+                                <button class="data-btn" id="rel-btn1" onclick="openStatTab(event, 'religion')">Detailed</button>
+                            </div>
+                            <div>
+                                <button class="data-btn" id="rel-btn2" onclick="openStatTab(event, 'religion')">Groups</button>
+                            </div>
+                            <div>
+                                <button class="data-btn" id="rel-btn3" onclick="openStatTab(event, 'religion')">Families</button>
+                            </div>
+                        </div>
+                        <div class="sourceDetails">
+                            <h3 class="dataTitle">Data Source</h3>
+                            <div>
+                                <button class="data-btn" id="sources-btn" onclick="openStatTab(event, 'sources')">Data Sources</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -731,7 +995,206 @@
                             <td class="relLargeGroup" id="relGroup20"></td>
                             <td class="relLargePercent" id="relPercent20"></td>
                         </tr>
-
+                        <tr id="nation21">
+                            <td class="nations">Nation 21</td>
+                            <td class="populations" id="population21">0</td>
+                            <td class="area" id="area21">0</td>
+                            <td class="density" id="density21">0</td>
+                            <td class="largeGroup" id="group21"></td>
+                            <td class="largePercent" id="percent21"></td>
+                            <td class="relLargeGroup" id="relGroup21"></td>
+                            <td class="relLargePercent" id="relPercent21"></td>
+                        </tr>
+                        <tr id="nation22" class="grayed">
+                            <td class="nations">Nation 22</td>
+                            <td class="populations" id="population22">0</td>
+                            <td class="area" id="area22">0</td>
+                            <td class="density" id="density22">0</td>
+                            <td class="largeGroup" id="group22"></td>
+                            <td class="largePercent" id="percent22"></td>
+                            <td class="relLargeGroup" id="relGroup22"></td>
+                            <td class="relLargePercent" id="relPercent22"></td>
+                        </tr>
+                        <tr id="nation23">
+                            <td class="nations">Nation 23</td>
+                            <td class="populations" id="population23">0</td>
+                            <td class="area" id="area23">0</td>
+                            <td class="density" id="density23">0</td>
+                            <td class="largeGroup" id="group23"></td>
+                            <td class="largePercent" id="percent23"></td>
+                            <td class="relLargeGroup" id="relGroup23"></td>
+                            <td class="relLargePercent" id="relPercent23"></td>
+                        </tr>
+                        <tr id="nation24" class="grayed">
+                            <td class="nations">Nation 24</td>
+                            <td class="populations" id="population24">0</td>
+                            <td class="area" id="area24">0</td>
+                            <td class="density" id="density24">0</td>
+                            <td class="largeGroup" id="group24"></td>
+                            <td class="largePercent" id="percent24"></td>
+                            <td class="relLargeGroup" id="relGroup24"></td>
+                            <td class="relLargePercent" id="relPercent24"></td>
+                        </tr>
+                        <tr id="nation25">
+                            <td class="nations">Nation 25</td>
+                            <td class="populations" id="population25">0</td>
+                            <td class="area" id="area25">0</td>
+                            <td class="density" id="density25">0</td>
+                            <td class="largeGroup" id="group25"></td>
+                            <td class="largePercent" id="percent25"></td>
+                            <td class="relLargeGroup" id="relGroup25"></td>
+                            <td class="relLargePercent" id="relPercent25"></td>
+                        </tr>
+                        <tr id="nation26" class="grayed">
+                            <td class="nations">Nation 26</td>
+                            <td class="populations" id="population26">0</td>
+                            <td class="area" id="area26">0</td>
+                            <td class="density" id="density26">0</td>
+                            <td class="largeGroup" id="group26"></td>
+                            <td class="largePercent" id="percent26"></td>
+                            <td class="relLargeGroup" id="relGroup26"></td>
+                            <td class="relLargePercent" id="relPercent26"></td>
+                        </tr>
+                        <tr id="nation27">
+                            <td class="nations">Nation 27</td>
+                            <td class="populations" id="population27">0</td>
+                            <td class="area" id="area27">0</td>
+                            <td class="density" id="density27">0</td>
+                            <td class="largeGroup" id="group27"></td>
+                            <td class="largePercent" id="percent27"></td>
+                            <td class="relLargeGroup" id="relGroup27"></td>
+                            <td class="relLargePercent" id="relPercent27"></td>
+                        </tr>
+                        <tr id="nation28" class="grayed">
+                            <td class="nations">Nation 28</td>
+                            <td class="populations" id="population28">0</td>
+                            <td class="area" id="area28">0</td>
+                            <td class="density" id="density28">0</td>
+                            <td class="largeGroup" id="group28"></td>
+                            <td class="largePercent" id="percent28"></td>
+                            <td class="relLargeGroup" id="relGroup28"></td>
+                            <td class="relLargePercent" id="relPercent28"></td>
+                        </tr>
+                        <tr id="nation29">
+                            <td class="nations">Nation 29</td>
+                            <td class="populations" id="population29">0</td>
+                            <td class="area" id="area29">0</td>
+                            <td class="density" id="density29">0</td>
+                            <td class="largeGroup" id="group29"></td>
+                            <td class="largePercent" id="percent29"></td>
+                            <td class="relLargeGroup" id="relGroup29"></td>
+                            <td class="relLargePercent" id="relPercent29"></td>
+                        </tr>
+                        <tr id="nation30" class="grayed">
+                            <td class="nations">Nation 30</td>
+                            <td class="populations" id="population30">0</td>
+                            <td class="area" id="area30">0</td>
+                            <td class="density" id="density30">0</td>
+                            <td class="largeGroup" id="group30"></td>
+                            <td class="largePercent" id="percent30"></td>
+                            <td class="relLargeGroup" id="relGroup30"></td>
+                            <td class="relLargePercent" id="relPercent30"></td>
+                        </tr>
+                        <tr id="nation31">
+                            <td class="nations">Nation 31</td>
+                            <td class="populations" id="population31">0</td>
+                            <td class="area" id="area31">0</td>
+                            <td class="density" id="density31">0</td>
+                            <td class="largeGroup" id="group31"></td>
+                            <td class="largePercent" id="percent31"></td>
+                            <td class="relLargeGroup" id="relGroup31"></td>
+                            <td class="relLargePercent" id="relPercent31"></td>
+                        </tr>
+                        <tr id="nation32" class="grayed">
+                            <td class="nations">Nation 32</td>
+                            <td class="populations" id="population32">0</td>
+                            <td class="area" id="area32">0</td>
+                            <td class="density" id="density32">0</td>
+                            <td class="largeGroup" id="group32"></td>
+                            <td class="largePercent" id="percent32"></td>
+                            <td class="relLargeGroup" id="relGroup32"></td>
+                            <td class="relLargePercent" id="relPercent32"></td>
+                        </tr>
+                        <tr id="nation33">
+                            <td class="nations">Nation 33</td>
+                            <td class="populations" id="population33">0</td>
+                            <td class="area" id="area33">0</td>
+                            <td class="density" id="density33">0</td>
+                            <td class="largeGroup" id="group33"></td>
+                            <td class="largePercent" id="percent33"></td>
+                            <td class="relLargeGroup" id="relGroup33"></td>
+                            <td class="relLargePercent" id="relPercent33"></td>
+                        </tr>
+                        <tr id="nation34" class="grayed">
+                            <td class="nations">Nation 34</td>
+                            <td class="populations" id="population34">0</td>
+                            <td class="area" id="area34">0</td>
+                            <td class="density" id="density34">0</td>
+                            <td class="largeGroup" id="group34"></td>
+                            <td class="largePercent" id="percent34"></td>
+                            <td class="relLargeGroup" id="relGroup34"></td>
+                            <td class="relLargePercent" id="relPercent34"></td>
+                        </tr>
+                        <tr id="nation35">
+                            <td class="nations">Nation 35</td>
+                            <td class="populations" id="population35">0</td>
+                            <td class="area" id="area35">0</td>
+                            <td class="density" id="density35">0</td>
+                            <td class="largeGroup" id="group35"></td>
+                            <td class="largePercent" id="percent35"></td>
+                            <td class="relLargeGroup" id="relGroup35"></td>
+                            <td class="relLargePercent" id="relPercent35"></td>
+                        </tr>
+                        <tr id="nation36" class="grayed">
+                            <td class="nations">Nation 36</td>
+                            <td class="populations" id="population36">0</td>
+                            <td class="area" id="area36">0</td>
+                            <td class="density" id="density36">0</td>
+                            <td class="largeGroup" id="group36"></td>
+                            <td class="largePercent" id="percent36"></td>
+                            <td class="relLargeGroup" id="relGroup36"></td>
+                            <td class="relLargePercent" id="relPercent36"></td>
+                        </tr>
+                        <tr id="nation37">
+                            <td class="nations">Nation 37</td>
+                            <td class="populations" id="population37">0</td>
+                            <td class="area" id="area37">0</td>
+                            <td class="density" id="density37">0</td>
+                            <td class="largeGroup" id="group37"></td>
+                            <td class="largePercent" id="percent37"></td>
+                            <td class="relLargeGroup" id="relGroup37"></td>
+                            <td class="relLargePercent" id="relPercent37"></td>
+                        </tr>
+                        <tr id="nation38" class="grayed">
+                            <td class="nations">Nation 38</td>
+                            <td class="populations" id="population38">0</td>
+                            <td class="area" id="area38">0</td>
+                            <td class="density" id="density38">0</td>
+                            <td class="largeGroup" id="group38"></td>
+                            <td class="largePercent" id="percent38"></td>
+                            <td class="relLargeGroup" id="relGroup38"></td>
+                            <td class="relLargePercent" id="relPercent38"></td>
+                        </tr>
+                        <tr id="nation39">
+                            <td class="nations">Nation 39</td>
+                            <td class="populations" id="population39">0</td>
+                            <td class="area" id="area39">0</td>
+                            <td class="density" id="density39">0</td>
+                            <td class="largeGroup" id="group39"></td>
+                            <td class="largePercent" id="percent39"></td>
+                            <td class="relLargeGroup" id="relGroup39"></td>
+                            <td class="relLargePercent" id="relPercent39"></td>
+                        </tr>
+                        <tr id="nation40" class="grayed">
+                            <td class="nations">Nation 40</td>
+                            <td class="populations" id="population40">0</td>
+                            <td class="area" id="area40">0</td>
+                            <td class="density" id="density40">0</td>
+                            <td class="largeGroup" id="group40"></td>
+                            <td class="largePercent" id="percent40"></td>
+                            <td class="relLargeGroup" id="relGroup40"></td>
+                            <td class="relLargePercent" id="relPercent40"></td>
+                        </tr>
                     </table>
 
                     <table id="ethnicity" class="ethTable" style="display:none">
@@ -798,6 +1261,7 @@
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/6.5.0/turf.min.js"></script>
 
     </body>
 

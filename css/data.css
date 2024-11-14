@@ -1,13 +1,35 @@
+/* COLORS */
+
+.data-btn{
+    background-color: #535071;
+    color: #ffffff;
+}
+
 .dataTitle{
-    color: white;
+    color: #ffffff;
     font-size: 15px;
     text-align: center;
     border:0px solid;
     fill: solid white;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 3px;
-    background-color: rgb(55, 52, 74);
+    background-color: #37344a;
 }
+
+.data-btn:hover{
+    background-color: goldenrod; 
+    color: #ffffff;
+}
+
+
+.clickedBtn{
+    background-color: #daa520; 
+    color: #535071;
+    font-weight: bold;
+}
+
+
+
 
 .dataContainer{
 
@@ -18,51 +40,25 @@
     margin-left: 260px;
 }
 
-/* .allData- {
-    column-count: 4;
-} */
 .dataTab-btns {
     width: 500px;
+    column-count: 4;
 }
 
-.sourceDetails {
-    margin-left: 504px;
-    margin-top: -96.5px;
-    margin-bottom: 50px;
-    width: 167px;
-}
 #stat-btn {
     margin-bottom: 50px;
-}
-.demography {
-    column-count: 3;
+    padding-top: -20px;
 }
 
 .data-btn{
-    background-color: rgb(83, 80, 113);
     border: none;
-    color: #ffffff;
     text-align: center;
     font: 12px 'Signika Negative';
     border-radius: 10%;
-    margin-left: 4px;
+    margin-left: 9px;
     padding-top: 2px;
     padding-bottom: 2px;
-    width: 90%;
-}
-
-.data-btn:hover{
-
-    background-color: goldenrod; 
-    color: rgb(255, 255, 255);
-}
-
-
-.clickedBtn{
-    background-color: #daa520; 
-    color: rgb(83, 80, 113);
-    font-weight: bold;
-
+    width: 85%;
 }
 
 .hidden-column {
@@ -70,11 +66,11 @@
 }
 
 .grayed {
-    background-color: #e1e1eb;
+    background-color: #29293d;
 }
 
 .whited {
-    background-color: #f7f7ff;
+    background-color: #1c1c21;
 }
 
 .shadeA {
@@ -127,7 +123,7 @@
 }
 
 .sourceTable td:first-child {
-    background-color: #f6f6ff;
+    background-color: #1c1c21;
 }
 
 .sourceTable th:last-child, .sourceTable td:last-child {
@@ -148,7 +144,7 @@
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align:center;
     font-size: 17px;
     } 
@@ -158,12 +154,12 @@
         left: 0px;
         font-weight: bold;
         .sourceTable {
-            background-color: #e1e1eb;
+            background-color: #29293d;
         }
     }
 
     th:first-child {
-        background-color: #e1e1eb;
+        background-color: #29293d;
     }
     
     thead {
@@ -185,7 +181,6 @@
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #000000;
     text-align:center;
     font-size: 17px;
 }

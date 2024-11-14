@@ -2,12 +2,10 @@ async function dataSetup() {
     await initializeSelection();
 
 // Define the path to your CSV file
-console.log("data objects region", regionSelection);
 const csvFilePath = `data/${regionSelection}/regionInfo.csv`;  // Replace with the path to your CSV file
-console.log("data objects region 2", regionSelection);
 
-// Declare ethArray to store the parsed data
-let ethArray = [];
+// Declare dataArray to store the parsed data
+let dataArray = [];
 
 // Use fetch to load the CSV file
 fetch(csvFilePath)
@@ -28,10 +26,10 @@ fetch(csvFilePath)
                         return acc;
                     }, {});
                     
-                    ethArray.push(demoData);
+                    dataArray.push(demoData);
                 });
 
-                exportToFile(ethArray, 'ethArray.json');
+                exportToFile(dataArray, 'dataArray.json');
             }
         });
     })

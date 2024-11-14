@@ -72,7 +72,7 @@ function populateEthnicityTable() {
     nationHeader.textContent = "Nations";
     headerRow.appendChild(nationHeader);
 
-    ethnicData.forEach(col => {
+    allData.forEach(col => {
         const th = document.createElement('th');
         th.textContent = col;
         if (excludeKeys.includes(col)) {
@@ -109,7 +109,7 @@ function populateEthnicityTable() {
 
         ethBoolRow = null;
         // For each column, create a cell in the row
-        ethnicData.forEach(col => {
+        allData.forEach(col => {
             const td = document.createElement('td');
             const value = nationInfo[ID][col] || 0; // Fallback to 0 if value is missing
 
@@ -148,7 +148,7 @@ function populateReligionTable() {
     nationHeader.textContent = "Nations";
     headerRow.appendChild(nationHeader);
 
-    ethnicData.forEach(col => {
+    allData.forEach(col => {
         const th = document.createElement('th');
         th.textContent = col;
         if (excludeKeys.includes(col)) {
@@ -189,7 +189,7 @@ function populateReligionTable() {
 
         let relBoolRow = null;
         // For each column, create a cell in the row
-        ethnicData.forEach(col => {
+        allData.forEach(col => {
             const td = document.createElement('td');
             const value = nationInfo[ID][col] || 0; // Fallback to 0 if value is missing
 
