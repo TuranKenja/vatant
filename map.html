@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="layerOptions">
-                    <h3>Layer Options</h3>
+                    <h3>Administrative Boundaries</h3>
                     <div class="container3">
                         <div class="bound-btn">
                             <div>
@@ -137,16 +137,28 @@
                                 <button class="btn1" id="count-bound-btn">Country</button>
                             </div>
                         </div>
+                    </div>
+                    <h3>Layer Options</h3>
+                    <div class="container3">
                         <div class="layer-btn">
                             <div>
-                                <button class="btn3" id="density-btn">Pop. Density</button>
-                            </div>
-                            <div>
                                 <button class="btn3" id="largest-btn">Largest Group</button>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn3 drop-btn" id="ethnicDrop-btn" onclick="populateEthDropdown()">Group Alone</button>
+                                <div id="ethDrop" class="dropdown-content"></div>
                             </div>
                             <div>
                                 <button class="btn3" id="religion-btn">Largest Religion</button>
                             </div>
+                            <div class="dropdown">
+                                <button class="btn3 drop-btn" id="religionDrop-btn" onclick="populateRelDropdown()">Religion Alone</button>
+                                <div id="relDrop" class="dropdown-content"></div>
+                            </div>
+                            <div>
+                                <button class="btn3" id="density-btn">Pop. Density</button>
+                            </div>
+
                         </div>
                         <div class="slidecontainer">
                             <input type="range" min="1" max="100" value="50" class="slider" id="layerOpacity">
@@ -613,7 +625,7 @@
                         </table>
                     </div>
                 </div>
-
+                
             </div>
 
             <div class="infoBar">
@@ -741,43 +753,41 @@
 
         <div id="dataTab" class="tabContent">
             <div class="dataContainer">
-                <div class="allData-btn">
-                    <div class="dataTab-btns">
-                        <div class="statDetails">
-                            <h3 class="dataTitle">Type of Data</h3>
-                            <div>
-                                <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
-                            </div>
+                <div class="dataTab-btns">
+                    <div class="statDetails">
+                        <h3 class="dataTitle">Type of Data</h3>
+                        <div>
+                            <button class="data-btn" id="stat-btn" onclick="openStatTab(event, 'statistics')">Statistics</button>
                         </div>
-                        <div class="ethnicDetails">
-                            <h3 class="dataTitle">Ethnic Data</h3>
-                            <div>
-                                <button class="data-btn" id="eth-btn1" onclick="openStatTab(event, 'ethnicity')">Detailed</button>
-                            </div>
-                            <div>
-                                <button class="data-btn" id="eth-btn2" onclick="openStatTab(event, 'ethnicity')">Groups</button>
-                            </div>
-                            <div>
-                                <button class="data-btn" id="eth-btn3" onclick="openStatTab(event, 'ethnicity')">Families</button>
-                            </div>
-                        </div> 
-                        <div class="religionDetails">
-                            <h3 class="dataTitle">Religion Data</h3>
-                            <div>
-                                <button class="data-btn" id="rel-btn1" onclick="openStatTab(event, 'religion')">Detailed</button>
-                            </div>
-                            <div>
-                                <button class="data-btn" id="rel-btn2" onclick="openStatTab(event, 'religion')">Groups</button>
-                            </div>
-                            <div>
-                                <button class="data-btn" id="rel-btn3" onclick="openStatTab(event, 'religion')">Families</button>
-                            </div>
+                    </div>
+                    <div class="ethnicDetails">
+                        <h3 class="dataTitle">Ethnic Data</h3>
+                        <div>
+                            <button class="data-btn" id="eth-btn1" onclick="openStatTab(event, 'ethnicity')">Detailed</button>
                         </div>
-                        <div class="sourceDetails">
-                            <h3 class="dataTitle">Data Source</h3>
-                            <div>
-                                <button class="data-btn" id="sources-btn" onclick="openStatTab(event, 'sources')">Data Sources</button>
-                            </div>
+                        <div>
+                            <button class="data-btn" id="eth-btn2" onclick="openStatTab(event, 'ethnicity')">Groups</button>
+                        </div>
+                        <div>
+                            <button class="data-btn" id="eth-btn3" onclick="openStatTab(event, 'ethnicity')">Families</button>
+                        </div>
+                    </div> 
+                    <div class="religionDetails">
+                        <h3 class="dataTitle">Religion Data</h3>
+                        <div>
+                            <button class="data-btn" id="rel-btn1" onclick="openStatTab(event, 'religion')">Detailed</button>
+                        </div>
+                        <div>
+                            <button class="data-btn" id="rel-btn2" onclick="openStatTab(event, 'religion')">Groups</button>
+                        </div>
+                        <div>
+                            <button class="data-btn" id="rel-btn3" onclick="openStatTab(event, 'religion')">Families</button>
+                        </div>
+                    </div>
+                    <div class="sourceDetails">
+                        <h3 class="dataTitle">Data Source</h3>
+                        <div>
+                            <button class="data-btn" id="sources-btn" onclick="openStatTab(event, 'sources')">Data Sources</button>
                         </div>
                     </div>
                 </div>

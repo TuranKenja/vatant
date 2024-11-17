@@ -43,6 +43,9 @@
 .dataTab-btns {
     width: 500px;
     column-count: 4;
+    margin-right: 250px;
+    padding-right: 250px;
+
 }
 
 #stat-btn {

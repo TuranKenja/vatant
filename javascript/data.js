@@ -64,13 +64,13 @@ function populateEthnicityTable() {
     const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "oneReligion", "twoReligion", "threeReligion", "fourReligion", "fiveReligion", "sixReligion", "sevenReligion", "eightReligion", "nineReligion", "tenReligion", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
-    const headerRow = document.getElementById('colNamesEth');
-    headerRow.innerHTML = '';
+    const ethHeaderRow = document.getElementById('colNamesEth');
+    ethHeaderRow.innerHTML = '';
 
     // Create table headers
     const nationHeader = document.createElement('th');
     nationHeader.textContent = "Nations";
-    headerRow.appendChild(nationHeader);
+    ethHeaderRow.appendChild(nationHeader);
 
     allData.forEach(col => {
         const th = document.createElement('th');
@@ -82,7 +82,7 @@ function populateEthnicityTable() {
             ethBoolHeader = col;
         }
         if(ethBoolHeader === null || ethBoolHeader === "ethnicity"){
-            headerRow.appendChild(th);
+            ethHeaderRow.appendChild(th);
         }
     });
 
@@ -140,13 +140,13 @@ function populateReligionTable() {
     const excludeKeys = ["OKTMO ID", "ID", "Data Year", "Country", "Province", "District", "Density", "Area", "ethnicity", "Largest Group", "Largest Percent", "oneGroup", "twoGroup", "threeGroup", "fourGroup", "fiveGroup", "sixGroup", "sevenGroup", "eightGroup", "nineGroup", "tenGroup", "oneReligion", "twoReligion", "threeReligion", "fourReligion", "fiveReligion", "sixReligion", "sevenReligion", "eightReligion", "nineReligion", "tenReligion", "religion", "Largest Religion", "Share of Population", "Percent of Population"];
 
     // Clear existing headers and rows (in case it's repopulated)
-    const headerRow = document.getElementById('colNamesRel');
-    headerRow.innerHTML = '';
+    const relHeaderRow = document.getElementById('colNamesRel');
+    relHeaderRow.innerHTML = '';
 
     // Create table headers
     const nationHeader = document.createElement('th');
     nationHeader.textContent = "Nations";
-    headerRow.appendChild(nationHeader);
+    relHeaderRow.appendChild(nationHeader);
 
     allData.forEach(col => {
         const th = document.createElement('th');
@@ -158,10 +158,10 @@ function populateReligionTable() {
             relBoolHeader = col;
         }
         if(relBoolHeader === null){
-            headerRow.appendChild(th);
+            relHeaderRow.appendChild(th);
         }
         if(relBoolHeader === "religion"){
-            headerRow.appendChild(th);
+            relHeaderRow.appendChild(th);
         }
 
     });
