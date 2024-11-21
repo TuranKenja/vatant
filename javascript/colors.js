@@ -167,15 +167,15 @@ function largestColors(largestCol) {
         return '#ff8c40';
     } else if (largestCol === "Arabs") {
         return '#00b374';
-    } else if (largestCol === "Balochis") {
+    } else if (largestCol === "Balochi" || largestCol === 'Balochis') {
         return '#ff00d0';
-    } else if (largestCol === "Brahvis") {
+    } else if (largestCol === "Brahvi" || largestCol === 'Brahvis') {
         return '#ff5100';
     } else if (largestCol === "Gilaks") {
         return '#ccff00';
     } else if (largestCol === "Hazaras") {
         return '#73008d';
-    } else if (largestCol === "Hindkis") {
+    } else if (largestCol === "Hindki" || largestCol === 'Hindkis') {
         return '#85e313';
     } else if (largestCol === "Hormuzi") {
         return '#e3db00';
@@ -183,9 +183,9 @@ function largestColors(largestCol) {
         return '#cc6eff';
     } else if (largestCol === "Khorasani Turks") {
         return '#ba1414';
-    } else if (largestCol === "Khowari") {
+    } else if (largestCol === "Khowari" || largestCol === 'Khowaris') {
         return '#1900ff';
-    } else if (largestCol === "Kohistanis") {
+    } else if (largestCol === "Kohistani" || largestCol === 'Kohistanis') {
         return '#e31378';
     } else if (largestCol === "Kyrgyz") {
         return '#ff8c00';
@@ -207,13 +207,13 @@ function largestColors(largestCol) {
         return '#f9ff49';
     } else if (largestCol === "Persians") {
         return '#ffb300';
-    } else if (largestCol === "Punjabis" || largestCol === 'Punjabi') {
+    } else if (largestCol === 'Punjabi' || largestCol === 'Punjabis') {
         return '#49ffa1';
     } else if (largestCol === "Qashqai") {
         return '#00d5ff';
-    } else if (largestCol === "Saraikis") {
+    } else if (largestCol === "Saraiki" || largestCol === 'Saraikis') {
         return '#00ff15';
-    } else if (largestCol === "Sindhis") {
+    } else if (largestCol === "Sindhi" || largestCol === 'Sindhis') {
         return '#5549ff';
     } else if (largestCol === "Tajiks") {
         return '#ff4545';
@@ -225,17 +225,17 @@ function largestColors(largestCol) {
         return '#2c00de';
     } else if (largestCol === "Uyghurs") {
         return '#0d00c5';
-    } else if (largestCol === "Muhajirs" || largestCol === 'Urdu') {
+    } else if (largestCol === 'Urdu' || largestCol === 'Muhajirs') {
         return '#ff0000';
     } else if (largestCol === "Uzbeks") {
         return '#00ff48';
-    } else if (largestCol === "Baltis") {
+    } else if (largestCol === "Balti" || largestCol === 'Baltis') {
         return '#007f93';
-    } else if (largestCol === "Shinas") {
+    } else if (largestCol === "Shina" || largestCol === 'Shinas') {
         return '#936200';
-    } else if (largestCol === "Paharis" || largestCol === "Pahari") {
+    } else if (largestCol === "Pahari" || largestCol === 'Paharis') {
         return '#609300';
-    } else if (largestCol === "Burushaskis") {
+    } else if (largestCol === "Burushaski" || largestCol === 'Burushaskis') {
         return '#930000';
     } else if (largestCol === "Adi") {
         return '#b7244e';
@@ -433,6 +433,22 @@ function largestColors(largestCol) {
         return '#EB758C';
     } else if (largestCol === "Nepali") {
         return '#f01e9f';
+    } else if (largestCol === "Limbu") {
+        return '#1c8383';
+    } else if (largestCol === "Bajjika") {
+        return '#ebff90';
+    } else if (largestCol === "Tharu") {
+        return '#4b4db7';
+    } else if (largestCol === "Tamang") {
+        return '#ff0000';
+    } else if (largestCol === "Gurung") {
+        return '#00c407';
+    } else if (largestCol === "Khash") {
+        return '#688a11';
+    } else if (largestCol === "Awadhi") {
+        return '#ff5500';
+    } else if (largestCol === "Doteli") {
+        return '#002db5';
     } else if (largestCol === "Nicobarese") {
         return '#73041D ';
     } else if (largestCol === "Nimadi") {
@@ -503,8 +519,14 @@ function largestColors(largestCol) {
         return '#2dbdd6';
     } else if (largestCol === "Talgalo") {
         return '#5EEAAC';
-    } else if (largestCol === "Tamil") {
+    } else if (largestCol === "Sri Lanka Tamil") {
+        return '#EB7400';
+    } else if (largestCol === "Indian Tamil") {
         return '#eb3939';
+    } else if (largestCol === "Sinhalese") {
+        return '#FFBE29';
+    } else if (largestCol === "Sri Lanka Moor") {
+        return '#00534E';
     } else if (largestCol === "Tangkhul") {
         return '#6b3b00';
     } else if (largestCol === "Telugu") {

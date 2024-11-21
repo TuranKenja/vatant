@@ -311,7 +311,8 @@ function drawDensityLayers(dataLocation, boundariesLayer, opLayer) {
             style: function (feature) {
                 let matchDistrict = districtObjects.find(obj => obj.ID.trim() === feature.properties.ID.trim());
 
-                let density = matchDistrict["Population"]/(matchDistrict["Area"]/1000000);
+                let density = matchDistrict["Population"]/(matchDistrict["Area"]);
+                // let density = matchDistrict["Density"];
                 // let color = density > 10000 ? '#ffed64' : (density > 8000 ? '#ffe100' : (density > 6000 ? '#ffa600' : (density > 4000 ? '#ff6f00' : (density > 2000 ? '#d45c00' : (density > 1500 ? '#c000d1' : (density > 1000 ? '#d40000' : (density > 750 ? '#c80078' : (density > 500 ? '#9600cd' : (density > 200 ? '#4e00cd' : (density > 100 ? '#6200ff' : (density > 75 ? '#6e14ff' : (density > 50 ? '#852dff' : (density > 40 ? '#6542fe' : (density > 30 ? '#8569ff' : (density > 20 ? '#8696ff' : (density > 10 ? '#dbc1ff' : '#ffffff')))))))))))))))); 
                 let color = density > 10000 ? '#fff81f' : (density > 8000 ? '#ffe21b' : (density > 6000 ? '#ffcd36' : (density > 4000 ? '#ffb945' : (density > 2000 ? '#ffa547' : (density > 1500 ? '#ff8e45' :(density > 1000 ? '#ff7b4e' : (density > 750 ? '#f96957' : (density > 500 ? '#ec585e' : (density > 200 ? '#dd4a65' : (density > 100 ? '#cb3f69' : (density > 75 ? '#b8366c' : (density > 50 ? '#a32f6e' : (density > 40 ? '#8d2b6d' : (density > 30 ? '#77276a' : (density > 20 ? '#602465' : (density > 10 ? '#4a215d' : '#341d54')))))))))))))))); 
 
@@ -472,7 +473,9 @@ function ethAloneBoundaries() {
             style: function (feature) {
                 const curObj = districtObjects.find(obj => obj.ID.trim() === feature.properties.ID.trim());
                 let ethnicCalc = (curObj[selectEthnicity]/curObj["Population"])*100;
-                let color = ethnicCalc > 95 ? '#ff0000' : (ethnicCalc > 90 ? '#fe3100' : (ethnicCalc > 85 ? '#fd4900' : (ethnicCalc > 80 ? '#fa5b00' : (ethnicCalc > 75 ? '#f66c00' : (ethnicCalc > 70 ? '#f17b00' : (ethnicCalc > 65 ? '#ea8a00' : (ethnicCalc > 60 ? '#e49700' : (ethnicCalc > 55 ? '#dda300' : (ethnicCalc > 50 ? '#d6ae00' : (ethnicCalc > 45 ? '#cdb900' : (ethnicCalc > 40 ? '#c5c400' : (ethnicCalc > 35 ? '#bbce00' : (ethnicCalc > 30 ? '#b0d800' : (ethnicCalc > 25 ? '#a3e200' : (ethnicCalc > 20 ? '#94ec00' : (ethnicCalc > 15 ? '#83f600' : '#6fff00')))))))))))))))); 
+                // let color = ethnicCalc > 95 ? '#ff0000' : (ethnicCalc > 90 ? '#fe3100' : (ethnicCalc > 85 ? '#fd4900' : (ethnicCalc > 80 ? '#fa5b00' : (ethnicCalc > 75 ? '#f66c00' : (ethnicCalc > 70 ? '#f17b00' : (ethnicCalc > 65 ? '#ea8a00' : (ethnicCalc > 60 ? '#e49700' : (ethnicCalc > 55 ? '#dda300' : (ethnicCalc > 50 ? '#d6ae00' : (ethnicCalc > 45 ? '#cdb900' : (ethnicCalc > 40 ? '#c5c400' : (ethnicCalc > 35 ? '#bbce00' : (ethnicCalc > 30 ? '#b0d800' : (ethnicCalc > 25 ? '#a3e200' : (ethnicCalc > 20 ? '#94ec00' : (ethnicCalc > 15 ? '#83f600' : '#6fff00')))))))))))))))); 
+                // let color = ethnicCalc > 95 ? '#810000' : (ethnicCalc > 90 ? '#92241a' : (ethnicCalc > 85 ? '#a23c31' : (ethnicCalc > 80 ? '#b25247' : (ethnicCalc > 75 ? '#c1675f' : (ethnicCalc > 70 ? '#cf7d76' : (ethnicCalc > 65 ? '#dc938e' : (ethnicCalc > 60 ? '#e8a9a6' : (ethnicCalc > 55 ? '#f4bfbe' : (ethnicCalc > 50 ? '#ffd6d6' : (ethnicCalc > 45 ? '#d6ffd8' : (ethnicCalc > 40 ? '#bae9bc' : (ethnicCalc > 35 ? '#9ed4a0' : (ethnicCalc > 30 ? '#83bf84' : (ethnicCalc > 25 ? '#68aa69' : (ethnicCalc > 20 ? '#4c954f' : (ethnicCalc > 15 ? '#2f8135' : '#006d19')))))))))))))))); 
+                let color = ethnicCalc > 95 ? '#d00000' : (ethnicCalc > 90 ? '#d9291c' : (ethnicCalc > 85 ? '#e13f32' : (ethnicCalc > 80 ? '#e85246' : (ethnicCalc > 75 ? '#ee6459' : (ethnicCalc > 70 ? '#f4756d' : (ethnicCalc > 65 ? '#f88580' : (ethnicCalc > 60 ? '#fb9692' : (ethnicCalc > 55 ? '#fea6a4' : (ethnicCalc > 50 ? '#ffb6b6' : (ethnicCalc > 45 ? '#b8ffc7' : (ethnicCalc > 40 ? '#a4f9b3' : (ethnicCalc > 35 ? '#91f39e' : (ethnicCalc > 30 ? '#7fed88' : (ethnicCalc > 25 ? '#6ce671' : (ethnicCalc > 20 ? '#58df57' : (ethnicCalc > 15 ? '#43d839' : '#2ad100')))))))))))))))); 
                 return {
                     color: color,
                     weight: 1,
@@ -926,7 +929,7 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "centralAsia") {
         map.flyTo([41.5744, 64.1833], 4.5);
     } else if (regionSelection === "southAsia") {
-        map.flyTo([21.1938, 81.3509], 5);
+        map.flyTo([22.0574, 78.9382], 5);
     } else if (regionSelection === "eastAsia") {
         map.flyTo([36.6173, 101.7778], 4.5);
     } else if (regionSelection === "southeastAsia") {
