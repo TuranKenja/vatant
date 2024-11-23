@@ -315,11 +315,24 @@ h3{  /* Nations, District Information, etc. */
 .modal-content {
     overflow: scroll;
     background: white;
+    color: #535071;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     width: 95vw;
     height: 90vh;
+}
+
+#tutorialLink {
+    padding-bottom: 15px;
+}
+
+#tutorialLink a {
+    text-decoration: none;
+}
+
+#tutorialLink a:hover {
+    color: goldenrod;
 }
 
 .modal-content h2 {

@@ -7,6 +7,7 @@ function initializeSelection() {
             button.addEventListener("click", () => {
                 regionSelection = button.getAttribute("data-option");
                 console.log("Selected option:", regionSelection);
+                evadeWarning = false;
                 resolve();
                 document.getElementById("modal").style.display = "none";
             });

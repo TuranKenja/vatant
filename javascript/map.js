@@ -3,6 +3,7 @@
 /* ****** VARIABLES ******* */
 
 // let lock1, lock2, lock3, lock4, lock5, lock6, lock7, lock8, lock9, lock10, lock11, lock12, lock13, lock14, lock15, lock16, lock17, lock18, lock19, lock20, lock21, lock22, lock23, lock24, lock25, lock26, lock27, lock28, lock29, lock30, lock31, lock32, lock33, lock34, lock35, lock36, lock37, lock38, lock39, lock40 = false;
+let evadeWarning = true;
 let locks = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false, 21: false, 22: false, 23: false, 24: false, 25: false, 26: false, 27: false, 28: false, 29: false, 30: false, 31: false, 32: false, 33: false, 34: false, 35: false, 36: false, 37: false, 38: false, 39: false, 40: false}; // To track which features are assigned to which nation
 let successBool = true;
 let selectedNation = 1; // To store which nation is selected

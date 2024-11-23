@@ -64,7 +64,15 @@ body{
     }
 }
 
-
+#frontPage {
+    background-color: #01002e;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 900px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;  
+}
 
 .box1 h3{
     padding-bottom: 20px;
@@ -86,20 +94,44 @@ body{
     padding-left: 30px;
 }
 
+#backgroundPic {
+    background-image: url(/images/banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto, 100%;
+}
 
 #boxInfo{
     font-size: 20px;
     text-align: center;
 }
 
-#mapLink{
-    margin-top: 50px;
+#mapLink {
+    margin-top: 150px;
     margin-bottom: 140px;
+    text-align: center;
+}
+#mapLink a {
+    padding-top: 50px;
+    padding-bottom: 50px;
     padding-left: 30px;
     padding-right: 30px;
     text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #01002e;
 
 }
+#mapLink a:hover { 
+    text-decoration: none; 
+    background-color: goldenrod;
+    color: #01002e;
+}
+#mapLink a:active, a:visited, a:focus { 
+    text-decoration: none;
+    color: #555555;
+}
+
 
 #form1{
     background-color: #fff;
@@ -113,5 +145,14 @@ body{
 
 
 footer{
+    text-align: center;
     color: black;
+}
+
+#navBar, #regionSelect {
+    width: 80%;
+}
+
+#distSelect, #colorChange, #dataInfo, #statInfo, #savePopUp {
+    width: 50%;
 }

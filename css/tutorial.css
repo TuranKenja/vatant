@@ -1,0 +1,7 @@
+#navBar, #regionSelect {
+    width: 80%;
+}
+
+#distSelect, #colorChange, #dataInfo, #statInfo, #savePopUp {
+    width: 50%;
+}
