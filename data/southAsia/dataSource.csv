@@ -1,6 +1,6 @@
 ﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
-Bangladesh,,,,,,,,,,,,,,,
-India,,,,,,,,,,,,,,,
-Nepal,,,,,,,,,,,,,,,
-Pakistan,,,,,,,,,,,,,,,
-Sri Lanka,,,,,,,,,,,,,,,
+Bangladesh,2022,A,9,Ethnic,2022,A,9,2022,A,9,Y,,,,
+India,2011,A,7,Linguistic,2011,A,8,2011,A,8,Y,,,,"About 2% of the population is unaccounted for, especially in the densely populated Northern and Central areas."
+Nepal,2021,A,7,Linguistic,2021,A,6,2021,A,6,Y,,,,"Some groups boycotted the census. There were cases of inaccurate data collected by enumerators, such as listing religion as Hindu rather than Buddhist. Some enumerators didn't ask basic questions or wrote in pencil rather than inkl"
+Pakistan,2017,A,7,Linguistic,2017,A,6,2017,A,7,Y,,,,"Census did not provide data for Azad Kashmir and Gilgit-Baltistan, but the provinces gave estimates and some gave ethnic or linguistic breakdown. The 2017 Census was opposed by Sindhis for undercounting them, leading to the 2023 Census later."
+Sri Lanka,2012,A,8,Ethnic,2012,A,8,2012,A,8,Y,,,,

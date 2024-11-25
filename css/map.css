@@ -57,7 +57,7 @@ h3 {
 
 .btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
     background-color: goldenrod; 
-    color: #ffffff;
+    color: #fffee2;
 }
 
 .clickedBtn{
@@ -166,7 +166,7 @@ table{
 #map {
     float: right;
     width: calc(100% - 500px);
-    height: 97.5vh;
+    height: 97vh;
     margin-top: -81px;
     /* margin-right: 250px; */
     overflow: hidden;
@@ -177,7 +177,7 @@ table{
 h3{  /* Nations, District Information, etc. */
     font-size: 15px;
     border:0px solid;
-    fill: solid white;
+    fill: solid #ffffff;
     margin-top: 5px;
     margin-bottom: 3px;
     padding-left: 5px;
