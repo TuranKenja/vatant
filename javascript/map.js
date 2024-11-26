@@ -257,8 +257,8 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
             boundariesLayer = L.geoJSON(data, {
                 style: function (feature) {
                     return {
-                        color: "#01002e",
-                        weight: .7,
+                        color: "#2e2550",
+                        weight: 0.5,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
@@ -272,8 +272,8 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
             boundariesLayer = L.geoJSON(data, {
                 style: function (feature) {
                     return {
-                        color: "#daa520",
-                        weight: .7,
+                        color: "#14005e",
+                        weight: .5,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
@@ -287,8 +287,8 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
             boundariesLayer = L.geoJSON(data, {
                 style: function (feature) {
                     return {
-                        color: "#000000",
-                        weight: .7,
+                        color: "#000327",
+                        weight: .5,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
@@ -1276,13 +1276,13 @@ var map = L.map('map', {
 // 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 // }).addTo(map);
 
-var Esri_WorldShadedRelief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
-}).addTo(map);
-
-// var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
-//     attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+// var Esri_WorldShadedRelief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+// 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
 // }).addTo(map);
+
+var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+}).addTo(map);
 
 var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
