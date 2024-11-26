@@ -165,7 +165,7 @@ table{
 
 #map {
     float: right;
-    width: calc(100% - 500px);
+    width: calc(100% - 480px);
     height: 97vh;
     margin-top: -81px;
     /* margin-right: 250px; */
@@ -272,7 +272,7 @@ h3{  /* Nations, District Information, etc. */
 
 .infoBar {
     float: right;
-    width: 250px;
+    width: 230px;
     margin-top: -75px;
     height: 97.5vh;
 }
@@ -290,7 +290,7 @@ h3{  /* Nations, District Information, etc. */
 }
 
 .infoData{
-    width: 150px;
+    width: 130px;
     padding-right: 10px;
     text-align: right;
 }
