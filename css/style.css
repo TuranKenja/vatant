@@ -197,10 +197,10 @@ footer{
     }
 }
 
-#navBar, #regionSelect {
+#regionSelect {
     width: 80%;
 }
 
-#distSelect, #colorChange, #dataInfo, #statInfo, #savePopUp {
+#mapClick, #distSelect, #colorChange, #dataInfo, #statInfo, #savePopUp {
     width: 50%;
 }

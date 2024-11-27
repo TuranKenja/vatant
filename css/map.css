@@ -38,6 +38,10 @@
 
 /* DARK MODE */
 
+@font-face {
+    font-family: 'Signika Negative'; /* Name your font family */
+    src: url('Signika_Negative/SignikaNegative.ttf'); /* Locate the .ttf file within your directory*/
+}
 
 
 h3 {
@@ -157,7 +161,7 @@ table{
     }
     a:hover{
         background-color: #d1cdff;
-        color: #020141;
+        color: #0400ff;
         padding-right: 20px;
         padding-left: 20px;
         border-radius: 4px;

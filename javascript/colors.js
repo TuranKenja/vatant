@@ -578,7 +578,7 @@ function religionColors(largestCol) {
     } else if (largestCol === "Atheists/ Agnostics") {
         return '#00a294';
     } else if (largestCol === "Others" || largestCol === "Other Religions") {
-        return '#3300ff';
+        return '#001bce';
     } else if (largestCol === "Not stated") {
         return '#ff9728';
     } else if (largestCol === "Unknown") {
