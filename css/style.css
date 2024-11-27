@@ -1,8 +1,13 @@
+@font-face {
+    font-family: 'Signika Negative'; /* Name your font family */
+    src: url('Signika_Negative/SignikaNegative.ttf'); /* Locate the .ttf file within your directory*/
+  }
+  
 body{
     background-color: #010020;
     color:#555555;
 
-    font: normal 18px 'Signika Negative', Cochin, Georgia, Times, 'Times New Roman', serif;
+    font: normal 18px 'Signika Negative', serif;
     line-height: 1.5em;
     margin-left: 0%;
     margin-top: 0px;
@@ -21,7 +26,7 @@ body{
 
 .header {
     color: #f4f4f4;
-    background-color: #01002e;
+    background-color: #010020;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 10px;
@@ -29,7 +34,7 @@ body{
 
 .header h1{
     padding-left: 100px;
-    padding-bottom: 55px;
+    padding-bottom: 15px;
     font-size: 60px;
 }
 
@@ -47,7 +52,7 @@ body{
 
     a{
         text-decoration: none;
-        color: goldenrod;
+        color: #d1cdff;
         padding-right: 20px;
         padding-left: 20px;
         padding-top: 30px;
@@ -55,12 +60,14 @@ body{
     }
     
     a:hover{
-        background-color: goldenrod;
+        background-color: #d1cdff;
         color: #01002e;
         padding-right: 20px;
         padding-left: 20px;
         padding-top: 30px;
         padding-bottom: 30px;
+        border-radius: 5px;
+        box-sizing: border-box;    
     }
 }
 
@@ -70,10 +77,13 @@ body{
     padding-bottom: 20px;
     width: 600px;
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-left: auto;
-    margin-right: auto;  
+    margin-right: auto; 
+    border-radius: 5px;
+    box-sizing: border-box;
+ 
 }
 
 .box1 h3{
@@ -92,24 +102,30 @@ body{
     height:fit-content;
     padding-top: 40px;
     padding-bottom: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 10vw;
+    padding-left: 10vw;
 }
 
 .welcomeTo {
     padding-top: 140px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 #backgroundPic {
     background-image: url(/images/banner.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto, 100%;
+}
+
+#intro{
+    font-size: 20px;
+    text-align: center;
 }
 
 #boxInfo{
     font-size: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 #mapLink {
@@ -154,7 +170,31 @@ footer{
     text-align: center;
     color: rgb(255, 255, 255);
     padding-top: 40px;
+    padding-bottom: 40px;
+    p, h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
 
+.footerLeft {
+    width: 50%;
+    float: left;
+    padding-bottom: 40px;
+    padding-left: 15%;
+    font-size: 15px;
+}
+
+.footerRight {
+    width: 20%;
+    float: right;
+    padding-bottom: 40px;
+    padding-right: 15%;
+    font-size: 15px;
+    a {
+        text-decoration: none;
+        color: white;
+    }
 }
 
 #navBar, #regionSelect {

@@ -17,18 +17,9 @@
 }
 
 .data-btn:hover{
-    background-color: goldenrod; 
+    background-color: #d1cdff; 
     color: #ffffff;
 }
-
-
-.clickedBtn{
-    background-color: #daa520; 
-    color: #535071;
-    font-weight: bold;
-}
-
-
 
 
 .dataContainer{

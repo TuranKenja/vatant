@@ -4,13 +4,13 @@
 
 // let lock1, lock2, lock3, lock4, lock5, lock6, lock7, lock8, lock9, lock10, lock11, lock12, lock13, lock14, lock15, lock16, lock17, lock18, lock19, lock20, lock21, lock22, lock23, lock24, lock25, lock26, lock27, lock28, lock29, lock30, lock31, lock32, lock33, lock34, lock35, lock36, lock37, lock38, lock39, lock40 = false;
 let evadeWarning = true;
-let locks = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false, 21: false, 22: false, 23: false, 24: false, 25: false, 26: false, 27: false, 28: false, 29: false, 30: false, 31: false, 32: false, 33: false, 34: false, 35: false, 36: false, 37: false, 38: false, 39: false, 40: false}; // To track which features are assigned to which nation
+let locks = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false, 13: false, 14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false, 21: false, 22: false, 23: false, 24: false, 25: false, 26: false, 27: false, 28: false, 29: false, 30: false, 31: false, 32: false, 33: false, 34: false, 35: false, 36: false, 37: false, 38: false, 39: false, 40: false, 41: false, 42: false, 43: false, 44: false, 45: false, 46: false, 47: false, 48: false, 49: false, 50: false}; // To track which features are assigned to which nation
 let successBool = true;
 let selectedNation = 1; // To store which nation is selected
 let nationBool = true;
-let nationNames = {1: "Nation 1", 2: "Nation 2", 3: "Nation 3", 4: "Nation 4", 5: "Nation 5", 6: "Nation 6", 7: "Nation 7", 8: "Nation 8", 9: "Nation 9", 10: "Nation 10", 11: "Nation 11", 12: "Nation 12", 13: "Nation 13", 14: "Nation 14", 15: "Nation 15", 16: "Nation 16", 17: "Nation 17", 18: "Nation 18", 19: "Nation 19", 20: "Nation 20", 21: "Nation 21", 22: "Nation 22", 23: "Nation 23", 24: "Nation 24", 25: "Nation 25", 26: "Nation 26", 27: "Nation 27", 28: "Nation 28", 29: "Nation 29", 20: "Nation 20", 31: "Nation 31", 32: "Nation 32", 33: "Nation 33", 34: "Nation 34", 35: "Nation 35", 36: "Nation 36", 37: "Nation 37", 38: "Nation 38", 39: "Nation 39", 40: "Nation 40", 41: "Map 1"};
-let nationColors = { 1: '#ff0000', 2: '#0091ff', 3: '#00ff26',  4: '#ea00ff',  5: '#ffe600',  6: '#0040ff',  7: '#00ffaa',  8: '#7b00ff',  9: '#ff8c00',  10: '#5d9300',  11: '#722a2a',  12: '#b980ff',  13: '#ff64b2',  14: '#64faff',  15: '#735b23',  16: '#950133',  17: '#417550',  18: '#5291ff',  19: '#fa3b06',  20: '#160d3f',  21: '#722a2a',  22: '#b980ff',  23: '#ff64b2',  24: '#64faff',  25: '#735b23',  26: '#950133',  27: '#417550',  28: '#5291ff',  29: '#fa3b06',  30: '#160d3f', 31: '#722a2a',  32: '#b980ff',  33: '#ff64b2',  34: '#64faff',  35: '#735b23',  36: '#950133',  37: '#417550',  38: '#5291ff',  39: '#fa3b06',  40: '#160d3f'}; // Define colors for each nation
-let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: [], 21: [], 22: [], 23: [], 24: [], 25: [], 26: [], 27: [], 28: [], 29: [], 30: [], 31: [], 32: [], 33: [], 34: [], 35: [], 36: [], 37: [], 38: [], 39: [], 40: [], names: [nationNames]}; // To track which features are assigned to which nation
+let nationNames = {1: "Nation 1", 2: "Nation 2", 3: "Nation 3", 4: "Nation 4", 5: "Nation 5", 6: "Nation 6", 7: "Nation 7", 8: "Nation 8", 9: "Nation 9", 10: "Nation 10", 11: "Nation 11", 12: "Nation 12", 13: "Nation 13", 14: "Nation 14", 15: "Nation 15", 16: "Nation 16", 17: "Nation 17", 18: "Nation 18", 19: "Nation 19", 20: "Nation 20", 21: "Nation 21", 22: "Nation 22", 23: "Nation 23", 24: "Nation 24", 25: "Nation 25", 26: "Nation 26", 27: "Nation 27", 28: "Nation 28", 29: "Nation 29", 20: "Nation 20", 31: "Nation 31", 32: "Nation 32", 33: "Nation 33", 34: "Nation 34", 35: "Nation 35", 36: "Nation 36", 37: "Nation 37", 38: "Nation 38", 39: "Nation 39", 40: "Nation 40", 41: "Nation 41", 42: "Nation 42", 43: "Nation 43", 44: "Nation 44", 45: "Nation 45", 46: "Nation 46", 47: "Nation 47", 48: "Nation 48", 49: "Nation 49", 50: "Nation 50", 51: "Map 1"};
+let nationColors = { 1: '#ff0000', 2: '#0091ff', 3: '#00ff26',  4: '#ea00ff',  5: '#ffe600',  6: '#0040ff',  7: '#00ffaa',  8: '#7b00ff',  9: '#ff8c00',  10: '#5d9300',  11: '#722a2a',  12: '#b980ff',  13: '#ff64b2',  14: '#64faff',  15: '#735b23',  16: '#950133',  17: '#417550',  18: '#5291ff',  19: '#fa3b06',  20: '#160d3f',  21: '#722a2a',  22: '#b980ff',  23: '#ff64b2',  24: '#64faff',  25: '#735b23',  26: '#950133',  27: '#417550',  28: '#5291ff',  29: '#fa3b06', 30: '#160d3f', 31: '#722a2a',  32: '#b980ff',  33: '#ff64b2',  34: '#64faff',  35: '#735b23',  36: '#950133',  37: '#417550',  38: '#5291ff',  39: '#fa3b06',  40: '#160d3f', 41: '#722a2a',  42: '#b980ff',  43: '#ff64b2',  44: '#64faff',  45: '#745b24',  46: '#950144',  47: '#417550',  48: '#5291ff',  49: '#fa4b06', 50: '#160d3f'}; // Define colors for each nation
+let nationAssignments = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: [], 11: [], 12: [], 13: [], 14: [], 15: [], 16: [], 17: [], 18: [], 19: [], 20: [], 21: [], 22: [], 23: [], 24: [], 25: [], 26: [], 27: [], 28: [], 29: [], 30: [], 31: [], 32: [], 33: [], 34: [], 35: [], 36: [], 37: [], 38: [], 39: [], 40: [], 41: [], 42: [], 43: [], 44: [], 45: [], 46: [], 47: [], 48: [], 49: [], 50: [], names: [nationNames]}; // To track which features are assigned to which nation
 let nationBase = {};
 let tempNationAssignments;
 let districtObjects = [];
@@ -95,6 +95,7 @@ function updateButtonColor(nationNumber) {
 
 // Function to update all references to a nation name
 function updateNationName(nationId, newName) {
+
     nationNames[nationId] = newName;
     
     // Update all span elements with the new nation name
@@ -109,7 +110,7 @@ function updateNationName(nationId, newName) {
 
 
 function updateTable() {
-    for (let i = 1; i <= 40; i++) {
+    for (let i = 1; i <= 50; i++) {
         let density = Math.round(`${nationInfo[i].Population/nationInfo[i].Area}` *10)/10;
         if(isNaN(density)) {
             density = 0;
@@ -157,14 +158,14 @@ function updateTable() {
 
 function switchToBrowse() {
     drawMode = 'browse';
-    document.getElementById('browse-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('browse-btn').classList.add('clickedBtn');
     document.getElementById('draw-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('erase-btn').classList.remove('clickedBtn');  // Remove the class
 
 }
 function switchToDraw() {
     drawMode = 'draw';
-    document.getElementById('draw-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('draw-btn').classList.add('clickedBtn');
     document.getElementById('browse-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('erase-btn').classList.remove('clickedBtn');  // Remove the class
 
@@ -172,7 +173,7 @@ function switchToDraw() {
 
 function switchToErase() {
     drawMode = 'erase';
-    document.getElementById('erase-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('erase-btn').classList.add('clickedBtn');
     document.getElementById('browse-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('draw-btn').classList.remove('clickedBtn');  // Remove the class
 
@@ -180,21 +181,21 @@ function switchToErase() {
 
 function switchToDistrict() {
     mode = 'district';
-    document.getElementById('district-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('district-btn').classList.add('clickedBtn');
     document.getElementById('province-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('country-btn').classList.remove('clickedBtn');  // Remove the class
 }
 
 function switchToProvince() {
     mode = 'province';
-    document.getElementById('province-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('province-btn').classList.add('clickedBtn');
     document.getElementById('district-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('country-btn').classList.remove('clickedBtn');  // Remove the class
 }
 
 function switchToCountry() {
     mode = 'country';
-    document.getElementById('country-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('country-btn').classList.add('clickedBtn');
     document.getElementById('district-btn').classList.remove('clickedBtn');  // Remove the class
     document.getElementById('province-btn').classList.remove('clickedBtn');  // Remove the class
 }
@@ -203,7 +204,7 @@ function distBoundaries() {
     distBool = !distBool;
 
     if (!distBool) {
-        document.getElementById('dist-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('dist-bound-btn').classList.add('clickedBtn');
     } else {
         document.getElementById('dist-bound-btn').classList.remove('clickedBtn');  // Remove the class
     }
@@ -220,7 +221,7 @@ function provBoundaries() {
     provBool = !provBool;
 
     if (!provBool) {
-        document.getElementById('prov-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('prov-bound-btn').classList.add('clickedBtn');
     } else {
         document.getElementById('prov-bound-btn').classList.remove('clickedBtn');  // Remove the class
     }
@@ -236,7 +237,7 @@ function countBoundaries() {
     countryBool = !countryBool;
 
     if (!countryBool) {
-        document.getElementById('count-bound-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('count-bound-btn').classList.add('clickedBtn');
     } else {
         document.getElementById('count-bound-btn').classList.remove('clickedBtn');  // Remove the class
     
@@ -258,12 +259,15 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                 style: function (feature) {
                     return {
                         color: "#2e2550",
-                        weight: 0.5,
+                        weight: 0.8,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
                         interactive: false
                     };
+                },
+                simplify: function (feature) {
+                    tolerance: 0.1 // Adjust this value to reduce gaps (default is 1.0)
                 }
             }).addTo(map);
             districtBoundariesLayer = boundariesLayer;
@@ -273,7 +277,7 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                 style: function (feature) {
                     return {
                         color: "#14005e",
-                        weight: .5,
+                        weight: .8,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
@@ -288,7 +292,7 @@ function drawBoundaries(dataLocation, boundariesLayer, boundaryType) {
                 style: function (feature) {
                     return {
                         color: "#000327",
-                        weight: .5,
+                        weight: .8,
                         opacity: 1,
                         fillColor: 'transparent',
                         fillOpacity: 0,
@@ -440,7 +444,7 @@ function populateEthDropdown() {
                     selectEthnicity = key; // Pass the key or any value you need for the function
                     ethAloneBoundaries();
                     // toggleLayerBoundaries();
-                    // document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+                    // document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');
                     ethDrop.classList.remove("show");
                 };    
                 ethDrop.appendChild(link);
@@ -463,7 +467,7 @@ function populateEthDropdown() {
 function ethAloneBoundaries() {
     toggleLayerBoundaries();
     ethDropBool = true;
-    document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');
     let dataLocation = `data/${regionSelection}/districtBoundaries.geojson`;
 
     fetch(dataLocation)
@@ -508,7 +512,7 @@ function populateRelDropdown() {
                     selectReligion = key; // Pass the key or any value you need for the function
                     relAloneBoundaries();
                     // toggleLayerBoundaries();
-                    // document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+                    // document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');
                     relDrop.classList.remove("show");
                 };    
                 relDrop.appendChild(link);
@@ -531,7 +535,7 @@ function populateRelDropdown() {
 function relAloneBoundaries() {
     toggleLayerBoundaries();
     relDropBool = true;
-    document.getElementById('religionDrop-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('religionDrop-btn').classList.add('clickedBtn');
     let dataLocation = `data/${regionSelection}/districtBoundaries.geojson`;
 
     fetch(dataLocation)
@@ -565,7 +569,7 @@ function densityBoundaries() {
     if (densityBool === true) {
     toggleLayerBoundaries();
     densityBool = !densityBool;
-    document.getElementById('density-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+    document.getElementById('density-btn').classList.add('clickedBtn');
     if (densityLayer) {
         map.addLayer(densityLayer);  // Add the layer if it's not already on the 
         densityLayer.eachLayer(layer => {
@@ -586,7 +590,7 @@ function largestBoundaries() {
     if (largeBool === true) {
         toggleLayerBoundaries();
         largeBool = !largeBool;
-        document.getElementById('largest-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('largest-btn').classList.add('clickedBtn');
         if (largestLayer) {
             map.addLayer(largestLayer);  // Add the layer if it's not already on the map
             map.addLayer(opacityLayer);  // Add the layer if it's not already on the map
@@ -616,7 +620,7 @@ function religionBoundaries() {
     if (religionBool === true) {
         toggleLayerBoundaries();
         religionBool = !religionBool;
-        document.getElementById('religion-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('religion-btn').classList.add('clickedBtn');
         if (religionLayer) {
             map.addLayer(religionLayer);  // Add the layer if it's not already on the map
             map.addLayer(relOpacityLayer);  // Add the layer if it's not already on the map
@@ -669,14 +673,14 @@ function toggleBoundaries(boundariesLayer, boundBool) {
 function toggleLayerBoundaries() {
     if(densityBool === true){
         densityBool = false;
-        document.getElementById('density-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('density-btn').classList.remove('clickedBtn');
         if(densityLayer){
             map.removeLayer(densityLayer);  // Remove the layer if it exists
         }
     }
     if(largeBool === true){
         largeBool = false;
-        document.getElementById('largest-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('largest-btn').classList.remove('clickedBtn');
         if(largestLayer){
             map.removeLayer(largestLayer);  // Remove the layer if it exists
             map.removeLayer(opacityLayer);  // Remove the layer if it exists
@@ -684,7 +688,7 @@ function toggleLayerBoundaries() {
     }
     if(religionBool === true){
         religionBool = false;
-        document.getElementById('religion-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('religion-btn').classList.remove('clickedBtn');
         if(religionLayer){
             map.removeLayer(religionLayer);  // Remove the layer if it exists
             map.removeLayer(relOpacityLayer);  // Remove the layer if it exists
@@ -693,14 +697,14 @@ function toggleLayerBoundaries() {
     if(ethDropBool === true){
         ethDropBool = false;
         document.getElementById('ethnicDrop-btn').classList.remove('clickedBtn');  
-        // Add the class to the clicked button
+      
         if(ethAloneLayer){
             map.removeLayer(ethAloneLayer);  // Remove the layer if it exists
         }
     }
     if(relDropBool === true){
         relDropBool = false;
-        document.getElementById('religionDrop-btn').classList.remove('clickedBtn');  // Add the class to the clicked button
+        document.getElementById('religionDrop-btn').classList.remove('clickedBtn');
         if(relAloneLayer){
             map.removeLayer(relAloneLayer);  // Remove the layer if it exists
         }
@@ -781,7 +785,7 @@ function districtAdd(selectedNation, featureId) {
     let previousNation = null;
 
     // Find which nation the feature currently belongs to, if any
-    for (let i = 1; i <= 40; i++) {
+    for (let i = 1; i <= 50; i++) {
         const index = nationAssignments[i].findIndex(obj => obj.ID === featureId);
         if (index !== -1) {
             previousNation = i;
@@ -820,7 +824,7 @@ function districtSub(featureId) {
     let previousNation = null;
 
     // Find which nation the feature currently belongs to, if any
-    for (let i = 1; i  <= 40; i++) {
+    for (let i = 1; i  <= 50; i++) {
         const index = nationAssignments[i].findIndex(obj => obj.ID === featureId);
         if (index !== -1) {
             previousNation = i;
@@ -876,7 +880,7 @@ function districtSub(featureId) {
 //         const filteredFeatures = {
 //             type: 'FeatureCollection',
 //             features: data.features.filter(feature => {
-//                 for (let i = 1; i  <= 40; i++) {
+//                 for (let i = 1; i  <= 50; i++) {
 //                     for (let j = 0; j < nationAssignments[i].length; j++) {
 //                         if (feature.properties.ID === nationAssignments[i][j]) {
 //                             return true; // Return true if the feature matches
@@ -936,7 +940,13 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "eastAsia") {
         map.flyTo([36.6173, 101.7778], 4.5);
     } else if (regionSelection === "southeastAsia") {
-        map.flyTo([9.7638, 118.7473], 4.5);
+        map.flyTo([8.0384, 121.4194], 4.5);
+    } else if (regionSelection === "northAfrica") {
+        map.flyTo([23.4975, 11.9947], 4.5);
+    } else if (regionSelection === "eastAfrica") {
+        map.flyTo([-4.0435, 39.6682], 4.5);
+    } else if (regionSelection === "westAfrica") {
+        map.flyTo([6.5244, 3.3792], 5);
     }
     // Fetch and add GeoJSON data to the map
     fetch(`data/${regionSelection}/districtBoundaries.geojson`) // Ensure this path is correct
@@ -984,7 +994,7 @@ function mainLoadData(saveArray) {
                     if(saveArray != null){
                         if(saveBool === true){
                             console.log(saveArray['names'][0]['1']);
-                            for (let i = 1; i <= 40; i++) {    
+                            for (let i = 1; i <= 50; i++) {    
                                 updateNationName(i, saveArray['names'][0][i]);
                             }
                             document.querySelector(`#mapTitle`).textContent = saveArray['names'][0][41];
@@ -997,7 +1007,7 @@ function mainLoadData(saveArray) {
                             }
                         });    
 
-                        for (let i = 1; i  <= 40; i++) { // Go through each nation
+                        for (let i = 1; i  <= 50; i++) { // Go through each nation
                             selectedNation = i;
 
                             let len = tempNationAssignments[i].length;
@@ -1012,7 +1022,7 @@ function mainLoadData(saveArray) {
                             };
                         }
 
-                        for (let i = 1; i  <= 40; i++) { // Go through each nation
+                        for (let i = 1; i  <= 50; i++) { // Go through each nation
                             selectedNation = i;
                             let len = saveArray[i].length;
                             for (let j = 0; j < len; j++) { // Go through each district (starting from 0 for the first element)
@@ -1240,11 +1250,11 @@ function mainLoadData(saveArray) {
             }).addTo(map); 
             
             document.getElementById('district-btn').click(); 
-            document.getElementById('draw-btn').click();  // Add the class to the clicked button
+            document.getElementById('draw-btn').click();
 
             document.getElementById('dist-bound-btn').click();          
             document.getElementById('nation1-btn').click();   
-            document.getElementById('stat-btn').classList.add('clickedBtn');  // Add the class to the clicked button
+            document.getElementById('stat-btn').classList.add('clickedBtn');
 
             // document.getElementById('stat-btn').click(); // Used in data.js
 
@@ -1310,7 +1320,7 @@ fetch(`data/${regionSelection}/dataArray.json`)
 
             allData = Object.keys(baseNation);
 
-        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}, 11: {...nationBase}, 12: {...nationBase}, 13: {...nationBase}, 14: {...nationBase}, 15: {...nationBase}, 16: {...nationBase}, 17: {...nationBase}, 18: {...nationBase}, 19: {...nationBase}, 20: {...nationBase}, 21: {...nationBase}, 22: {...nationBase}, 23: {...nationBase}, 24: {...nationBase}, 25: {...nationBase}, 26: {...nationBase}, 27: {...nationBase}, 28: {...nationBase}, 29: {...nationBase}, 30: {...nationBase}, 31: {...nationBase}, 32: {...nationBase}, 33: {...nationBase}, 34: {...nationBase}, 35: {...nationBase}, 36: {...nationBase}, 37: {...nationBase}, 38: {...nationBase}, 39: {...nationBase}, 40: {...nationBase}};   // Holds the nation info for each of the keys
+        nationInfo = { 1: {...nationBase}, 2: {...nationBase}, 3: {...nationBase}, 4: {...nationBase}, 5: {...nationBase}, 6: {...nationBase}, 7: {...nationBase}, 8: {...nationBase}, 9: {...nationBase}, 10: {...nationBase}, 11: {...nationBase}, 12: {...nationBase}, 13: {...nationBase}, 14: {...nationBase}, 15: {...nationBase}, 16: {...nationBase}, 17: {...nationBase}, 18: {...nationBase}, 19: {...nationBase}, 20: {...nationBase}, 21: {...nationBase}, 22: {...nationBase}, 23: {...nationBase}, 24: {...nationBase}, 25: {...nationBase}, 26: {...nationBase}, 27: {...nationBase}, 28: {...nationBase}, 29: {...nationBase}, 30: {...nationBase}, 31: {...nationBase}, 32: {...nationBase}, 33: {...nationBase}, 34: {...nationBase}, 35: {...nationBase}, 36: {...nationBase}, 37: {...nationBase}, 38: {...nationBase}, 39: {...nationBase}, 40: {...nationBase}, 41: {...nationBase}, 42: {...nationBase}, 43: {...nationBase}, 44: {...nationBase}, 45: {...nationBase}, 46: {...nationBase}, 47: {...nationBase}, 48: {...nationBase}, 49: {...nationBase}, 50: {...nationBase}};   // Holds the nation info for each of the keys
         console.log('nationInfo loaded:', nationInfo);
         console.log('allData loaded:', allData);
     })
@@ -1349,19 +1359,20 @@ document.addEventListener('keydown', function(event) {
         drawMode = 'erase';
         document.getElementById('erase-btn').click();
         ctrlKeyPressed = true;
+        
     }
-    if (event.altKey) {
+    if (event.key === '`') {
         drawMode = 'browse';
         document.getElementById('browse-btn').click();
         altKeyPressed = true;
     }
-    if (event.key === ',') {
+    if (event.key === '[') {
         document.getElementById('district-btn').click();
     }
-    if (event.key === '.') {
+    if (event.key === ']') {
         document.getElementById('province-btn').click();
     }
-    if (event.key === '/') {
+    if (event.key === '\\') {
         document.getElementById('country-btn').click();
     }
 });
@@ -1373,7 +1384,7 @@ document.addEventListener('keyup', function(event) {
     if (event.key === 'Control') {
         ctrlKeyPressed = false;
     }
-    if (event.altKey) {
+    if (event.key === '`') {
         altKeyPressed = false;
     }
 });
@@ -1420,8 +1431,18 @@ updateButtonColor(37);
 updateButtonColor(38);
 updateButtonColor(39);
 updateButtonColor(40);
+updateButtonColor(41);
+updateButtonColor(42);
+updateButtonColor(43);
+updateButtonColor(44);
+updateButtonColor(45);
+updateButtonColor(46);
+updateButtonColor(47);
+updateButtonColor(48);
+updateButtonColor(49);
+updateButtonColor(50);
 
-for (let i = 1; i <= 40; i++) {
+for (let i = 1; i <= 50; i++) {
     // document.getElementById(`lock${i}-btn`).addEventListener('click', () => nationLock(i));
     document.getElementById(`nation${i}-btn`).addEventListener('click', () => selectNation(i));
     document.getElementById(`nation${i}-btn`).addEventListener('contextmenu', (e) => {
@@ -1448,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('mapOpacity').addEventListener('input', function () {
         mapOpacityValue = parseFloat(this.value)/100;
 
-        for (let i = 1; i  <= 40; i++) {
+        for (let i = 1; i  <= 50; i++) {
             nationAssignments[i].forEach(feature => {
                 const featureId = feature.ID;
                 featureLayers[featureId].setStyle({

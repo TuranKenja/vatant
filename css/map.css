@@ -49,19 +49,24 @@ h3 {
     background-color: #1c1c21;
 }
 
-.btn, .btn1, .btn2, .btn3 {
+.option-btn, .btn, .btn1, .btn2, .btn3 {
     background-color: #535071;
     color: #ffffff;
     margin-top: 4px; 
 }
 
 .btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
+    background-color: #d1cdff; 
+    color: #fffee2;
+}
+
+.option-btn:hover {
     background-color: goldenrod; 
     color: #fffee2;
 }
 
 .clickedBtn{
-    background-color: #daa520; 
+    background-color: #d1cdff; 
     color: #535071;
     font-weight: bold;
 }
@@ -149,13 +154,13 @@ table{
         color: #d1cdff;
         padding-right: 20px;
         padding-left: 20px;
-
     }
     a:hover{
         background-color: #d1cdff;
         color: #020141;
         padding-right: 20px;
         padding-left: 20px;
+        border-radius: 4px;
     }
 }
 
@@ -215,7 +220,7 @@ h3{  /* Nations, District Information, etc. */
 
 .lock-btn {
     cursor: pointer;
-    accent-color: goldenrod;
+    accent-color: #d1cdff;
 }
 
 .natRow{
@@ -413,7 +418,7 @@ background: #5c88ff; /* Green background */
 }
 
 .dropdown-content a:hover, .dropdown-content a:active {
-    background-color: #daa520;
+    background-color: #d1cdff;
 }
 
 .dropdown-content::-webkit-scrollbar {
