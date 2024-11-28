@@ -91,7 +91,10 @@ body{
     font-size: 30px;
     text-align: center;
     vertical-align: center;
+}
 
+h4 {
+    font-size: 20px;
 }
 
 .box1{
@@ -197,10 +200,26 @@ footer{
     }
 }
 
-#regionSelect {
-    width: 80%;
+.tutorialText h3 {
+    width: calc(35vw + 300px);
 }
 
-#mapClick, #distSelect, #colorChange, #dataInfo, #statInfo, #savePopUp {
-    width: 50%;
+.innerBox {
+    width: calc(35vw + 300px);
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+#mapClick, #mapOptions, #layerOptions, #adminBoundaries, #nationNames, #mapTabs, #savePopUp {
+    width: calc(20vw + 150px);
+}
+
+#regionSelect, #distSelect, #colorChange, #statInfo, #ethInfo, #dataInfo, #statTabs {
+    width: calc(35vw + 300px);
+}
+
+.grayed{
+    background-color: #e1e1eb;
 }
