@@ -71,28 +71,6 @@ body{
     }
 }
 
-#frontPage {
-    background-color: #01002e;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 600px;
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto; 
-    border-radius: 5px;
-    box-sizing: border-box;
- 
-}
-
-.box1 h3{
-    padding-bottom: 20px;
-    font-size: 30px;
-    text-align: center;
-    vertical-align: center;
-}
-
 h4 {
     font-size: 20px;
 }
@@ -110,15 +88,43 @@ h4 {
 }
 
 .welcomeTo {
-    padding-top: 140px;
-    padding-right: 0;
-    padding-left: 0;
+    border:3px #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 82vh;
+}
+
+#homeWords {
+    padding-top: 16vh;
+}
+
+#frontPage {
+    background-color: #01002e;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 600px;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 5px;
+    box-sizing: border-box;
+ 
+}
+
+.welcomeTo h3{
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: center;
 }
 
 #backgroundPic {
     background-image: url(/images/banner.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 #intro{
@@ -185,7 +191,7 @@ footer{
     float: left;
     padding-bottom: 40px;
     padding-left: 15%;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .footerRight {
@@ -193,7 +199,7 @@ footer{
     float: right;
     padding-bottom: 40px;
     padding-right: 15%;
-    font-size: 15px;
+    font-size: 16px;
     a {
         text-decoration: none;
         color: white;

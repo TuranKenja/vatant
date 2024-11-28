@@ -21,7 +21,6 @@
     color: #ffffff;
 }
 
-
 .dataContainer{
 
     float: left;
@@ -65,6 +64,12 @@
 
 .whited {
     background-color: #1c1c21;
+}
+
+.clickedBtn{
+    background-color: #d1cdff; 
+    color: #535071;
+    font-weight: bold;
 }
 
 .shadeA {

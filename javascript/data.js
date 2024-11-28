@@ -1,16 +1,17 @@
 // Function to handle tab switching
 function openStatTab(evt, tabName) {
+    console.log('dssdfsadfas');
     var i, statTable, ethTable, relTable, sourceTable, tabID;
 
     if (tabName === 'statistics') {
         tabID = "stat-btn";
-    } else if (tabName === 'ethnicity') {
-        tabID = "eth-btn1";        
+    } else if (tabName === 'ethnicity1') {
+        tabID = "eth-btn1";      
         populateEthnicityTable();  // Call this when Ethnicity button is clicked
-    } else {
+    } else if (tabName === 'religion1') {
         tabID = "rel-btn1";
         populateReligionTable();  // Call this when Religion button is clicked
-    } if (tabName === 'sources') {
+    } else if (tabName === 'sources') {
         tabID = "sources-btn";
         populateSourcesTable();
     }

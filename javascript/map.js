@@ -1256,7 +1256,7 @@ function mainLoadData(saveArray) {
             document.getElementById('nation1-btn').click();   
             document.getElementById('stat-btn').classList.add('clickedBtn');
 
-            // document.getElementById('stat-btn').click(); // Used in data.js
+            document.getElementById('stat-btn').click(); // Used in data.js
 
         })
         .catch(error => {
