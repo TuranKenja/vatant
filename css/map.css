@@ -105,8 +105,8 @@ body{
 
 .container1 {
     overflow: scroll;
-    /* height: calc(100vh - 410px); */ /* Perfect fit */
-    height: calc(100vh - 430px);
+    height: calc(100vh - 410px); /* Perfect fit */
+    /* height: calc(100vh - 430px); */
 }
 
 .container1::-webkit-scrollbar {

@@ -109,6 +109,78 @@
 
             <div class="sidebar">
 
+                <div class="mapOptions">
+                    <h3>Map Options</h3>
+                    <div class="container0">
+                        <div>
+                            <button class="btn2" id="browse-btn">Browse</button>
+                        </div>
+                        <div>
+                            <button class="btn2" id="draw-btn">Draw</button>
+                        </div>
+                        <div>
+                            <button class="btn2" id="erase-btn">Erase</button>
+                        </div>
+                    </div>                            
+                    <div class="container2">
+                        <div>
+                            <button class="btn" id="district-btn">District</button>
+                        </div>
+                        <div>
+                            <button class="btn" id="province-btn">Province</button>
+                        </div>
+                        <div>
+                            <button class="btn" id="country-btn">Country</button>
+                        </div>
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="70" class="slider" id="mapOpacity">
+                    </div>  
+                </div>
+
+                <div class="layerOptions">
+                    <h3>Administrative Boundaries</h3>
+                    <div class="container3">
+                        <div class="bound-btn">
+                            <div>
+                                <button class="btn1" id="dist-bound-btn">District</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="prov-bound-btn">Province</button>
+                            </div>
+                            <div>
+                                <button class="btn1" id="count-bound-btn">Country</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Layer Options</h3>
+                    <div class="container3">
+                        <div class="layer-btn">
+                            <div>
+                                <button class="btn3" id="largest-btn">Largest Group</button>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn3 drop-btn" id="ethnicDrop-btn" onclick="populateEthDropdown()">Group Alone</button>
+                                <div id="ethDrop" class="dropdown-content"></div>
+                            </div>
+                            <div>
+                                <button class="btn3" id="religion-btn">Largest Religion</button>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn3 drop-btn" id="religionDrop-btn" onclick="populateRelDropdown()">Religion Alone</button>
+                                <div id="relDrop" class="dropdown-content"></div>
+                            </div>
+                            <div>
+                                <button class="btn3" id="density-btn">Pop. Density</button>
+                            </div>
+
+                        </div>
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="layerOpacity">
+                        </div>                              
+                    </div>
+                </div>
+                
                 <div class = "natBar">
                     <h3>Nations</h3>
                     <div class="container1">
@@ -667,77 +739,6 @@
                     </div>
                 </div>
                 
-                <div class="mapOptions">
-                    <h3>Map Options</h3>
-                    <div class="container0">
-                        <div>
-                            <button class="btn2" id="browse-btn">Browse</button>
-                        </div>
-                        <div>
-                            <button class="btn2" id="draw-btn">Draw</button>
-                        </div>
-                        <div>
-                            <button class="btn2" id="erase-btn">Erase</button>
-                        </div>
-                    </div>                            
-                    <div class="container2">
-                        <div>
-                            <button class="btn" id="district-btn">District</button>
-                        </div>
-                        <div>
-                            <button class="btn" id="province-btn">Province</button>
-                        </div>
-                        <div>
-                            <button class="btn" id="country-btn">Country</button>
-                        </div>
-                    </div>
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="70" class="slider" id="mapOpacity">
-                    </div>  
-                </div>
-
-                <div class="layerOptions">
-                    <h3>Administrative Boundaries</h3>
-                    <div class="container3">
-                        <div class="bound-btn">
-                            <div>
-                                <button class="btn1" id="dist-bound-btn">District</button>
-                            </div>
-                            <div>
-                                <button class="btn1" id="prov-bound-btn">Province</button>
-                            </div>
-                            <div>
-                                <button class="btn1" id="count-bound-btn">Country</button>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>Layer Options</h3>
-                    <div class="container3">
-                        <div class="layer-btn">
-                            <div>
-                                <button class="btn3" id="largest-btn">Largest Group</button>
-                            </div>
-                            <div class="dropdown">
-                                <button class="btn3 drop-btn" id="ethnicDrop-btn" onclick="populateEthDropdown()">Group Alone</button>
-                                <div id="ethDrop" class="dropdown-content"></div>
-                            </div>
-                            <div>
-                                <button class="btn3" id="religion-btn">Largest Religion</button>
-                            </div>
-                            <div class="dropdown">
-                                <button class="btn3 drop-btn" id="religionDrop-btn" onclick="populateRelDropdown()">Religion Alone</button>
-                                <div id="relDrop" class="dropdown-content"></div>
-                            </div>
-                            <div>
-                                <button class="btn3" id="density-btn">Pop. Density</button>
-                            </div>
-
-                        </div>
-                        <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="50" class="slider" id="layerOpacity">
-                        </div>                              
-                    </div>
-                </div>
 
                 <!-- <div class="drawErase">
                     <h3>Draw or Erase Mode</h3>
