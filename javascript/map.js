@@ -948,6 +948,9 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "westAfrica") {
         map.flyTo([6.5244, 3.3792], 5);
     }
+
+    document.getElementById('dataTabClick').click();   
+
     // Fetch and add GeoJSON data to the map
     fetch(`data/${regionSelection}/districtBoundaries.geojson`) // Ensure this path is correct
         .then(response => response.json())
@@ -1254,10 +1257,6 @@ function mainLoadData(saveArray) {
 
             document.getElementById('dist-bound-btn').click();          
             document.getElementById('nation1-btn').click();   
-            document.getElementById('stat-btn').classList.add('clickedBtn');
-
-            document.getElementById('stat-btn').click(); // Used in data.js
-
         })
         .catch(error => {
             console.error('Error loading GeoJSON:', error); // Catch any errors

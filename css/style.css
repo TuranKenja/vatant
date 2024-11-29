@@ -150,7 +150,7 @@ h4 {
  
 }
 
-.welcomeTo h3{
+.welcomeTo h3, .box1 h3{
     padding-bottom: 20px;
     font-size: 30px;
     text-align: center;

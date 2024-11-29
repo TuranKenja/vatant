@@ -187,7 +187,7 @@ table{
     float: right;
     width: calc(100% - 480px);
     height: 97.5vh;
-    margin-top: -81px;
+    margin-top: -75px;
     /* margin-right: 250px; */
     overflow: hidden;
 }
@@ -208,6 +208,7 @@ h3{  /* Nations, District Information, etc. */
     position: absolute;
     width: 250px;
     height: 97.5vh;
+    padding-top: 6px;
 }
 
 
