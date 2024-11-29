@@ -32,13 +32,19 @@
 }
 
 .tabLinks{
-    background-color: #4f39b0;
+    background-color: #393db0;
     color: #ffffff;
+    transition: 0.3s;    
+}
+
+.tabLinks:hover{
+    background-color: #202269;
 }
 
 .save-btn{
-    background-color: #4f39b0;
+    background-color: #393db0;
     color: #ffffff;
+    transition: 0.3s;
 }
 
 .save-btn:hover{
@@ -53,13 +59,14 @@
 
 
 .nameTabs{
-    margin-top: 12px;
+    margin-top: 10px;
     width: 250px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .nameTabs h1{
-    margin-top: 0px;
+    padding-top: 12px;
+    margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -76,8 +83,8 @@
 }
 
 .tabContainer{
-    margin-top: 15px;
-    margin-bottom: -5px;
+    margin-top: -10px;
+    margin-bottom: -12px;
     column-count: 3;
 }
 
@@ -126,4 +133,5 @@
 .close:hover, .close:focus {
     color: #000000;
     cursor: pointer;
+    transition: 0.3s;
 }

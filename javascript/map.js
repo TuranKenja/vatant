@@ -1350,6 +1350,7 @@ map.getPane('layers').style.zIndex = 400;
 
 // Detect when the Shift key is pressed and released
 document.addEventListener('keydown', function(event) {
+
     if (event.key === 'Shift') {
         drawMode = 'draw';
         document.getElementById('draw-btn').click();
@@ -1376,7 +1377,7 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('country-btn').click();
     }
 });
-
+ 
 document.addEventListener('keyup', function(event) {
     if (event.key === 'Shift') {
         shiftKeyPressed = false;

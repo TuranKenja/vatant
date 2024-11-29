@@ -57,10 +57,11 @@ h3 {
     background-color: #535071;
     color: #ffffff;
     margin-top: 4px; 
+    transition: 0.2s;
 }
 
 .btn:hover, .btn1:hover, .btn2:hover, .btn3:hover {
-    background-color: #ebeaff; 
+    background-color: #9389ff; 
     color: #fffee2;
 }
 
@@ -70,7 +71,7 @@ h3 {
 }
 
 .clickedBtn{
-    background-color: #ebeaff; 
+    background-color: #d1cdff; 
     color: #535071;
     font-weight: bold;
 }
@@ -104,7 +105,8 @@ body{
 
 .container1 {
     overflow: scroll;
-    height: calc(100vh - 410px);
+    /* height: calc(100vh - 410px); */ /* Perfect fit */
+    height: calc(100vh - 430px);
 }
 
 .container1::-webkit-scrollbar {
@@ -145,7 +147,11 @@ table{
     padding-left: 10px;
     font-size: 17px;
     margin-bottom: -12px;
+    transition: 0.3s;
+}
 
+.header h1:hover {
+    color: #daa520;
 }
 
 #navbar li{
@@ -158,6 +164,7 @@ table{
         color: #ebeaff;
         padding-right: 20px;
         padding-left: 20px;
+        transition: 0.5s;
     }
     a:hover{
         background-color: #ebeaff;
@@ -168,13 +175,18 @@ table{
     }
 }
 
+@media (max-width: 700px) {
+    .mapNav1 {
+        display: none;
+    }
+}
 
 /* PAGE LAYOUT */
 
 #map {
     float: right;
     width: calc(100% - 480px);
-    height: 97vh;
+    height: 97.5vh;
     margin-top: -81px;
     /* margin-right: 250px; */
     overflow: hidden;
@@ -202,7 +214,7 @@ h3{  /* Nations, District Information, etc. */
 /* NATIONS LAYOUT*/
 
 .natBar{
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     h1{
         margin-left: 10px;
     }
@@ -223,7 +235,7 @@ h3{  /* Nations, District Information, etc. */
 
 .lock-btn {
     cursor: pointer;
-    accent-color: #ebeaff;
+    accent-color: #d1cdff;
 }
 
 .natRow{
@@ -303,6 +315,18 @@ h3{  /* Nations, District Information, etc. */
     text-align: right;
 }
 
+@media (max-width: 650px) {
+    .infoBar {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    #map {
+        width: calc(100% - 250px);        
+    }
+}
+
 
 /* MODAL STYLES (REGION SELECTOR) */
 
@@ -333,10 +357,12 @@ h3{  /* Nations, District Information, etc. */
 
 #tutorialLink {
     padding-bottom: 15px;
+    font-size: 15px;
 }
 
 #tutorialLink a {
     text-decoration: none;
+    transition: 0.3s;
 }
 
 #tutorialLink a:hover {
@@ -345,6 +371,7 @@ h3{  /* Nations, District Information, etc. */
 
 .modal-content h2 {
     margin-bottom: 15px;
+    font-size: 25px;
 }
 
 .regionImg {
@@ -356,7 +383,8 @@ h3{  /* Nations, District Information, etc. */
     margin-top: 25px;
     margin: 5px;
     height: 340px;
-    width: 400px;
+    width: 395px;
+    font-size: 14px;
 }
 
 .hidden {
@@ -380,6 +408,7 @@ h3{  /* Nations, District Information, etc. */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    transition: 0.2s;
 }
 
 /* Mouse-over effects */
@@ -418,10 +447,11 @@ background: #5c88ff; /* Green background */
     box-shadow: 0px 0px 16px 0px #ffffff47;
     z-index: 1;
     overflow-y: scroll;
+    transition: 0.3s;
 }
 
 .dropdown-content a:hover, .dropdown-content a:active {
-    background-color: #ebeaff;
+    background-color: #9389ff;
 }
 
 .dropdown-content::-webkit-scrollbar {

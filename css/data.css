@@ -17,8 +17,9 @@
 }
 
 .data-btn:hover{
-    background-color: #d1cdff; 
+    background-color: #9389ff; 
     color: #ffffff;
+    transition: 0.2s;
 }
 
 .dataContainer{
