@@ -187,7 +187,7 @@ table{
     float: right;
     width: calc(100% - 480px);
     height: 97.5vh;
-    margin-top: -75px;
+    margin-top: -80px;
     /* margin-right: 250px; */
     overflow: hidden;
 }
@@ -294,7 +294,7 @@ h3{  /* Nations, District Information, etc. */
 .infoBar {
     float: right;
     width: 230px;
-    margin-top: -75px;
+    margin-top: -80px;
     height: 97.5vh;
 }
 
