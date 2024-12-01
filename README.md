@@ -11,6 +11,7 @@
  West Asia  
   
  Coming soon:  
+ Russia (Central and Northwestern regions)  
  Southeast Asia  
  East Asia  
  North Africa  
