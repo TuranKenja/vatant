@@ -23,7 +23,7 @@ body{
     text-decoration: none;
     width:min-content;
     float: left;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 #title:hover {
@@ -141,20 +141,26 @@ h4 {
     padding-bottom: 20px;
     width: 600px;
     color: white;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
     margin-left: auto;
     margin-right: auto; 
     border-radius: 5px;
     box-sizing: border-box;
- 
+}
+
+#frontPage:hover {
+    h3 {
+        color: #daa520;
+    }
 }
 
 .welcomeTo h3, .box1 h3{
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: 30px;
     text-align: center;
     vertical-align: center;
+    transition: 0.4s;
 }
 
 #backgroundPic {
@@ -188,12 +194,12 @@ h4 {
     text-decoration: none;
     color: #ffffff;
     background-color: #01002e;
-    transition: 0.3s;
+    transition: 0.4s;
 
 }
 #mapLink a:hover { 
     text-decoration: none; 
-    background-color: goldenrod;
+    background-color: #daa520;
     color: #01002e;
 }
 #mapLink a:active, a:visited, a:focus { 
@@ -201,6 +207,24 @@ h4 {
     color: #555555;
 }
 
+#kofiLink {
+    margin-top: 20px;
+    padding: 20px;
+    color: #ffffff;
+    background-color: #ee5f2e;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#kofiLink a:active, a:visited, a:focus { 
+    text-decoration: none;
+}
+
+#kofiLink:hover{
+    color: rgb(255, 255, 255);
+    background-color: #daa520;
+}
 
 #form1{
     background-color: #fff;
@@ -264,7 +288,7 @@ footer{
     width: calc(20vw + 150px);
 }
 
-#regionSelect, #distSelect, #colorChange, #statInfo, #ethInfo, #dataInfo, #statTabs {
+#shortcuts, #regionSelect, #distSelect, #colorChange, #statInfo, #ethInfo, #dataInfo, #statTabs {
     width: calc(35vw + 300px);
 }
 

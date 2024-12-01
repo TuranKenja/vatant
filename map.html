@@ -6,7 +6,7 @@
     <head>
         <script defer src="https://cloud.umami.is/script.js" data-website-id="a734c073-0e7a-4cf1-96e8-4d8ac6f7aca0"></script>
                     
-        <title>VATANT</title>
+        <title>Map | Vatant</title>
         <link rel="stylesheet" type="text/css" href="css/map.css">
         <link rel="stylesheet" type="text/css" href="css/tabs.css">
         <link rel="stylesheet" type="text/css" href="css/data.css">
@@ -34,7 +34,7 @@
                         </ul>
                     </div>
                 </nav>
-                <a href="index.html" id="title"><h1>VATANT</h1></a>
+                <a href="index.html" id="title"><h1>Vatant</h1></a>
             </div>
 
         </div>
@@ -59,11 +59,11 @@
                 </button>
                 <button class="btn option-btn" data-option="westAsia">
                     <img class='regionImg' src="images/westAsia.png">
-                    West Asia (Work in Progress)
+                    West Asia (work in progress)
                 </button>
                 <button class="btn option-btn" data-option="centralAsia">
                     <img class='regionImg' src="images/centralAsia.png">
-                    Central Asia (Work in Progress)
+                    Central Asia (work in progress)
                 </button>
                 <button class="btn option-btn" data-option="southeastAsia">
                     <img class='regionImg' src="images/southeastAsia.png">
@@ -92,15 +92,30 @@
         <div class="nameTabs">
             <h1 id="mapTitle" contenteditable="true">Map 1</h1>
             <br>
-            <div class="tabContainer">
+            <div class="upperContainer">
                 <div>
-                    <button class="tabLinks" id="dataTabClick" onclick="openTab(event, 'mapTab')">Map</button>
+                    <button class="tabLinks" id="shortcutHover">i</button>
+                    <p id="shortcutInfo" style="display: none"><b>Keyboard shortcuts:</b><br>
+                        <b>· Shift:</b> Switch to draw mode. Hold shift and hover over districts to add them to the selected nation. <br>
+                        <b>· Control:</b> Switch to erase mode. Hold shift and hover over districts to delete them from the selected nation. <br>
+                        <b>· `:</b> (On the top-left corner of the keyboard) Switch to browse mode. Does not allow adding or deleting districts from nations.<br>
+                        <br>
+                        <b>· [:</b> Switch to district mode. Select by district.<br>
+                        <b>· ]:</b> Switch to province mode. Select by province.<br>
+                        <b>· \:</b> Switch to country mode. Select by country.<br>
+                    </p>
                 </div>
-                <div>
-                    <button class="tabLinks" onclick="openTab(event, 'dataTab')">Stats</button>
-                </div>
-                <div>
-                    <button class="tabLinks" onclick="openPopUp()">Save</button>
+
+                <div class="tabContainer">
+                    <div>
+                        <button class="tabLinks" id="dataTabClick" onclick="openTab(event, 'mapTab')">Map</button>
+                    </div>
+                    <div>
+                        <button class="tabLinks" onclick="openTab(event, 'dataTab')">Stats</button>
+                    </div>
+                    <div>
+                        <button class="tabLinks" onclick="openPopUp()">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -187,7 +202,7 @@
                         <table>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="1" onclick="nationLock(1)"></button>
+                                    <input type="checkbox" class="lock-btn" id="1" title="nation lock" onclick="nationLock(1)"></button>
                                     <button class="nation-btn" id="nation1-btn" onclick="selectNation(1)"></button>
                                     <input type="color" id="color1" class="color-picker" value="#ff0000" />
                                     <span id="nation1-feature" contenteditable="true">Nation 1</span>
@@ -198,7 +213,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="2" onclick="nationLock(2)"></button>
+                                    <input type="checkbox" class="lock-btn" id="2" title="nation lock" onclick="nationLock(2)"></button>
                                     <button class="nation-btn" id="nation2-btn" onclick="selectNation(2)"></button>
                                     <input type="color" id="color2" class="color-picker" value="#0091ff" />
                                     <span id="nation2-feature" contenteditable="true">Nation 2</span>
@@ -209,7 +224,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="3" onclick="nationLock(3)"></button>
+                                    <input type="checkbox" class="lock-btn" id="3" title="nation lock" onclick="nationLock(3)"></button>
                                     <button class="nation-btn" id="nation3-btn" onclick="selectNation(3)"></button>
                                     <input type="color" id="color3" class="color-picker" value="#00ff26" />
                                     <span id="nation3-feature" contenteditable="true">Nation 3</span>
@@ -220,7 +235,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="4" onclick="nationLock(4)"></button>
+                                    <input type="checkbox" class="lock-btn" id="4" title="nation lock" onclick="nationLock(4)"></button>
                                     <button class="nation-btn" id="nation4-btn" onclick="selectNation(4)"></button>
                                     <input type="color" id="color4" class="color-picker" value="#ea00ff" />
                                     <span id="nation4-feature" contenteditable="true">Nation 4</span>
@@ -231,7 +246,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="5" onclick="nationLock(5)"></button>
+                                    <input type="checkbox" class="lock-btn" id="5" title="nation lock" onclick="nationLock(5)"></button>
                                     <button class="nation-btn" id="nation5-btn" onclick="selectNation(5)"></button>
                                     <input type="color" id="color5" class="color-picker" value="#ffe600" />
                                     <span id="nation5-feature" contenteditable="true">Nation 5</span>
@@ -242,7 +257,7 @@
                             </tr>
                             <tr class="grayed"> 
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="6" onclick="nationLock(6)"></button>
+                                    <input type="checkbox" class="lock-btn" id="6" title="nation lock" onclick="nationLock(6)"></button>
                                     <button class="nation-btn" id="nation6-btn" onclick="selectNation(6)"></button>
                                     <input type="color" id="color6" class="color-picker" value="#0040ff" />
                                     <span id="nation6-feature" contenteditable="true">Nation 6</span>
@@ -253,7 +268,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="7" onclick="nationLock(7)"></button>
+                                    <input type="checkbox" class="lock-btn" id="7" title="nation lock" onclick="nationLock(7)"></button>
                                     <button class="nation-btn" id="nation7-btn" onclick="selectNation(7)"></button>
                                     <input type="color" id="color7" class="color-picker" value="#00ffaa" />
                                     <span id="nation7-feature" contenteditable="true">Nation 7</span>
@@ -264,7 +279,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="8" onclick="nationLock(8)"></button>
+                                    <input type="checkbox" class="lock-btn" id="8" title="nation lock" onclick="nationLock(8)"></button>
                                     <button class="nation-btn" id="nation8-btn" onclick="selectNation(8)"></button>
                                     <input type="color" id="color8" class="color-picker" value="#7b00ff" />
                                     <span id="nation8-feature" contenteditable="true">Nation 8</span>
@@ -275,7 +290,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="9" onclick="nationLock(9)"></button>
+                                    <input type="checkbox" class="lock-btn" id="9" title="nation lock" onclick="nationLock(9)"></button>
                                     <button class="nation-btn" id="nation9-btn" onclick="selectNation(9)"></button>
                                     <input type="color" id="color9" class="color-picker" value="#ff8c00" />
                                     <span id="nation9-feature" contenteditable="true">Nation 9</span>
@@ -286,7 +301,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="10" onclick="nationLock(10)"></button>
+                                    <input type="checkbox" class="lock-btn" id="10" title="nation lock" onclick="nationLock(10)"></button>
                                     <button class="nation-btn" id="nation10-btn" onclick="selectNation(10)"></button>
                                     <input type="color" id="color10" class="color-picker" value="#5d9300" />
                                     <span id="nation10-feature" contenteditable="true">Nation 10</span>
@@ -297,7 +312,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="11" onclick="nationLock(11)"></button>
+                                    <input type="checkbox" class="lock-btn" id="11" title="nation lock" onclick="nationLock(11)"></button>
                                     <button class="nation-btn" id="nation11-btn" onclick="selectNation(11)"></button>
                                     <input type="color" id="color11" class="color-picker" value="#722a2a" />
                                     <span id="nation11-feature" contenteditable="true">Nation 11</span>
@@ -308,7 +323,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="12" onclick="nationLock(12)"></button>
+                                    <input type="checkbox" class="lock-btn" id="12" title="nation lock" onclick="nationLock(12)"></button>
                                     <button class="nation-btn" id="nation12-btn" onclick="selectNation(12)"></button>
                                     <input type="color" id="color12" class="color-picker" value="#b980ff" />
                                     <span id="nation12-feature" contenteditable="true">Nation 12</span>
@@ -319,7 +334,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="13" onclick="nationLock(13)"></button>
+                                    <input type="checkbox" class="lock-btn" id="13" title="nation lock" onclick="nationLock(13)"></button>
                                     <button class="nation-btn" id="nation13-btn" onclick="selectNation(13)"></button>
                                     <input type="color" id="color13" class="color-picker" value="#ff64b2" />
                                     <span id="nation13-feature" contenteditable="true">Nation 13</span>
@@ -330,7 +345,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="14" onclick="nationLock(14)"></button>
+                                    <input type="checkbox" class="lock-btn" id="14" title="nation lock" onclick="nationLock(14)"></button>
                                     <button class="nation-btn" id="nation14-btn" onclick="selectNation(14)"></button>
                                     <input type="color" id="color14" class="color-picker" value="#64faff" />
                                     <span id="nation14-feature" contenteditable="true">Nation 14</span>
@@ -341,7 +356,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="15" onclick="nationLock(15)"></button>
+                                    <input type="checkbox" class="lock-btn" id="15" title="nation lock" onclick="nationLock(15)"></button>
                                     <button class="nation-btn" id="nation15-btn" onclick="selectNation(15)"></button>
                                     <input type="color" id="color15" class="color-picker" value="#735b23" />
                                     <span id="nation15-feature" contenteditable="true">Nation 15</span>
@@ -352,7 +367,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="16" onclick="nationLock(16)"></button>
+                                    <input type="checkbox" class="lock-btn" id="16" title="nation lock" onclick="nationLock(16)"></button>
                                     <button class="nation-btn" id="nation16-btn" onclick="selectNation(16)"></button>
                                     <input type="color" id="color16" class="color-picker" value="#950133" />
                                     <span id="nation16-feature" contenteditable="true">Nation 16</span>
@@ -363,7 +378,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="17" onclick="nationLock(17)"></button>
+                                    <input type="checkbox" class="lock-btn" id="17" title="nation lock" onclick="nationLock(17)"></button>
                                     <button class="nation-btn" id="nation17-btn" onclick="selectNation(17)"></button>
                                     <input type="color" id="color17" class="color-picker" value="#417550" />
                                     <span id="nation17-feature" contenteditable="true">Nation 17</span>
@@ -374,7 +389,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="18" onclick="nationLock(18)"></button>
+                                    <input type="checkbox" class="lock-btn" id="18" title="nation lock" onclick="nationLock(18)"></button>
                                     <button class="nation-btn" id="nation18-btn" onclick="selectNation(18)"></button>
                                     <input type="color" id="color18" class="color-picker" value="#5291ff" />
                                     <span id="nation18-feature" contenteditable="true">Nation 18</span>
@@ -385,7 +400,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="19" onclick="nationLock(19)"></button>
+                                    <input type="checkbox" class="lock-btn" id="19" title="nation lock" onclick="nationLock(19)"></button>
                                     <button class="nation-btn" id="nation19-btn" onclick="selectNation(19)"></button>
                                     <input type="color" id="color19" class="color-picker" value="#fa3b06" />
                                     <span id="nation19-feature" contenteditable="true">Nation 19</span>
@@ -396,7 +411,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="20" onclick="nationLock(20)"></button>
+                                    <input type="checkbox" class="lock-btn" id="20" title="nation lock" onclick="nationLock(20)"></button>
                                     <button class="nation-btn" id="nation20-btn" onclick="selectNation(20)"></button>
                                     <input type="color" id="color20" class="color-picker" value="#160d3f" />
                                     <span id="nation20-feature" contenteditable="true">Nation 20</span>
@@ -407,7 +422,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="21" onclick="nationLock(21)"></button>
+                                    <input type="checkbox" class="lock-btn" id="21" title="nation lock" onclick="nationLock(21)"></button>
                                     <button class="nation-btn" id="nation21-btn" onclick="selectNation(21)"></button>
                                     <input type="color" id="color21" class="color-picker" value="#722a2a" />
                                     <span id="nation21-feature" contenteditable="true">Nation 21</span>
@@ -418,7 +433,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="22" onclick="nationLock(22)"></button>
+                                    <input type="checkbox" class="lock-btn" id="22" title="nation lock" onclick="nationLock(22)"></button>
                                     <button class="nation-btn" id="nation22-btn" onclick="selectNation(22)"></button>
                                     <input type="color" id="color22" class="color-picker" value="#b980ff" />
                                     <span id="nation22-feature" contenteditable="true">Nation 22</span>
@@ -429,7 +444,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="23" onclick="nationLock(23)"></button>
+                                    <input type="checkbox" class="lock-btn" id="23" title="nation lock" onclick="nationLock(23)"></button>
                                     <button class="nation-btn" id="nation23-btn" onclick="selectNation(23)"></button>
                                     <input type="color" id="color23" class="color-picker" value="#ff64b2" />
                                     <span id="nation23-feature" contenteditable="true">Nation 23</span>
@@ -440,7 +455,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="24" onclick="nationLock(24)"></button>
+                                    <input type="checkbox" class="lock-btn" id="24" title="nation lock" onclick="nationLock(24)"></button>
                                     <button class="nation-btn" id="nation24-btn" onclick="selectNation(24)"></button>
                                     <input type="color" id="color24" class="color-picker" value="#64faff" />
                                     <span id="nation24-feature" contenteditable="true">Nation 24</span>
@@ -451,7 +466,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="25" onclick="nationLock(25)"></button>
+                                    <input type="checkbox" class="lock-btn" id="25" title="nation lock" onclick="nationLock(25)"></button>
                                     <button class="nation-btn" id="nation25-btn" onclick="selectNation(25)"></button>
                                     <input type="color" id="color25" class="color-picker" value="#735b23" />
                                     <span id="nation25-feature" contenteditable="true">Nation 25</span>
@@ -462,7 +477,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="26" onclick="nationLock(26)"></button>
+                                    <input type="checkbox" class="lock-btn" id="26" title="nation lock" onclick="nationLock(26)"></button>
                                     <button class="nation-btn" id="nation26-btn" onclick="selectNation(26)"></button>
                                     <input type="color" id="color26" class="color-picker" value="#950233" />
                                     <span id="nation26-feature" contenteditable="true">Nation 26</span>
@@ -473,7 +488,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="27" onclick="nationLock(27)"></button>
+                                    <input type="checkbox" class="lock-btn" id="27" title="nation lock" onclick="nationLock(27)"></button>
                                     <button class="nation-btn" id="nation27-btn" onclick="selectNation(27)"></button>
                                     <input type="color" id="color27" class="color-picker" value="#427550" />
                                     <span id="nation27-feature" contenteditable="true">Nation 27</span>
@@ -484,7 +499,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="28" onclick="nationLock(28)"></button>
+                                    <input type="checkbox" class="lock-btn" id="28" title="nation lock" onclick="nationLock(28)"></button>
                                     <button class="nation-btn" id="nation28-btn" onclick="selectNation(28)"></button>
                                     <input type="color" id="color28" class="color-picker" value="#5292ff" />
                                     <span id="nation28-feature" contenteditable="true">Nation 28</span>
@@ -495,7 +510,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="29" onclick="nationLock(29)"></button>
+                                    <input type="checkbox" class="lock-btn" id="29" title="nation lock" onclick="nationLock(29)"></button>
                                     <button class="nation-btn" id="nation29-btn" onclick="selectNation(29)"></button>
                                     <input type="color" id="color29" class="color-picker" value="#fa3b06" />
                                     <span id="nation29-feature" contenteditable="true">Nation 29</span>
@@ -506,7 +521,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="30" onclick="nationLock(30)"></button>
+                                    <input type="checkbox" class="lock-btn" id="30" title="nation lock" onclick="nationLock(30)"></button>
                                     <button class="nation-btn" id="nation30-btn" onclick="selectNation(30)"></button>
                                     <input type="color" id="color30" class="color-picker" value="#160d3f" />
                                     <span id="nation30-feature" contenteditable="true">Nation 30</span>
@@ -517,7 +532,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="31" onclick="nationLock(31)"></button>
+                                    <input type="checkbox" class="lock-btn" id="31" title="nation lock" onclick="nationLock(31)"></button>
                                     <button class="nation-btn" id="nation31-btn" onclick="selectNation(31)"></button>
                                     <input type="color" id="color31" class="color-picker" value="#722a2a" />
                                     <span id="nation31-feature" contenteditable="true">Nation 31</span>
@@ -528,7 +543,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="32" onclick="nationLock(32)"></button>
+                                    <input type="checkbox" class="lock-btn" id="32" title="nation lock" onclick="nationLock(32)"></button>
                                     <button class="nation-btn" id="nation32-btn" onclick="selectNation(32)"></button>
                                     <input type="color" id="color32" class="color-picker" value="#b980ff" />
                                     <span id="nation32-feature" contenteditable="true">Nation 32</span>
@@ -539,7 +554,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="33" onclick="nationLock(33)"></button>
+                                    <input type="checkbox" class="lock-btn" id="33" title="nation lock" onclick="nationLock(33)"></button>
                                     <button class="nation-btn" id="nation33-btn" onclick="selectNation(33)"></button>
                                     <input type="color" id="color33" class="color-picker" value="#ff64b2" />
                                     <span id="nation33-feature" contenteditable="true">Nation 33</span>
@@ -550,7 +565,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="34" onclick="nationLock(34)"></button>
+                                    <input type="checkbox" class="lock-btn" id="34" title="nation lock" onclick="nationLock(34)"></button>
                                     <button class="nation-btn" id="nation34-btn" onclick="selectNation(34)"></button>
                                     <input type="color" id="color34" class="color-picker" value="#64faff" />
                                     <span id="nation34-feature" contenteditable="true">Nation 34</span>
@@ -561,7 +576,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="35" onclick="nationLock(35)"></button>
+                                    <input type="checkbox" class="lock-btn" id="35" title="nation lock" onclick="nationLock(35)"></button>
                                     <button class="nation-btn" id="nation35-btn" onclick="selectNation(35)"></button>
                                     <input type="color" id="color35" class="color-picker" value="#735b23" />
                                     <span id="nation35-feature" contenteditable="true">Nation 35</span>
@@ -572,7 +587,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="36" onclick="nationLock(36)"></button>
+                                    <input type="checkbox" class="lock-btn" id="36" title="nation lock" onclick="nationLock(36)"></button>
                                     <button class="nation-btn" id="nation36-btn" onclick="selectNation(36)"></button>
                                     <input type="color" id="color36" class="color-picker" value="#950333" />
                                     <span id="nation36-feature" contenteditable="true">Nation 36</span>
@@ -583,7 +598,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="37" onclick="nationLock(37)"></button>
+                                    <input type="checkbox" class="lock-btn" id="37" title="nation lock" onclick="nationLock(37)"></button>
                                     <button class="nation-btn" id="nation37-btn" onclick="selectNation(37)"></button>
                                     <input type="color" id="color37" class="color-picker" value="#437550" />
                                     <span id="nation37-feature" contenteditable="true">Nation 37</span>
@@ -594,7 +609,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="38" onclick="nationLock(38)"></button>
+                                    <input type="checkbox" class="lock-btn" id="38" title="nation lock" onclick="nationLock(38)"></button>
                                     <button class="nation-btn" id="nation38-btn" onclick="selectNation(38)"></button>
                                     <input type="color" id="color38" class="color-picker" value="#5293ff" />
                                     <span id="nation38-feature" contenteditable="true">Nation 38</span>
@@ -605,7 +620,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="39" onclick="nationLock(39)"></button>
+                                    <input type="checkbox" class="lock-btn" id="39" title="nation lock" onclick="nationLock(39)"></button>
                                     <button class="nation-btn" id="nation39-btn" onclick="selectNation(39)"></button>
                                     <input type="color" id="color39" class="color-picker" value="#fa3b06" />
                                     <span id="nation39-feature" contenteditable="true">Nation 39</span>
@@ -616,7 +631,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="40" onclick="nationLock(40)"></button>
+                                    <input type="checkbox" class="lock-btn" id="40" title="nation lock" onclick="nationLock(40)"></button>
                                     <button class="nation-btn" id="nation40-btn" onclick="selectNation(40)"></button>
                                     <input type="color" id="color40" class="color-picker" value="#160d3f" />
                                     <span id="nation40-feature" contenteditable="true">Nation 40</span>
@@ -627,7 +642,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="41" onclick="nationLock(41)"></button>
+                                    <input type="checkbox" class="lock-btn" id="41" title="nation lock" onclick="nationLock(41)"></button>
                                     <button class="nation-btn" id="nation41-btn" onclick="selectNation(41)"></button>
                                     <input type="color" id="color41" class="color-picker" value="#722a2a" />
                                     <span id="nation41-feature" contenteditable="true">Nation 41</span>
@@ -638,7 +653,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="42" onclick="nationLock(42)"></button>
+                                    <input type="checkbox" class="lock-btn" id="42" title="nation lock" onclick="nationLock(42)"></button>
                                     <button class="nation-btn" id="nation42-btn" onclick="selectNation(42)"></button>
                                     <input type="color" id="color42" class="color-picker" value="#b980ff" />
                                     <span id="nation42-feature" contenteditable="true">Nation 42</span>
@@ -649,7 +664,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="43" onclick="nationLock(43)"></button>
+                                    <input type="checkbox" class="lock-btn" id="43" title="nation lock" onclick="nationLock(43)"></button>
                                     <button class="nation-btn" id="nation43-btn" onclick="selectNation(43)"></button>
                                     <input type="color" id="color43" class="color-picker" value="#ff64b2" />
                                     <span id="nation43-feature" contenteditable="true">Nation 43</span>
@@ -660,7 +675,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="44" onclick="nationLock(44)"></button>
+                                    <input type="checkbox" class="lock-btn" id="44" title="nation lock" onclick="nationLock(44)"></button>
                                     <button class="nation-btn" id="nation44-btn" onclick="selectNation(44)"></button>
                                     <input type="color" id="color44" class="color-picker" value="#64faff" />
                                     <span id="nation44-feature" contenteditable="true">Nation 44</span>
@@ -671,7 +686,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="45" onclick="nationLock(45)"></button>
+                                    <input type="checkbox" class="lock-btn" id="45" title="nation lock" onclick="nationLock(45)"></button>
                                     <button class="nation-btn" id="nation45-btn" onclick="selectNation(45)"></button>
                                     <input type="color" id="color45" class="color-picker" value="#745b24" />
                                     <span id="nation45-feature" contenteditable="true">Nation 45</span>
@@ -682,7 +697,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="46" onclick="nationLock(46)"></button>
+                                    <input type="checkbox" class="lock-btn" id="46" title="nation lock" onclick="nationLock(46)"></button>
                                     <button class="nation-btn" id="nation46-btn" onclick="selectNation(46)"></button>
                                     <input type="color" id="color46" class="color-picker" value="#950444" />
                                     <span id="nation46-feature" contenteditable="true">Nation 46</span>
@@ -693,7 +708,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="47" onclick="nationLock(47)"></button>
+                                    <input type="checkbox" class="lock-btn" id="47" title="nation lock" onclick="nationLock(47)"></button>
                                     <button class="nation-btn" id="nation47-btn" onclick="selectNation(47)"></button>
                                     <input type="color" id="color47" class="color-picker" value="#447550" />
                                     <span id="nation47-feature" contenteditable="true">Nation 47</span>
@@ -704,7 +719,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="48" onclick="nationLock(48)"></button>
+                                    <input type="checkbox" class="lock-btn" id="48" title="nation lock" onclick="nationLock(48)"></button>
                                     <button class="nation-btn" id="nation48-btn" onclick="selectNation(48)"></button>
                                     <input type="color" id="color48" class="color-picker" value="#5294ff" />
                                     <span id="nation48-feature" contenteditable="true">Nation 48</span>
@@ -715,7 +730,7 @@
                             </tr>
                             <tr>
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="49" onclick="nationLock(49)"></button>
+                                    <input type="checkbox" class="lock-btn" id="49" title="nation lock" onclick="nationLock(49)"></button>
                                     <button class="nation-btn" id="nation49-btn" onclick="selectNation(49)"></button>
                                     <input type="color" id="color49" class="color-picker" value="#fa4b06" />
                                     <span id="nation49-feature" contenteditable="true">Nation 49</span>
@@ -726,7 +741,7 @@
                             </tr>
                             <tr class="grayed">
                                 <td class="natRow">
-                                    <input type="checkbox" class="lock-btn" id="50" onclick="nationLock(50)"></button>
+                                    <input type="checkbox" class="lock-btn" id="50" title="nation lock" onclick="nationLock(50)"></button>
                                     <button class="nation-btn" id="nation50-btn" onclick="selectNation(50)"></button>
                                     <input type="color" id="color50" class="color-picker" value="#160d3f" />
                                     <span id="nation50-feature" contenteditable="true">Nation 50</span>

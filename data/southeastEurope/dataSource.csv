@@ -1,16 +1,16 @@
 ﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
-Albania,2011,A,6,Ethnic,2011,A,6,2011,A,6,Y,Y,,,"Census undercounted/ boycotted by minorities (Greeks, Christians, Bektashis, etc.). Government fined people when identification didn't match records, interferring with self-identification."
-Bosnia,2019,A,6,Ethnic,2019,A,8,2019,A,8,Y,,,Y,"Includes 196,000 people abroad but with property in BiH."
-Bulgaria,2021,A,7,Ethnic,2021,A,9,2021,A,9,Y,,,,"Estimated 500,000 may not have been counted."
+Albania,2011,A,6,Ethnic,2011,A,6,2011,A,6,Y,Y,,,Census undercounted/ boycotted by minorities (Greeks/Christians/Bektashis etc.). Government fined people when identification didn't match records which interfered with self-identification.
+Bosnia,2019,A,6,Ethnic,2019,A,8,2019,A,8,Y,,,Y,Includes 196000 people abroad but with property in BiH.
+Bulgaria,2021,A,7,Ethnic,2021,A,9,2021,A,9,Y,,,,Estimated 500000 may not have been counted.
 Croatia,2021,A,9,Ethnic,2021,A,9,2021,A,9,Y,Y,,,
 Cyprus,2011,A,7,Linguistic,2011,A,7,2011,C,5,Y,Y,,,
-Greece,2021,A,10,Ethnic,2021,C,7,2021,C,4,Y,Y,,,"All citizen numbers estimated based on various sources. Religion divided according to majority religion of the people. Many Greeks have Arnavite, Slavic, Vlach, etc. ancestry, so these numbers are not accurate. Government encourages Pomaks and Muslim Roma to not identify as Turk, but many do."
+Greece,2021,A,10,Ethnic,2021,C,7,2021,C,4,Y,Y,,,All citizen numbers estimated based on various sources. Religion divided according to majority religion of the people. Many Greeks have Arnavite/Slavic/Vlach etc. ancestry so these numbers are not accurate. Government encourages Pomaks and Muslim Roma to not identify as Turk but most still do.
 Hungary,2022,A,10,Ethnic,2022,A,9,2022,A,9,Y,,,,Ethnic accuracy effected because able to choose more than ethnicity and groups with 1 or 2 people in a district hidden for privacy.
 Kosovo,2011,A,5,Ethnic,2011,A,5,2011,A,5,Y,Y,,Y,North Kosovo had no census data and Serbs boycotted census.
-Macedonia,2021,A,6,Ethnic,2021,A,7,2021,A,7,Y,,,,"Minorities and the left criticize the census and  300,000 people likely uncounted."
+Macedonia,2021,A,6,Ethnic,2021,A,7,2021,A,7,Y,,,,Minorities and the left criticize the census and  300000 people likely uncounted.
 Moldova,2014,A,8,Ethnic,2014,A,8,2014,A,8,Y,,,,
 Montenegro,2023,A,10,Ethnic,2023,A,10,2023,A,8,Y,Y,,,Groups under 10 filled randomly. Ethnic data gathered for foreigners but religious data was not.
 Northern Cyprus,2011,A,3,Citizenship,2011,A,6,2011,C,5,Y,Y,,,Northern Cyprus government likely underreported populations drastically in order to get more aid from Turkiye.
-Romania,2021,A,6,Ethnic,2021,A,8,2021,A,8,Y,,,,"Census accuracy may have suffered due to many factors. 2 million unknown. Groups with 1 or 2 people was hidden due to data privacy, guessed 1 or 2."
+Romania,2021,A,6,Ethnic,2021,A,8,2021,A,8,Y,,,,Census accuracy may have suffered due to many factors. 2 million unknown. Groups with 1 or 2 people was hidden due to data privacy so guessed 1 or 2.
 Serbia,2022,A,9,Ethnic,2022,A,9,2022,A,9,Y,,,,
 Transnistria,2015,A,8,Ethnic,2015,A,8,2015,C,8,Y,,,,

@@ -44,3 +44,12 @@ window.onclick = function(event) {
       modal.style.display = 'none';
   }
 }
+
+
+var e = document.getElementById('shortcutHover');
+e.onmouseover = function() {
+  document.getElementById('shortcutInfo').style.display = 'block';
+}
+e.onmouseout = function() {
+  document.getElementById('shortcutInfo').style.display = 'none';
+}

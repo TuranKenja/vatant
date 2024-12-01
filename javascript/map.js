@@ -444,7 +444,7 @@ function populateEthDropdown() {
                     selectEthnicity = key; // Pass the key or any value you need for the function
                     ethAloneBoundaries();
                     // toggleLayerBoundaries();
-                    // document.getElementById('ethnicDrop-btn').classList.add('clickedBtn');
+                    // document.getElementsByClassName(selectEthnicity).classList.add('clickedBtn');
                     ethDrop.classList.remove("show");
                 };    
                 ethDrop.appendChild(link);
