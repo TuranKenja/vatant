@@ -1000,7 +1000,7 @@ function mainLoadData(saveArray) {
                             for (let i = 1; i <= 50; i++) {    
                                 updateNationName(i, saveArray['names'][0][i]);
                             }
-                            document.querySelector(`#mapTitle`).textContent = saveArray['names'][0][41];
+                            document.querySelector(`#mapTitle`).textContent = saveArray['names'][0][51];
                             saveBool = false;
                         }            
                         // Clear all existing layers on the map before reloading
@@ -1566,7 +1566,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector("#mapTitle").addEventListener("input", function() {
         const newMapName = this.textContent.trim();
-        nationNames[41] = newMapName;
+        nationNames[51] = newMapName;
     });    
 
 
