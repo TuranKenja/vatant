@@ -119,6 +119,8 @@ function largestColors(largestCol) {
         return '#00ff8c';
     } else if (largestCol === "Karachais") {
         return '#00f7ff';
+    } else if (largestCol === "Karelians") {
+        return '#4438c9';
     } else if (largestCol === "Kazakhs") {
         return '#0099ff';
     } else if (largestCol === "Khakassians") {

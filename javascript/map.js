@@ -1286,7 +1286,8 @@ var map = L.map('map', {
 // }).addTo(map);
 
 // var Esri_WorldShadedRelief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
-// 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri'
+// 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri',
+//     opacity: 0.6
 // }).addTo(map);
 
 var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
