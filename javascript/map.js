@@ -938,7 +938,7 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "southAsia") {
         map.flyTo([22.0574, 78.9382], 5);
     } else if (regionSelection === "eastAsia") {
-        map.flyTo([36.6173, 101.7778], 4.5);
+        map.flyTo([37.1426, 109.4898], 4.25);
     } else if (regionSelection === "southeastAsia") {
         map.flyTo([8.0384, 121.4194], 4.5);
     } else if (regionSelection === "northAfrica") {

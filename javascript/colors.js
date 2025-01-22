@@ -470,7 +470,7 @@ function largestColors(largestCol) {
     } else if (largestCol === "Other Kashmiri") {
         return '#ACBC7F';
     } else if (largestCol === "Other Tibetan") {
-        return '#0D369D';
+        return '#0db78c';
     } else if (largestCol === "Other Yimchungre") {
         return '#980315';
     } else if (largestCol === "Paite") {
@@ -557,6 +557,363 @@ function largestColors(largestCol) {
         return '#AF2E1C';
     } else if (largestCol === "Zou") {
         return '#615454';
+
+
+
+
+
+
+
+    } else if (largestCol === "Mon") {
+        return '#3aff28';
+    } else if (largestCol === "Aceh") {
+        return '#d511ab';
+    } else if (largestCol === "Aceh Hulu Singkil") {
+        return '#e100ff';
+    } else if (largestCol === "Ajamaru") {
+        return '#0176ca';
+    } else if (largestCol === "Aku/Li'o") {
+        return '#D95030';
+    } else if (largestCol === "Alas") {
+        return '#003cff';
+    } else if (largestCol === "Ambong") {
+        return '#D84B20';
+    } else if (largestCol === "Anakalang") {
+        return '#6809c7';
+    } else if (largestCol === "Anakola") {
+        return '#ff7b00';
+    } else if (largestCol === "Angguruk/Northern Yali") {
+        return '#35682D';
+    } else if (largestCol === "Badjava") {
+        return '#E5BE01';
+    } else if (largestCol === "Bahnaric Khmer") {
+        return '#002aff';
+    } else if (largestCol === "Bakumpai") {
+        return '#db3b3b';
+    } else if (largestCol === "Bali") {
+        return '#ff7b00';
+    } else if (largestCol === "Banggai") {
+        return '#606E8C';
+    } else if (largestCol === "Bangka") {
+        return '#a974ff';
+    } else if (largestCol === "Banjar") {
+        return '#ffe100';
+    } else if (largestCol === "Banten") {
+        return '#8774ff';
+    } else if (largestCol === "Basa Mathura") {
+        return '#00bbff';
+    } else if (largestCol === "Batak Dairi") {
+        return '#F3A505';
+    } else if (largestCol === "Batak Karo") {
+        return '#FF7514';
+    } else if (largestCol === "Batak Mandailing") {
+        return '#79d510';
+    } else if (largestCol === "Batak Samosir") {
+        return '#8400ff';
+    } else if (largestCol === "Batak Toba") {
+        return '#0091ff';
+    } else if (largestCol === "Batin") {
+        return '#fea92b';
+    } else if (largestCol === "Batu/Nias") {
+        return '#ca0a0a';
+    } else if (largestCol === "Belitong") {
+        return '#00fff2';
+    } else if (largestCol === "Belo (Tetum)") {
+        return '#924E7D';
+    } else if (largestCol === "Bengkulu") {
+        return '#9010d5';
+    } else if (largestCol === "Bikol/Bicol") {
+        return '#ffdd00';
+    } else if (largestCol === "Bima") {
+        return '#D84B20';
+    } else if (largestCol === "Bisaya") {
+        return '#d04900';
+    } else if (largestCol === "Blaan") {
+        return '#00d5b5';
+    } else if (largestCol === "Boetoneezen") {
+        return '#F3A505';
+    } else if (largestCol === "Boholano") {
+        return '#aaff00';
+    } else if (largestCol === "Bual") {
+        return '#7FB5B5';
+    } else if (largestCol === "Bugi") {
+        return '#3690ff';
+    } else if (largestCol === "Burmeae") {
+        return '#f700ff';
+    } else if (largestCol === "Capizeño") {
+        return '#00d0cc';
+    } else if (largestCol === "Cebuano") {
+        return '#a15eff';
+    } else if (largestCol === "Chin") {
+        return '#ddff00';
+    } else if (largestCol === "Chinese" || largestCol === "Han" || largestCol === "Han Chinese") {
+        return '#ff2652';
+    } else if (largestCol === "Cirebon") {
+        return '#ffaa00';
+    } else if (largestCol === "Cuyonen") {
+        return '#C35831';
+    } else if (largestCol === "Dani") {
+        return '#256D7B';
+    } else if (largestCol === "Dani Barat") {
+        return '#AF2B1E';
+    } else if (largestCol === "Dauwa") {
+        return '#287233';
+    } else if (largestCol === "Dawan") {
+        return '#B32821';
+    } else if (largestCol === "Dayak Ahe") {
+        return '#3D642D';
+    } else if (largestCol === "Dayak Ngaju") {
+        return '#c63bdb';
+    } else if (largestCol === "Dermayon") {
+        return '#03ba00';
+    } else if (largestCol === "Duri") {
+        return '#DC9D00';
+    } else if (largestCol === "Foreign") {
+        return '#A98307';
+    } else if (largestCol === "Gajo") {
+        return '#ffdd00';
+    } else if (largestCol === "Gorongtalo") {
+        return '#922B3E';
+    } else if (largestCol === "Havunese") {
+        return '#025669';
+    } else if (largestCol === "Hmong") {
+        return '#5100ff';
+    } else if (largestCol === "Ilocano") {
+        return '#00ffa6';
+    } else if (largestCol === "Ilonggo") {
+        return '#d00076';
+    } else if (largestCol === "Indonesian") {
+        return '#00ff80';
+    } else if (largestCol === "Ivatan") {
+        return '#EFA94A';
+    } else if (largestCol === "Jawa") {
+        return '#eb2157';
+    } else if (largestCol === "Kachin") {
+        return '#00d5ff';
+    } else if (largestCol === "Kaili") {
+        return '#092cc7';  
+    } else if (largestCol === "Kambera") {
+        return '#CF3476';
+    } else if (largestCol === "Kankanaey") {
+        return '#b35fca';
+    } else if (largestCol === "Kapampangan") {
+        return '#EA899A';
+    } else if (largestCol === "Karay-a") {
+        return '#89AC76';
+    } else if (largestCol === "Karen") {
+        return '#ff2828';
+    } else if (largestCol === "Karenni") {
+        return '#fd9210';
+    } else if (largestCol === "Katuic") {
+        return '#ff00f2';
+    } else if (largestCol === "Kerinchi") {
+        return '#BDECB6';
+    } else if (largestCol === "Khmer") {
+        return '#00aaff';
+    } else if (largestCol === "Khmuic") {
+        return '#f6ff00';
+    } else if (largestCol === "Kuantan") {
+        return '#063971';
+    } else if (largestCol === "Lamaholot") {
+        return '#ffca61';
+    } else if (largestCol === "Lao") {
+        return '#00ffae';
+    } else if (largestCol === "Lematang") {
+        return '#10d5aa';
+    } else if (largestCol === "Luwu") {
+        return '#D95030';
+    } else if (largestCol === "Maguindanao") {
+        return '#8E402A';
+    } else if (largestCol === "Makasar") {
+        return '#3B83BD';
+    } else if (largestCol === "Malay") {
+        return '#ff9900';
+    } else if (largestCol === "Mamasa") {
+        return '#317F43';
+    } else if (largestCol === "Mandar") {
+        return '#84C3BE';
+    } else if (largestCol === "Mandaya") {
+        return '#57A639';
+    } else if (largestCol === "Manggarai") {
+        return '#8d68df';
+    } else if (largestCol === "Manobo") {
+        return '#59e3ff';
+    } else if (largestCol === "Maranao") {
+        return '#F39F18';
+    } else if (largestCol === "Masbateño/Masbatenon") {
+        return '#2A6478';
+    } else if (largestCol === "Mee") {
+        return '#025669';
+    } else if (largestCol === "Melayu Bengkulu") {
+        return '#CB2821';
+    } else if (largestCol === "Melayu Ketapang") {
+        return '#3bd3db';
+    } else if (largestCol === "Melayu Manado") {
+        return '#c70978';
+    } else if (largestCol === "Melayu Riau") {
+        return '#FAD201';
+    } else if (largestCol === "Melayu Sambas (bejalan)") {
+        return '#07a807';
+    } else if (largestCol === "Melayu Ternate") {
+        return '#20214F';
+    } else if (largestCol === "Mentawai") {
+        return '#497E76';
+    } else if (largestCol === "Minangkabau") {
+        return '#00a4a1';
+    } else if (largestCol === "Minority Languages") {
+        return '#ffc57d';
+    } else if (largestCol === "Muko") {
+        return '#ff0000';
+    } else if (largestCol === "Muna") {
+        return '#c84141';
+    } else if (largestCol === "Mường") {
+        return '#0044ff';
+    } else if (largestCol === "Musi") {
+        return '#0eac00';
+    } else if (largestCol === "Nage") {
+        return '#3F888F';
+    } else if (largestCol === "Nùng") {
+        return '#06b2dd';
+    } else if (largestCol === "Other Bumiputera") {
+        return '#4500b5';
+    } else if (largestCol === "Other Local Ethnicity") {
+        return '#3E5F8A';
+    } else if (largestCol === "Pangasinan") {
+        return '#d62041';
+    } else if (largestCol === "Priangan/Sunda") {
+        return '#2accd1';
+    } else if (largestCol === "Rakhine") {
+        return '#3b25ff';
+    } else if (largestCol === "Red Jang") {
+        return '#8673A1';
+    } else if (largestCol === "Romblomanon") {
+        return '#E55137';
+    } else if (largestCol === "Sa'dan") {
+        return '#D6AE01';
+    } else if (largestCol === "Salajar") {
+        return '#606E8C';
+    } else if (largestCol === "Sama/Samal") {
+        return '#EFA94A';
+    } else if (largestCol === "Samawa") {
+        return '#015D52';
+    } else if (largestCol === "Sangi") {
+        return '#3D642D';
+    } else if (largestCol === "Sasak") {
+        return '#FAD201';
+    } else if (largestCol === "Serawai") {
+        return '#641C34';
+    } else if (largestCol === "Shan") {
+        return '#3449ff';
+    } else if (largestCol === "Sikka") {
+        return '#ff61f2';
+    } else if (largestCol === "Sulawesi Languages") {
+        return '#EC7C26';
+    } else if (largestCol === "Sumba Barat") {
+        return '#cfff61';
+    } else if (largestCol === "Sumbawa") {
+        return '#826C34';
+    } else if (largestCol === "Surigaonon") {
+        return '#008F39';
+    } else if (largestCol === "Tagakaulo") {
+        return '#0033ff';
+    } else if (largestCol === "Tagalog") {
+        return '#0066ff';
+    } else if (largestCol === "Talaud") {
+        return '#9D9101';
+    } else if (largestCol === "Tausog") {
+        return '#6C7059';
+    } else if (largestCol === "Tày") {
+        return '#7b00ff';
+    } else if (largestCol === "Thai") {
+        return '#00ff04';
+    } else if (largestCol === "Thaikueng") {
+        return '#A65E2E';
+    } else if (largestCol === "Tibeto-Burman") {
+        return '#00ffd0';
+    } else if (largestCol === "Tolaki") {
+        return '#1204ac';
+    } else if (largestCol === "Tukang Besi selatan") {
+        return '#317F43';
+    } else if (largestCol === "Tuwali") {
+        return '#4dd98c';
+    } else if (largestCol === "Vietnamese") {
+        return '#e00f00';
+    } else if (largestCol === "Waray") {
+        return '#ff0000';
+    } else if (largestCol === "Yakan") {
+        return '#1B5583';
+    } else if (largestCol === "Zamboangeño") {
+        return '#4C9141';  
+    } else if (largestCol === "Tetun Prasa") {
+        return '#d719ec';
+    } else if (largestCol === "Kemak") {
+        return '#ec7119';
+    } else if (largestCol === "Mambai") {
+        return '#19ecde';
+    } else if (largestCol === "Tokodede") {
+        return '#15c709';
+    } else if (largestCol === "Bunak") {
+        return '#6809c7';
+    } else if (largestCol === "Galoli") {
+        return '#197fec';
+    } else if (largestCol === "Makasai") {
+        return '#ece819';
+    } else if (largestCol === "Koreans") {
+        return '#003ea9';
+    } else if (largestCol === "Japanese") {
+        return '#a230d3';
+    } else if (largestCol === "Manchu") {
+        return '#14cae2';
+    } else if (largestCol === "Mongols") {
+        return '#ffea00';
+    } else if (largestCol === "Oirats") {
+        return '#ccff00';
+    } else if (largestCol === "Tibetans") {
+        return '#00ffd0';
+    } else if (largestCol === "Manchu") {
+        return '#ff37d4';
+    } else if (largestCol === "Bai") {
+        return '#57ac38';
+    } else if (largestCol === "Bouyei") {
+        return '#3d3dbf';
+    } else if (largestCol === "Dai") {
+        return '#4f9ede';
+    } else if (largestCol === "Dong") {
+        return '#dff309';
+    } else if (largestCol === "Dongxiang") {
+        return '#dab200';
+    } else if (largestCol === "Gelao") {
+        return '#1c39f7';
+    } else if (largestCol === "Hani") {
+        return '#5ad4f0';
+    } else if (largestCol === "Hui") {
+        return '#00a92d';
+    } else if (largestCol === "Lahu") {
+        return '#f7b773';
+    } else if (largestCol === "Li") {
+        return '#1cd6f7';
+    } else if (largestCol === "Lisu") {
+        return '#ff8e88';
+    } else if (largestCol === "Nakhi") {
+        return '#9488ff';
+    } else if (largestCol === "Qiang") {
+        return '#0451c5';
+    } else if (largestCol === "Salar") {
+        return '#e04ae8';
+    } else if (largestCol === "Sui") {
+        return '#1b9c8d';
+    } else if (largestCol === "Tujia") {
+        return '#368e39';
+    } else if (largestCol === "Wa") {
+        return '#be73f7';
+    } else if (largestCol === "Yao") {
+        return '#0c8f91';
+    } else if (largestCol === "Yi") {
+        return '#c56804';
+    } else if (largestCol === "Zhuang") {
+        return '#ff37d4';
+    } else if (largestCol === ".") {
+        return '#000000';
     } else if (largestCol === "") {
         return '#';
     }
