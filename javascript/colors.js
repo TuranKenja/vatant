@@ -912,6 +912,225 @@ function largestColors(largestCol) {
         return '#c56804';
     } else if (largestCol === "Zhuang") {
         return '#ff37d4';
+
+    } else if (largestCol === "Afrikaans") {
+        return '#ff5733';
+    } else if (largestCol === "Balke") {
+        return '#33ff57';
+    } else if (largestCol === "Bemba") {
+        return '#3357ff';
+    } else if (largestCol === "Changana") {
+        return '#ff33a8';
+    } else if (largestCol === "Chichewa") {
+        return '#a833ff';
+    } else if (largestCol === "Chopi") {
+        return '#33fff5';
+    } else if (largestCol === "Chwabo") {
+        return '#ff8c33';
+    } else if (largestCol === "Elomwe") {
+        return '#d4ff33';
+    } else if (largestCol === "IsiXhosa") {
+        return '#85ff33';
+    } else if (largestCol === "IsiZulu") {
+        return '#33ffa8';
+    } else if (largestCol === "Khoekhoe") {
+        return '#3385ff';
+    } else if (largestCol === "Lambya") {
+        return '#8c33ff';
+    } else if (largestCol === "Lomwe") {
+        return '#ff338c';
+    } else if (largestCol === "Lozi") {
+        return '#ffbd33';
+    } else if (largestCol === "Lunda") {
+        return '#d433ff';
+    } else if (largestCol === "Makhuwa") {
+        return '#33ffd4';
+    } else if (largestCol === "Makonde") {
+        return '#57ff33';
+    } else if (largestCol === "Manyika") {
+        return '#338cff';
+    } else if (largestCol === "Mwani") {
+        return '#ff3366';
+    } else if (largestCol === "Ndau") {
+        return '#a8ff33';
+    } else if (largestCol === "Ndebele") {
+        return '#33ff8c';
+    } else if (largestCol === "Ngoni") {
+        return '#338cff';
+    } else if (largestCol === "Nyanja") {
+        return '#ff3385';
+    } else if (largestCol === "Nyungwe") {
+        return '#ff5733';
+    } else if (largestCol === "Oshikolonk") {
+        return '#d4ff85';
+    } else if (largestCol === "Oshikwaluu") {
+        return '#d485ff';
+    } else if (largestCol === "Oshikwambi") {
+        return '#33a8ff';
+    } else if (largestCol === "Oshikwanya") {
+        return '#33ffbd';
+    } else if (largestCol === "Oshimbalan") {
+        return '#ff338c';
+    } else if (largestCol === "Oshindonga") {
+        return '#ff9933';
+    } else if (largestCol === "Oshingandj") {
+        return '#85d4ff';
+    } else if (largestCol === "Other European Languages") {
+        return '#cccccc';
+    } else if (largestCol === "Otjiherero") {
+        return '#ff85a8';
+    } else if (largestCol === "Portuguese") {
+        return '#338c85';
+    } else if (largestCol === "Ronga") {
+        return '#ff33ff';
+    } else if (largestCol === "Rugciriku") {
+        return '#a8d4ff';
+    } else if (largestCol === "Rukwangali") {
+        return '#8cff33';
+    } else if (largestCol === "Sena") {
+        return '#85a833';
+    } else if (largestCol === "Sepedi") {
+        return '#ff5733';
+    } else if (largestCol === "Sesarwa") {
+        return '#3385ff';
+    } else if (largestCol === "Sesotho") {
+        return '#ff8c85';
+    } else if (largestCol === "Setswana") {
+        return '#ffbd85';
+    } else if (largestCol === "Shekgalagari") {
+        return '#85ffbd';
+    } else if (largestCol === "Shona") {
+        return '#a885ff';
+    } else if (largestCol === "Sifwe") {
+        return '#85ff85';
+    } else if (largestCol === "Siswati") {
+        return '#d43385';
+    } else if (largestCol === "Subiya") {
+        return '#85d433';
+    } else if (largestCol === "Tewe") {
+        return '#ffbd33';
+    } else if (largestCol === "Thimbukush") {
+        return '#33d4ff';
+    } else if (largestCol === "Tonga") {
+        return '#a8a8ff';
+    } else if (largestCol === "Totela") {
+        return '#ffcc33';
+    } else if (largestCol === "Tshivenda") {
+        return '#33ccff';
+    } else if (largestCol === "Tswa") {
+        return '#cc85ff';
+    } else if (largestCol === "Tumbuka") {
+        return '#ffcc85';
+    } else if (largestCol === "Xitsonga") {
+        return '#d4a833';
+    } else if (largestCol === "Yao") {
+        return '#85ff57';
+    } else if (largestCol === "Adja") {
+        return '#ff0000';
+    } else if (largestCol === "Akan") {
+        return '#00ff00';
+    } else if (largestCol === "Balanta-Ganja") {
+        return '#0000ff';
+    } else if (largestCol === "Bambara") {
+        return '#ff9900';
+    } else if (largestCol === "Bariba") {
+        return '#9900ff';
+    } else if (largestCol === "Beafada") {
+        return '#00ffff';
+    } else if (largestCol === "Bijagos") {
+        return '#ff0066';
+    } else if (largestCol === "Birifor") {
+        return '#66ff00';
+    } else if (largestCol === "Bissa") {
+        return '#0066ff';
+    } else if (largestCol === "Bozo") {
+        return '#ffcc00';
+    } else if (largestCol === "Bwamu (Ou Bwamou)") {
+        return '#cc00ff';
+    } else if (largestCol === "Dagara") {
+        return '#00ffcc';
+    } else if (largestCol === "Dogon (Ou Kaado)") {
+        return '#ff3300';
+    } else if (largestCol === "Ewe") {
+        return '#33ff00';
+    } else if (largestCol === "Fon") {
+        return '#0033ff';
+    } else if (largestCol === "Fulah") {
+        return '#ff6600';
+    } else if (largestCol === "Fulfudé (Ou Peulh)") {
+        return '#6600ff';
+    } else if (largestCol === "Gourmantché (Ou Gulmancéma)") {
+        return '#00ff66';
+    } else if (largestCol === "Gourounsi") {
+        return '#ff0033';
+    } else if (largestCol === "Gua/Otamari") {
+        return '#33ffcc';
+    } else if (largestCol === "Guan") {
+        return '#ccff33';
+    } else if (largestCol === "Gurma") {
+        return '#ff9933';
+    } else if (largestCol === "Jola-Fony") {
+        return '#9933ff';
+    } else if (largestCol === "Kasséna (Ou Kassem)") {
+        return '#33ff99';
+    } else if (largestCol === "Kissi") {
+        return '#ff3366';
+    } else if (largestCol === "Kono") {
+        return '#3366ff';
+    } else if (largestCol === "Konyanka Maninka") {
+        return '#66ff33';
+    } else if (largestCol === "Koranko") {
+        return '#ffcc33';
+    } else if (largestCol === "Kpelle") {
+        return '#cc33ff';
+    } else if (largestCol === "Lobi (Ou Lobiri)") {
+        return '#33ccff';
+    } else if (largestCol === "Mandinka") {
+        return '#ff6633';
+    } else if (largestCol === "Maninka") {
+        return '#6633ff';
+    } else if (largestCol === "Manjaco") {
+        return '#33ff66';
+    } else if (largestCol === "Marka (Ou Dafing)") {
+        return '#ff3366';
+    } else if (largestCol === "Mende") {
+        return '#3366cc';
+    } else if (largestCol === "Minianka") {
+        return '#66cc33';
+    } else if (largestCol === "Mole-Dagbani") {
+        return '#ffcc66';
+    } else if (largestCol === "Mooré") {
+        return '#cc66ff';
+    } else if (largestCol === "Papel") {
+        return '#33cccc';
+    } else if (largestCol === "Pular") {
+        return '#ff3366';
+    } else if (largestCol === "San (Ou Samogho Ou Samo)") {
+        return '#3366ff';
+    } else if (largestCol === "Saracule") {
+        return '#66ff99';
+    } else if (largestCol === "Sénoufo") {
+        return '#ff9966';
+    } else if (largestCol === "Serer") {
+        return '#9966ff';
+    } else if (largestCol === "Songhay") {
+        return '#33cc99';
+    } else if (largestCol === "Soninke") {
+        return '#ff6699';
+    } else if (largestCol === "Susu") {
+        return '#336699';
+    } else if (largestCol === "Tamachèque (Ou Bella)") {
+        return '#58d8ff';
+    } else if (largestCol === "Temne") {
+        return '#ffcc99';
+    } else if (largestCol === "Toma") {
+        return '#cc99ff';
+    } else if (largestCol === "Wolof") {
+        return '#33cc66';
+    } else if (largestCol === "Yoa/Lokpa") {
+        return '#ff3366';
+    } else if (largestCol === "Yoruba") {
+        return '#3366ff';    
     } else if (largestCol === ".") {
         return '#000000';
     } else if (largestCol === "") {
