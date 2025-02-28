@@ -3,17 +3,17 @@
   
  Currently available regions are:  
  Southeast Europe  
- Russia (except Central and Northwestern regions)  
+ Russia
  South Asia  
+ Southeast Asia  
+ East Asia  
+ Southern Africa  
+ West Africa  
+
   
  Work in progress:  
  Central Asia  
  West Asia  
   
  Coming soon:  
- Russia (Central and Northwestern regions)  
- Southeast Asia  
- East Asia  
- North Africa  
- West Africa  
  East Africa  
