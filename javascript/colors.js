@@ -954,7 +954,7 @@ function largestColors(largestCol) {
     } else if (largestCol === "Ndau") {
         return '#a8ff33';
     } else if (largestCol === "Ndebele") {
-        return '#33ff8c';
+        return '#e20f44';
     } else if (largestCol === "Ngoni") {
         return '#338cff';
     } else if (largestCol === "Nyanja") {
@@ -977,7 +977,7 @@ function largestColors(largestCol) {
         return '#85d4ff';
     } else if (largestCol === "Other European Languages") {
         return '#cccccc';
-    } else if (largestCol === "Otjiherero") {
+    } else if (largestCol === "Herero") {
         return '#ff85a8';
     } else if (largestCol === "Portuguese") {
         return '#338c85';
@@ -1009,7 +1009,7 @@ function largestColors(largestCol) {
         return '#85d433';
     } else if (largestCol === "Tewe") {
         return '#ffbd33';
-    } else if (largestCol === "Thimbukush") {
+    } else if (largestCol === "Mbukushu") {
         return '#33d4ff';
     } else if (largestCol === "Tonga") {
         return '#a8a8ff';
@@ -1021,10 +1021,21 @@ function largestColors(largestCol) {
         return '#cc85ff';
     } else if (largestCol === "Tumbuka") {
         return '#ffcc85';
-    } else if (largestCol === "Xitsonga") {
+    } else if (largestCol === "Tsonga") {
         return '#d4a833';
     } else if (largestCol === "Yao") {
-        return '#85ff57';
+        return '#e2830f';
+    } else if (largestCol === "Zambezi") {
+        return '#c98c08';    
+    } else if (largestCol === "Nsenga") {
+        return '#0815c9';    
+    } else if (largestCol === "Chitonga") {
+        return '#e20f44';    
+    } else if (largestCol === "Gitonga") {
+        return '#e2ca0f';    
+    } else if (largestCol === "San") {
+        return '#89a006';    
+
     } else if (largestCol === "Adja") {
         return '#ff0000';
     } else if (largestCol === "Akan") {
@@ -1045,25 +1056,21 @@ function largestColors(largestCol) {
         return '#0066ff';
     } else if (largestCol === "Bozo") {
         return '#ffcc00';
-    } else if (largestCol === "Bwamu (Ou Bwamou)") {
+    } else if (largestCol === "Bwamu") {
         return '#cc00ff';
     } else if (largestCol === "Dagara") {
         return '#00ffcc';
-    } else if (largestCol === "Dogon (Ou Kaado)") {
+    } else if (largestCol === "Dogon") {
         return '#ff3300';
     } else if (largestCol === "Ewe") {
         return '#33ff00';
     } else if (largestCol === "Fon") {
         return '#0033ff';
     } else if (largestCol === "Fulah") {
-        return '#ff6600';
-    } else if (largestCol === "Fulfudé (Ou Peulh)") {
-        return '#6600ff';
-    } else if (largestCol === "Gourmantché (Ou Gulmancéma)") {
-        return '#00ff66';
-    } else if (largestCol === "Gourounsi") {
+        return '#ff3366';
+    } else if (largestCol === "Grusi") {
         return '#ff0033';
-    } else if (largestCol === "Gua/Otamari") {
+    } else if (largestCol === "Otamari") {
         return '#33ffcc';
     } else if (largestCol === "Guan") {
         return '#ccff33';
@@ -1071,7 +1078,7 @@ function largestColors(largestCol) {
         return '#ff9933';
     } else if (largestCol === "Jola-Fony") {
         return '#9933ff';
-    } else if (largestCol === "Kasséna (Ou Kassem)") {
+    } else if (largestCol === "Kasséna") {
         return '#33ff99';
     } else if (largestCol === "Kissi") {
         return '#ff3366';
@@ -1083,15 +1090,15 @@ function largestColors(largestCol) {
         return '#ffcc33';
     } else if (largestCol === "Kpelle") {
         return '#cc33ff';
-    } else if (largestCol === "Lobi (Ou Lobiri)") {
+    } else if (largestCol === "Lobi") {
         return '#33ccff';
     } else if (largestCol === "Mandinka") {
         return '#ff6633';
     } else if (largestCol === "Maninka") {
         return '#6633ff';
-    } else if (largestCol === "Manjaco") {
+    } else if (largestCol === "Mandjak") {
         return '#33ff66';
-    } else if (largestCol === "Marka (Ou Dafing)") {
+    } else if (largestCol === "Marka") {
         return '#ff3366';
     } else if (largestCol === "Mende") {
         return '#3366cc';
@@ -1103,31 +1110,29 @@ function largestColors(largestCol) {
         return '#cc66ff';
     } else if (largestCol === "Papel") {
         return '#33cccc';
-    } else if (largestCol === "Pular") {
-        return '#ff3366';
-    } else if (largestCol === "San (Ou Samogho Ou Samo)") {
+    } else if (largestCol === "Samo") {
         return '#3366ff';
     } else if (largestCol === "Saracule") {
         return '#66ff99';
-    } else if (largestCol === "Sénoufo") {
+    } else if (largestCol === "Senoufo") {
         return '#ff9966';
     } else if (largestCol === "Serer") {
         return '#9966ff';
     } else if (largestCol === "Songhay") {
         return '#33cc99';
     } else if (largestCol === "Soninke") {
-        return '#ff6699';
+        return '#0303a1';
     } else if (largestCol === "Susu") {
         return '#336699';
-    } else if (largestCol === "Tamachèque (Ou Bella)") {
+    } else if (largestCol === "Tamasheq") {
         return '#58d8ff';
     } else if (largestCol === "Temne") {
         return '#ffcc99';
-    } else if (largestCol === "Toma") {
+    } else if (largestCol === "Loma") {
         return '#cc99ff';
     } else if (largestCol === "Wolof") {
         return '#33cc66';
-    } else if (largestCol === "Yoa/Lokpa") {
+    } else if (largestCol === "Yoa-Lokpa") {
         return '#ff3366';
     } else if (largestCol === "Yoruba") {
         return '#3366ff';    

@@ -109,7 +109,7 @@
 #shortcutInfo {
     position: absolute; /* Position relative to the parent container */
     background-color: #d1cdff; /* Background color of the tooltip */
-    color: #1c1c21; /* Text color */
+    color: #1c211c; /* Text color */
     z-index: 1000;
     padding: 10px;
     border-radius: 10px;
