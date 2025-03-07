@@ -944,7 +944,7 @@ function mainLoadData(saveArray) {
     } else if (regionSelection === "northAfrica") {
         map.flyTo([23.4975, 11.9947], 4.5);
     } else if (regionSelection === "eastAfrica") {
-        map.flyTo([-4.0435, 39.6682], 4.5);
+        map.flyTo([2.9635, 40.1090], 5.25);
     } else if (regionSelection === "westAfrica") {
         map.flyTo([14.8703, -5.4678], 5.75);
     } else if (regionSelection === "southernAfrica") {
