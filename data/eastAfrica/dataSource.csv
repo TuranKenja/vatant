@@ -1,12 +1,10 @@
 ﻿Country,Population Data Year,Population Data Source,Population Data Quality,Ethnic/ Linguistic/ Citizenship,Ethnic Data Year,Ethnic Data Source,Ethnic Data Quality,Religion Data Year,Religion Data Source,Religion Data Quality,Citizens,Foreigners,Refugees,Diaspora,Notes
-Benin,2013,A,,Ethnic,2013,A,,,,,,,,,
-Burkina Faso,2019,A,,Ethnic,2019,A,,,,,,,,,
-Côte d'Ivoire,2021,A,,Ethnic,2021,A,,,,,,,,,
-Gambia,2024,A,,Ethnic,2024,A,,,,,,,,,
-Ghana,2021,A,,Ethnic,2021,A,,,,,,,,,
-Guinea,2014,A,,Linguistic,2014,A,,,,,,,,,
-Guinea-Bissau,2008,A,,Ethnic,2008,A,,,,,,,,,
-Liberia,2022,A,,Ethnic,2022,A,,,,,,,,,
-Mali,2009,A,,Linguistic,2009,A,,,,,,,,,
-Senegal,2013,A,,Linguistic,2013,A,,,,,,,,,
-Sierra Leone,2015,A,,Ethnic,2015,A,,,,,,,,,
+Burundi,2008,A,,Ethnic,,C,,2020,B,,,,,,
+Djibouti,2024,A,,Ethnic,,C,,,C,,,,,,
+Eritrea,2012,A,,Ethnic,,C,,2011,B,,,,,,Becky Hsu's estimates for the Encyclopedia of Global Religion used the religion estimates.
+Ethiopia,2007,A,,Ethnic,2007,A,,2007,A,,,,,,
+Kenya,2019,A,,Ethnic,2019,A,,2019,A,,,,,,Ethnic data at the county level not released by the census. Government employment data by ethnicity per county and nationwide ethnic data provided- which were then adjusted for county-level ethnic data.
+Rwanda,2022,A,,Ethnic,,C,,2012,A,,,,,,
+Somalia,2014,B,,Lingustic,2021,B,,,C,,,,,,Language data comes from the REACH Initiative 2021 JMCNA.
+Tanzania,2022,A,,Linguistic,2009,B,,,C,,,,,,Atlasi Ya Lugha Za Tanzania's language estimates were adjusted to 2022 Census data.
+Uganda,2024,A,,Ethnic,2002,A,,2024,A,,,,,,2002 data was adjusted to 2024 population.
